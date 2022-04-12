@@ -1,5 +1,5 @@
 import type { ColorScheme } from "@mantine/core";
-import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -9,13 +9,18 @@ import {
   Scripts,
   ScrollRestoration
 } from "@remix-run/react";
+import { FooterSocial } from "components/Footer";
+import HeaderSimple from "components/Header";
 import { useState } from "react";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "mmatt.net",
   viewport: "width=device-width,initial-scale=1",
+  charSet: "utf-8"
 });
+
+const links=[{label: "/home", link: "/"}, {label: "/blog", link: "/blog"}, {label: "/projects", link:"/projects"}, {label: "/devices", link:"/devices"}]
 
 export default function App() {
   return (
@@ -25,8 +30,11 @@ export default function App() {
         <Links />
       </head>
       <body>
+        
         <MantineTheme>
+          <HeaderSimple links={links}  />
           <Outlet />
+          <FooterSocial links={links} />
         </MantineTheme>
 
         <ScrollRestoration />
@@ -43,6 +51,8 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
 
   return (
+
+
     <ColorSchemeProvider
       colorScheme={colorScheme}
       toggleColorScheme={toggleColorScheme}
@@ -52,6 +62,23 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
         withNormalizeCSS
         withGlobalStyles
       >
+        <Global
+          styles={(theme) => ({
+            a: {
+              color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.colors.gray[7],
+              textDecoration: "underline",
+          
+              '&:hover': {
+                backgroundColor:
+                  theme.colorScheme === 'dark'
+                    ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
+                    : theme.colors[theme.primaryColor][0],
+                color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
+                textDecoration: "none",
+              }
+            }
+          })}
+        />
         {children}
       </MantineProvider>
     </ColorSchemeProvider>

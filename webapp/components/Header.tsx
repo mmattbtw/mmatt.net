@@ -1,7 +1,8 @@
-import { Burger, Container, createStyles, Group, Header, Switch, useMantineColorScheme } from '@mantine/core';
+import { Burger, Container, createStyles, Group, Header } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
+import { Link } from '@remix-run/react';
 import React, { useState } from 'react';
-// import { MantineLogo } from '../../shared/MantineLogo';
+import { SegmentedToggle } from './ToggleThemeButton';
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -57,42 +58,39 @@ export default function HeaderSimple({ links }: HeaderSimpleProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const [active, setActive] = useState(links[0].link);
   const { classes, cx } = useStyles();
-  const { toggleColorScheme } = useMantineColorScheme();
 
   const items = links.map((link) => (
-    <a
+    <Link
       key={link.label}
-      href={link.link}
+      to={link.link}
       className={cx(classes.link, { [classes.linkActive]: active === link.link })}
       onClick={(event) => {
-        event.preventDefault();
         setActive(link.link);
       }}
+      prefetch={"intent"}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
-    <Header height={60} mb={120}>
-        <Switch
-        color="blue"
-        label="Light theme"
-        onClick={() => toggleColorScheme()}
-      />
-      <Container className={classes.header}>
-        <h1>TriHard</h1>
-        <Group spacing={5} className={classes.links}>
-          {items}
-        </Group>
+    <>
+      <Header height={60} mb={20}>
+        <Container className={classes.header}>
+          <h1>mmatt.net</h1>
+          <Group spacing={5} className={classes.links}>
+            {items}
+            <SegmentedToggle />
+          </Group>
 
-        <Burger
-          opened={opened}
-          onClick={() => toggleOpened()}
-          className={classes.burger}
-          size="sm"
-        />
-      </Container>
-    </Header>
+          <Burger
+            opened={opened}
+            onClick={() => toggleOpened()}
+            className={classes.burger}
+            size="sm"
+          />
+        </Container>
+      </Header>
+    </>
   );
 }
