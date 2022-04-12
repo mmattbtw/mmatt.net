@@ -13,6 +13,8 @@
     "@mantine/core": "^3.6.14",
     "@mantine/hooks": "^3.6.14",
     "@mantine/ssr": "^3.6.14",
+    "@remix-run/cloudflare": "^1.3.5",
+    "@remix-run/cloudflare-pages": "^1.3.5",
     "@remix-run/node": "1.3.5",
     "@remix-run/react": "1.3.5",
     "@remix-run/serve": "1.3.5",
@@ -21,6 +23,8 @@
     "tabler-icons-react": "^1.44.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.16.7",
+    "@cloudflare/workers-types": "^3.4.0",
     "@remix-run/dev": "1.3.5",
     "@remix-run/eslint-config": "1.3.5",
     "@types/react": "^17.0.39",

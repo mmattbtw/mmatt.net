@@ -447,6 +447,18 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@cloudflare/kv-asset-handler@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@cloudflare/kv-asset-handler/-/kv-asset-handler-0.1.3.tgz#3eaaf962b16c48a7189db5d5ac1c4dca4e2ed1a0"
+  integrity sha512-FNcunDuTmEfQTLRLtA6zz+buIXUHj1soPvSWzzQFBC+n2lsy+CGf/NIrR3SEPCmsVNQj70/Jx2lViCpq+09YpQ==
+  dependencies:
+    mime "^2.5.2"
+
+"@cloudflare/workers-types@^3.4.0":
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/@cloudflare/workers-types/-/workers-types-3.4.0.tgz#80311e14df2f7f8c2cfcdce945b4f4ad8f9b03b1"
+  integrity sha512-i/3czUrt6YqbOWl44OtIqd0cSZvEVXp/1oD/DZylC4PHZL3q/BhbamdEVeVhc/HPk4iD/7MZ2HGaIMO4Z4b12A==
+
 "@emotion/babel-plugin@^11.7.1":
   version "11.9.2"
   resolved "https://registry.yarnpkg.com/@emotion/babel-plugin/-/babel-plugin-11.9.2.tgz#723b6d394c89fb2ef782229d92ba95a740576e95"
@@ -774,6 +786,21 @@
   integrity sha512-+wdeS51Y+E1q1Wmd+1xSSbesZkpVj4jsg0BojCbopWvgq5iBvixw5vgemscdh58ep98BwUbsFYnrywFhV9yrVg==
   dependencies:
     "@babel/runtime" "^7.13.10"
+
+"@remix-run/cloudflare-pages@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@remix-run/cloudflare-pages/-/cloudflare-pages-1.3.5.tgz#5e920ed0e19c347a5827ce8ec8a3718c93b0d80e"
+  integrity sha512-ooWDCWaOYPCe3r/AAVSvuWJdmQomEL2kuSIAaloXfcjhsHZlQpYz0jNFOyPauz+Yu+bNCrlv+GC6VVlndkLqvg==
+  dependencies:
+    "@remix-run/cloudflare" "1.3.5"
+
+"@remix-run/cloudflare@1.3.5", "@remix-run/cloudflare@^1.3.5":
+  version "1.3.5"
+  resolved "https://registry.yarnpkg.com/@remix-run/cloudflare/-/cloudflare-1.3.5.tgz#8e92a5df8fbbb7a7acaa3bb52153338441278d30"
+  integrity sha512-yTtFrKrWwGPaa0boNop1Ux34MNqboaLZqoO5eJNaGzyzCeI0lX+oLW6OxM9ldvO1Ec/sp4eLjLBRPEBuRVrqwg==
+  dependencies:
+    "@cloudflare/kv-asset-handler" "^0.1.3"
+    "@remix-run/server-runtime" "1.3.5"
 
 "@remix-run/dev@1.3.5":
   version "1.3.5"
@@ -4815,6 +4842,11 @@ mime@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/mime/-/mime-1.6.0.tgz#32cd9e5c64553bd58d19a568af452acff04981b1"
   integrity sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==
+
+mime@^2.5.2:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.6.0.tgz#a2a682a95cd4d0cb1d6257e28f83da7e35800367"
+  integrity sha512-USPkMeET31rOMiarsBNIHZKLGgvKc/LrjofAnBlOttf5ajRvqiRA8QsenbcooctK6d6Ts6aqZXBA+XbkKthiQg==
 
 mimic-fn@^2.1.0:
   version "2.1.0"
