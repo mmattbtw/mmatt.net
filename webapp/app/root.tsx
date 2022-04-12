@@ -1,6 +1,6 @@
 import type { ColorScheme } from "@mantine/core";
 import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "@remix-run/cloudflare";
 import {
   Links,
   LiveReload,
@@ -17,7 +17,6 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "mmatt.net",
   viewport: "width=device-width,initial-scale=1",
-  charSet: "utf-8"
 });
 
 const links=[{label: "/home", link: "/"}, {label: "/blog", link: "/blog"}, {label: "/projects", link:"/projects"}, {label: "/devices", link:"/devices"}]
