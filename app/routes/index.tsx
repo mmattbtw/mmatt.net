@@ -20,8 +20,8 @@ export async function loader() {
 
   try {
       let [collectionValue, collectionData] = await Promise.all([
-        fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders }),
-        fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders })
+        fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
+        fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
       ])
 
       const collectionValueData = await collectionValue.json()
