@@ -124,8 +124,12 @@ export default function Index() {
           return(
             <li key={release.basic_information.id} style={{listStyleType: "none"}}>
               <Grid align="center">
-                <Grid.Col span={4}><Image src={release.basic_information.cover_image} height={100} fit={'contain'} alt={`picture of the album cover for ${release.basic_information.title}`} /></Grid.Col>
-                <Grid.Col span={4}><p key={release.basic_information.id}>{release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].name} - {release.basic_information.formats[0].text})</p></Grid.Col>
+                <Grid.Col span={4}>
+                  <Image src={release.basic_information.cover_image} height={100} fit={'contain'} alt={`picture of the album cover for ${release.basic_information.title}`} />
+                </Grid.Col>
+                <Grid.Col span={4}>
+                  <p key={release.basic_information.id}>{release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].name}{release.basic_information.formats[0].text ? " - " + release.basic_information.formats[0].text : ""})</p>
+                </Grid.Col>
               </Grid>
             </li>
           )
