@@ -1,7 +1,7 @@
 import { Burger, Container, createStyles, Group, Header } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { SegmentedToggle } from './ToggleThemeButton';
 
 const useStyles = createStyles((theme) => ({
@@ -38,16 +38,6 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
   },
-
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
-          : theme.colors[theme.primaryColor][0],
-      color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
-    },
-  },
 }));
 
 interface HeaderSimpleProps {
@@ -56,17 +46,13 @@ interface HeaderSimpleProps {
 
 export default function HeaderSimple({ links }: HeaderSimpleProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
-  const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   const items = links.map((link) => (
     <Link
       key={link.label}
       to={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        setActive(link.link);
-      }}
+      className={classes.link}
       prefetch={"intent"}
     >
       {link.label}

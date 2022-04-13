@@ -10,3 +10,4 @@ node_modules
 .output
 
 /api/index.js
+/api/index.js.map

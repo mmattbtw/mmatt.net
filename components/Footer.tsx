@@ -1,6 +1,6 @@
 import { ActionIcon, Container, createStyles, Group } from '@mantine/core';
 import { Link } from '@remix-run/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { BrandGithub, BrandLastfm, BrandTwitch, BrandTwitter, BrandYoutube } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
@@ -44,33 +44,20 @@ const useStyles = createStyles((theme) => ({
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
   },
-
-  linkActive: {
-    '&, &:hover': {
-      backgroundColor:
-        theme.colorScheme === 'dark'
-          ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
-          : theme.colors[theme.primaryColor][0],
-      color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
-    },
-}}));
+}));
 
 interface HeaderSimpleProps {
   links: { link: string; label: string }[];
 }
 
 export function FooterSocial({ links }: HeaderSimpleProps) {
-  const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
+  const { classes } = useStyles();
 
   const items = links.map((link) => (
     <Link
       key={link.label}
       to={link.link}
-      className={cx(classes.link, { [classes.linkActive]: active === link.link })}
-      onClick={(event) => {
-        setActive(link.link);
-      }}
+      className={classes.link}
       prefetch={"intent"}
     >
       {link.label}
