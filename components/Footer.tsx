@@ -1,6 +1,7 @@
 import { ActionIcon, Container, createStyles, Group } from '@mantine/core';
+import { Link } from '@remix-run/react';
 import React from 'react';
-import { BrandGithub, BrandLastfm, BrandTwitch, BrandTwitter, BrandYoutube, Link } from 'tabler-icons-react';
+import { BrandGithub, BrandLastfm, BrandTwitch, BrandTwitter, BrandYoutube } from 'tabler-icons-react';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -60,6 +61,7 @@ export function FooterSocial({ links }: HeaderResponsiveProps) {
       key={link.label}
       to={link.link}
       className={classes.link}
+      prefetch='intent'
     >
       {link.label}
     </Link>

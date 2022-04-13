@@ -80,6 +80,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
       key={link.label}
       to={link.link}
       className={classes.link}
+      prefetch='intent'
     >
       {link.label}
     </Link>
