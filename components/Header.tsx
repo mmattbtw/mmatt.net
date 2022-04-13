@@ -61,7 +61,7 @@ export default function HeaderSimple({ links }: HeaderSimpleProps) {
 
   return (
     <>
-      <Header height={60} mb={20}>
+      <Header height={60}>
         <Container className={classes.header}>
           <h1>mmatt.net</h1>
           <Group spacing={5} className={classes.links}>
