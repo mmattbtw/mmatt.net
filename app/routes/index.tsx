@@ -7,7 +7,7 @@ interface discogsReturn {
     minimum: string,
     median: string,
     maximum: string,
-  },
+  } | null,
   collectionData: any
 }
 
@@ -18,17 +18,25 @@ export async function loader() {
     "Authorization": `Discogs token=${process.env.DISCOGS_TOKEN}`
   }
 
-  let [collectionValue, collectionData] = await Promise.all([
-    fetch("https://api.diasdfscogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders }),
-    fetch("https://api.diasdfscogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders })
-  ])
+  try {
+      let [collectionValue, collectionData] = await Promise.all([
+        fetch("https://api.diasdfscogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders }),
+        fetch("https://api.diasdfscogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders })
+      ])
 
-  const collectionValueData = await collectionValue.json()
-  const collectionDataData = await collectionData.json()
-  return {
-    collectionValue: collectionValueData,
-    collectionData: collectionDataData
-  } as discogsReturn
+      const collectionValueData = await collectionValue.json()
+      const collectionDataData = await collectionData.json()
+      return {
+        collectionValue: collectionValueData,
+        collectionData: collectionDataData
+      } as discogsReturn
+  }
+  catch(FetchError) {
+    return {
+      collectionValue: null,
+      collectionData: null
+    } as discogsReturn
+  }
 }
 
 export default function Index() {
