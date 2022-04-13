@@ -12,30 +12,43 @@ interface discogsReturn {
 }
 
 
+const globalAny: any = global;
+
+let cached: discogsReturn = globalAny.DISCOGS_DATA
 
 export async function loader() {
-  const discogsHeaders = {
-    "Authorization": `Discogs token=${process.env.DISCOGS_TOKEN}`
-  }
+  if (cached) {
+    return cached
+  } else {
+    const discogsHeaders = {
+      "Authorization": `Discogs token=${process.env.DISCOGS_TOKEN}`
+    }
 
-  try {
-      let [collectionValue, collectionData] = await Promise.all([
-        fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
-        fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
-      ])
+    try {
+        let [collectionValue, collectionData] = await Promise.all([
+          fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
+          fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
+        ])
 
-      const collectionValueData = await collectionValue.json()
-      const collectionDataData = await collectionData.json()
+        const collectionValueData = await collectionValue.json()
+        const collectionDataData = await collectionData.json()
+
+        cached = globalAny.DISCOGS_DATA = {
+          collectionValue: collectionValueData,
+          collectionData: collectionDataData
+        }
+
+        return {
+          collectionValue: collectionValueData,
+          collectionData: collectionDataData
+        } as discogsReturn
+    }
+    catch(FetchError) {
       return {
-        collectionValue: collectionValueData,
-        collectionData: collectionDataData
+        collectionValue: null,
+        collectionData: null
       } as discogsReturn
-  }
-  catch(FetchError) {
-    return {
-      collectionValue: null,
-      collectionData: null
-    } as discogsReturn
+    }
   }
 }
 
