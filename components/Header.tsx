@@ -1,10 +1,32 @@
-import { Burger, Container, createStyles, Group, Header } from '@mantine/core';
+import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
 import React from 'react';
-import { SegmentedToggle } from './ToggleThemeButton';
+
+const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
+  root: {
+    position: 'relative',
+    zIndex: 1,
+  },
+
+  dropdown: {
+    position: 'absolute',
+    top: HEADER_HEIGHT,
+    left: 0,
+    right: 0,
+    zIndex: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopWidth: 0,
+    overflow: 'hidden',
+
+    [theme.fn.largerThan('sm')]: {
+      display: 'none',
+    },
+  },
+
   header: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -13,13 +35,13 @@ const useStyles = createStyles((theme) => ({
   },
 
   links: {
-    [theme.fn.smallerThan('xs')]: {
+    [theme.fn.smallerThan('sm')]: {
       display: 'none',
     },
   },
 
   burger: {
-    [theme.fn.largerThan('xs')]: {
+    [theme.fn.largerThan('sm')]: {
       display: 'none',
     },
   },
@@ -37,14 +59,19 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
     },
+
+    [theme.fn.smallerThan('sm')]: {
+      borderRadius: 0,
+      padding: theme.spacing.md,
+    },
   },
 }));
 
-interface HeaderSimpleProps {
+interface HeaderResponsiveProps {
   links: { link: string; label: string }[];
 }
 
-export default function HeaderSimple({ links }: HeaderSimpleProps) {
+export default function HeaderSimple({ links }: HeaderResponsiveProps) {
   const [opened, toggleOpened] = useBooleanToggle(false);
   const { classes } = useStyles();
 
@@ -53,30 +80,34 @@ export default function HeaderSimple({ links }: HeaderSimpleProps) {
       key={link.label}
       to={link.link}
       className={classes.link}
-      prefetch={"intent"}
     >
       {link.label}
     </Link>
   ));
 
   return (
-    <>
-      <Header height={60}>
-        <Container className={classes.header}>
-          <h1>mmatt.net</h1>
-          <Group spacing={5} className={classes.links}>
-            {items}
-            <SegmentedToggle />
-          </Group>
+    <Header height={HEADER_HEIGHT} mb={20} className={classes.root}>
+      <Container className={classes.header}>
+        <h1>mmatt.net</h1>
+        <Group spacing={5} className={classes.links}>
+          {items}
+        </Group>
 
-          <Burger
-            opened={opened}
-            onClick={() => toggleOpened()}
-            className={classes.burger}
-            size="sm"
-          />
-        </Container>
-      </Header>
-    </>
+        <Burger
+          opened={opened}
+          onClick={() => toggleOpened()}
+          className={classes.burger}
+          size="sm"
+        />
+
+        <Transition transition="pop-top-right" duration={200} mounted={opened}>
+          {(styles) => (
+            <Paper className={classes.dropdown} withBorder style={styles}>
+              {items}
+            </Paper>
+          )}
+        </Transition>
+      </Container>
+    </Header>
   );
 }
