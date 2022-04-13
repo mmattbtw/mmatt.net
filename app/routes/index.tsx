@@ -108,35 +108,39 @@ export default function Index() {
           my vinyl record collection
         </h3>
         <p>
-          i own quite a bit of vinyl records, and i add things to my collection all the time. according to <a href='https://www.discogs.com/user/mmattbtw'>discogs</a> i have a median collection value of {collectionValue.median}
+          i own quite a bit of vinyl records, and i add things to my collection all the time. according to <a href='https://www.discogs.com/user/mmattbtw'>discogs</a> i have a median collection value of {collectionValue ? collectionValue.median : "???"}
         </p>
 
-        <Button onClick={() => setOpen((o) => !o)} size="xs" variant="light">
-          show collection (in order of when i added them to my collection):
-        </Button>
+        {
+        collectionData ? 
+        <>
+          <Button onClick={() => setOpen((o) => !o)} size="xs" variant="light">
+            show collection (in order of when i added them to my collection):
+          </Button>
 
-        <Collapse in={opened}>
-        <a href="https://www.discogs.com/user/mmattbtw/collection?header=1">
-          <h4>view all information here!</h4>
-        </a>
-        <ul>
-        {collectionData.releases.map((release: any) => {
-          return(
-            <li key={release.basic_information.id} style={{listStyleType: "none"}}>
-              <Grid align="center">
-                <Grid.Col span={4}>
-                  <Image src={release.basic_information.cover_image} height={100} fit={'contain'} alt={`picture of the album cover for ${release.basic_information.title}`} />
-                </Grid.Col>
-                <Grid.Col span={4}>
-                  <p key={release.basic_information.id}>{release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].name}{release.basic_information.formats[0].text ? " - " + release.basic_information.formats[0].text : ""})</p>
-                </Grid.Col>
-              </Grid>
-            </li>
-          )
-        })}
-        </ul>
-        </Collapse>
-
+          <Collapse in={opened}>
+          <a href="https://www.discogs.com/user/mmattbtw/collection?header=1">
+            <h4>view all information here!</h4>
+          </a>
+          <ul>
+            {collectionData.releases.map((release: any) => {
+              return(
+                <li key={release.basic_information.id} style={{listStyleType: "none"}}>
+                  <Grid align="center">
+                    <Grid.Col span={4}>
+                      <Image src={release.basic_information.cover_image} height={100} fit={'contain'} alt={`picture of the album cover for ${release.basic_information.title}`} />
+                    </Grid.Col>
+                    <Grid.Col span={4}>
+                      <p key={release.basic_information.id}>{release.basic_information.artists[0].name} - {release.basic_information.title} ({release.basic_information.formats[0].name}{release.basic_information.formats[0].text ? " - " + release.basic_information.formats[0].text : ""})</p>
+                    </Grid.Col>
+                  </Grid>
+                </li>
+              )
+            })}
+          </ul>
+          </Collapse>
+        </>
+        : ""}
 
         <h2>contact</h2>
         <p>
