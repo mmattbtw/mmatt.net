@@ -2,6 +2,7 @@ import { Burger, Container, createStyles, Group, Header, Paper, Transition } fro
 import { useBooleanToggle } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
 import React from 'react';
+import ToggleTheme from './ToggleTheme';
 
 const HEADER_HEIGHT = 60;
 
@@ -92,6 +93,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
         <h1>mmatt.net</h1>
         <Group spacing={5} className={classes.links}>
           {items}
+          <ToggleTheme />
         </Group>
 
         <Burger
@@ -105,6 +107,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
           {(styles) => (
             <Paper className={classes.dropdown} withBorder style={styles}>
               {items}
+              <ToggleTheme />
             </Paper>
           )}
         </Transition>
