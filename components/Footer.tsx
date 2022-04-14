@@ -2,6 +2,7 @@ import { ActionIcon, Container, createStyles, Group } from '@mantine/core';
 import { Link } from '@remix-run/react';
 import React from 'react';
 import { BrandGithub, BrandLastfm, BrandTwitch, BrandTwitter, BrandYoutube } from 'tabler-icons-react';
+import ToggleTheme from './ToggleTheme';
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -74,6 +75,7 @@ export function FooterSocial({ links }: HeaderResponsiveProps) {
 
       <Group spacing={5} className={classes.links}>
           {items}
+          <ToggleTheme />
       </Group>
 
       <Group spacing={0} className={classes.links} position="right" noWrap>
