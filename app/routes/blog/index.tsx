@@ -5,7 +5,8 @@ import { ArticleCardImage } from "components/BlogPreview";
 const blogPosts = [{
   title: "test",
   image: "https://http.cat/404",
-  category: "test"
+  category: "test",
+  link: "test"
 }]
 
 export default function BlogPage() {

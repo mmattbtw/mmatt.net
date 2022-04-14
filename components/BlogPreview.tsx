@@ -1,4 +1,5 @@
 import { Button, createStyles, Paper, Text, Title } from '@mantine/core';
+import { Link } from '@remix-run/react';
 import React from 'react';
 
 const useStyles = createStyles((theme) => ({
@@ -33,30 +34,33 @@ export interface ArticleCardImageProps {
   image: string;
   title: string;
   category: string;
+  link: string;
 }
 
-export function ArticleCardImage({ image, title, category }: ArticleCardImageProps) {
+export function ArticleCardImage({ image, title, category, link }: ArticleCardImageProps) {
   const { classes } = useStyles();
 
   return (
-    <Paper
-      shadow="md"
-      p="xl"
-      radius="md"
-      sx={{ backgroundImage: `url(${image})` }}
-      className={classes.card}
-    >
-      <div>
-        <Text className={classes.category} size="xs">
-          {category}
-        </Text>
-        <Title order={3} className={classes.title}>
-          {title}
-        </Title>
-      </div>
-      <Button variant="white" color="dark">
-        Read article
-      </Button>
-    </Paper>
+    <Link to={link}>
+        <Paper
+        shadow="md"
+        p="xl"
+        radius="md"
+        sx={{ backgroundImage: `url(${image})` }}
+        className={classes.card}
+        >
+        <div>
+            <Text className={classes.category} size="xs">
+            {category}
+            </Text>
+            <Title order={3} className={classes.title}>
+            {title}
+            </Title>
+        </div>
+        <Button variant="white" color="dark">
+            Read article
+        </Button>
+        </Paper>
+    </Link>
   );
 }
