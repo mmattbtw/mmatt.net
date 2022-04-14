@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 100,
+    height: 160,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -27,7 +27,7 @@ const useStyles = createStyles((theme) => ({
     opacity: 0.7,
     fontWeight: 700,
     textTransform: 'uppercase',
-  },
+  }
 }));
 
 export interface ArticleCardImageProps {
@@ -41,7 +41,7 @@ export function ArticleCardImage({ image, title, category, link }: ArticleCardIm
   const { classes } = useStyles();
 
   return (
-    <Link to={link} prefetch={'intent'}>
+    <Link to={link} prefetch={'intent'} className='link'>
         <Paper
         shadow="md"
         p="xl"
