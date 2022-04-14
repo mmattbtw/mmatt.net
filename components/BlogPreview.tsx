@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 440,
+    height: 100,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
