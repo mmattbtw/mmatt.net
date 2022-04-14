@@ -11,15 +11,13 @@ const blogPosts = [{
 
 export default function BlogPage() {
   return (
-    <>
-      <Container>
-        <h1>/blog</h1>
-        {
-          blogPosts.map(post => (
-            <ArticleCardImage {...post} />
-          ))
-        }
-      </Container>
-    </>
+    <Container>
+      <h1>/blog</h1>
+      {
+        blogPosts.map(post => (
+          <ArticleCardImage {...post} />
+        ))
+      }
+    </Container>
   );
 }
