@@ -41,7 +41,7 @@ export function ArticleCardImage({ image, title, category, link }: ArticleCardIm
   const { classes } = useStyles();
 
   return (
-    <Link to={link}>
+    <Link to={link} prefetch={'intent'}>
         <Paper
         shadow="md"
         p="xl"
