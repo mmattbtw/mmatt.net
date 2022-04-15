@@ -4,16 +4,15 @@ import { useLoaderData } from "@remix-run/react";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
 
-const prisma = new PrismaClient();
 
 interface params {
-    params: {
-        id: string;
-    };
+  params: {
+    id: string;
+  };
 }
 
 export const loader = async ({ params }: params) => {
-  await prisma.$connect();
+  const prisma = new PrismaClient();
 
   const post = await prisma.posts.findFirst({
     where: {
@@ -21,7 +20,6 @@ export const loader = async ({ params }: params) => {
     }
   });
 
-  await prisma.$disconnect();
 
   const html = marked(post?.markdown.trim() ?? "");
 

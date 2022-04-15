@@ -1,28 +1,43 @@
 import { Container, Grid } from "@mantine/core";
 import { PrismaClient } from "@prisma/client";
-import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
+import { authenticator } from "~/services/auth.server";
 
-const prisma = new PrismaClient()
 
-export async function loader() {
-  await prisma.$connect()
+export let loader: LoaderFunction = async ({ request }) => {
+  const prisma = new PrismaClient()
+  
+  let session = await authenticator.isAuthenticated(request);
+
+  if (!session) {
+    session = null
+  }
 
   const allPosts = await prisma.posts.findMany()
-  prisma.$disconnect()
 
-  return allPosts
+  return {allPosts, session}
 }
 
 export default function BlogPage() {
-  const blogPosts = useLoaderData()
+  const {allPosts, session} = useLoaderData()
 
   return (
     <Container>
       <h1>/blog</h1>
+      {session?.json.id === "640348450" ? 
+        <Link to={"admin"} prefetch="intent">
+          <h4>
+            Admin Page
+          </h4>
+        </Link>
+      :
+        ""
+      }
       <Grid>
       {
-        blogPosts.map((post: ArticleCardImageProps) => (
+        allPosts.map((post: ArticleCardImageProps) => (
           <Grid.Col key={post.id}>
             <ArticleCardImage key={post.slug} {...post} />
           </Grid.Col>
