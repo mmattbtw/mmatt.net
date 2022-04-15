@@ -1,3 +1,4 @@
+import { Container } from "@mantine/core";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
@@ -15,8 +16,8 @@ export default function BlogItem() {
     const { id } = useLoaderData()
 
   return (
-    <>
+    <Container>
       <h1>{id}</h1>
-    </>
+    </Container>
   );
 }
