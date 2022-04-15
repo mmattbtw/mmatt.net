@@ -27,7 +27,7 @@ export default function BlogPage() {
       {session?.json.id === "640348450" ? 
         <Link to={"admin"} prefetch="intent">
           <h4>
-            Admin Page
+            admin page
           </h4>
         </Link>
       :

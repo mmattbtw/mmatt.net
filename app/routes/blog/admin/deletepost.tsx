@@ -13,7 +13,7 @@ export const action: ActionFunction = async ({ request }) => {
     return redirect("/blog");
   };
 
-export default function BlogItem() {
+export default function deletePostPage() {
   return (
     <>
         <Form method="post">
@@ -30,7 +30,7 @@ export default function BlogItem() {
                 <Button
                 type="submit"
                 >
-                Create Post
+                Delete Post
                 </Button>
             </p>
         </Form>

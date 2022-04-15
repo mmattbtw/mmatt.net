@@ -1,7 +1,7 @@
 import { Button, Textarea, TextInput } from "@mantine/core";
 import { ActionFunction, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { createPost } from "~/services/post.server";
+import { updatePost } from "~/services/post.server";
 
 
 type ActionData =
@@ -34,18 +34,27 @@ export const action: ActionFunction = async ({ request }) => {
         id
     }
 
-    await createPost(post)
+    await updatePost(id, post)
     
     return redirect("/blog/" + slug);
   };
 
-export default function createPostPage() {
+export default function updatePostPage() {
   return (
     <>
         <Form method="post">
             <p>
                 <label>
-                Post Title:{" "}
+                ID of post to udpate:{" "}
+                <TextInput
+                    type="text"
+                    name="id"
+                />
+                </label>
+            </p>
+            <p>
+                <label>
+                Updated Post Title:{" "}
                 <TextInput
                     type="text"
                     name="title"
@@ -54,7 +63,7 @@ export default function createPostPage() {
             </p>
             <p>
                 <label>
-                Post Category:{" "}
+                Updated Post Category:{" "}
                 <TextInput
                     type="text"
                     name="category"
@@ -63,7 +72,7 @@ export default function createPostPage() {
             </p>
             <p>
                 <label>
-                Post Image:{" "}
+                 UpdatedPost Image:{" "}
                 <TextInput
                     type="text"
                     name="imageUrl"
@@ -72,7 +81,7 @@ export default function createPostPage() {
             </p>
             <p>
                 <label>
-                Post Slug:{" "}
+                Updated Post Slug:{" "}
                 <TextInput
                     type="text"
                     name="slug"
@@ -80,16 +89,7 @@ export default function createPostPage() {
                 </label>
             </p>
             <p>
-                <label>
-                Post ID:{" "}
-                <TextInput
-                    type="text"
-                    name="id"
-                />
-                </label>
-            </p>
-            <p>
-                <label htmlFor="markdown">Markdown:</label>
+                <label htmlFor="markdown">Updated Markdown:</label>
                 <br />
                 <Textarea
                 id="markdown"
@@ -102,7 +102,7 @@ export default function createPostPage() {
                 <Button
                 type="submit"
                 >
-                Create Post
+                Update Post
                 </Button>
             </p>
         </Form>

@@ -35,3 +35,18 @@ export async function getPost(slug: string) {
     },
   });
 }
+
+export async function updatePost(
+  id: string,
+  data: Pick<
+    posts,
+    "category" | "imageUrl" | "markdown" | "slug" | "title" | "id"
+  >
+) {
+  return prisma.posts.update({
+    where: {
+      id,
+    },
+    data,
+  });
+}

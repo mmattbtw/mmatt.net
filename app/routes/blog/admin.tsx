@@ -9,7 +9,6 @@ export let loader: LoaderFunction = async ({ request }) => {
 		failureRedirect: '/login',
 	});
 
-
     if (!session) {
         redirect('/login')
     }
@@ -28,6 +27,9 @@ export default function AdminPage() {
                 <h1>admin page:</h1>
                 <Link to='createpost' prefetch="intent">
                     <h4>create post</h4>
+                </Link>
+                <Link to='updatepost' prefetch="intent">
+                    <h4>update post</h4>
                 </Link>
                 <Link to='deletepost' prefetch="intent">
                     <h4>delete post</h4>
