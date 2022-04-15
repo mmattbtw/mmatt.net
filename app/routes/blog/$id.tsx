@@ -1,7 +1,8 @@
 import { Container } from "@mantine/core";
 import { PrismaClient } from "@prisma/client";
 import { useLoaderData } from "@remix-run/react";
-import md from 'markdown-it';
+import { PostHeader } from "components/PostHeader";
+import { marked } from "marked";
 
 const prisma = new PrismaClient();
 
@@ -22,20 +23,21 @@ export const loader = async ({ params }: params) => {
 
   await prisma.$disconnect();
 
-  return post  
+  const html = marked(post?.markdown.trim() ?? "");
+
+  return {post, html};
 };
 
 export default function BlogItem() {
-    const { title, markdown, category } = useLoaderData()
-
+  const { post, html } = useLoaderData()
+  
   return (
     <Container>
-      <h1>{title}</h1>
-      <h3>{category}</h3>
+      <PostHeader {...post} />
       
       <hr />
 
-      <div dangerouslySetInnerHTML={{ __html: md().render(markdown) }} />
+      <div dangerouslySetInnerHTML={{ __html: html }} />
 
     </Container>
   );

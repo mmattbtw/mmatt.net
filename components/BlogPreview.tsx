@@ -4,7 +4,7 @@ import React from 'react';
 
 const useStyles = createStyles((theme) => ({
   card: {
-    height: 160,
+    height: 200,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -48,7 +48,7 @@ export function ArticleCardImage({ imageUrl, title, category, slug }: ArticleCar
         shadow="md"
         p="xl"
         radius="md"
-        sx={{ backgroundImage: `url(${imageUrl})` }}
+        sx={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.25)),url(${imageUrl})` }}
         className={classes.card}
         >
         <div>
