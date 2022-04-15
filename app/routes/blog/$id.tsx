@@ -21,14 +21,15 @@ export const loader = async ({ params }: params) => {
   });
 
 
-  const html = marked(post?.markdown.trim() ?? "");
 
-  return {post, html};
+  return post;
 };
 
 export default function BlogItem() {
-  const { post, html } = useLoaderData()
+  const post = useLoaderData()
   
+  const html = marked(post?.markdown.trim() ?? "");
+
   return (
     <Container>
       <PostHeader {...post} />
