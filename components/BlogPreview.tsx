@@ -31,22 +31,24 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export interface ArticleCardImageProps {
-  image: string;
-  title: string;
-  category: string;
-  link: string;
+  id: string,
+  category: string,
+  imageUrl: string,
+  markdown: string,
+  slug: string,
+  title: string
 }
 
-export function ArticleCardImage({ image, title, category, link }: ArticleCardImageProps) {
+export function ArticleCardImage({ imageUrl, title, category, slug }: ArticleCardImageProps) {
   const { classes } = useStyles();
 
   return (
-    <Link to={link} prefetch={'intent'} className='link'>
+    <Link to={slug} prefetch={'intent'} className='link'>
         <Paper
         shadow="md"
         p="xl"
         radius="md"
-        sx={{ backgroundImage: `url(${image})` }}
+        sx={{ backgroundImage: `url(${imageUrl})` }}
         className={classes.card}
         >
         <div>
@@ -58,7 +60,7 @@ export function ArticleCardImage({ image, title, category, link }: ArticleCardIm
             </Title>
         </div>
         <Button variant="white" color="dark">
-            Read article
+            Read post
         </Button>
         </Paper>
     </Link>
