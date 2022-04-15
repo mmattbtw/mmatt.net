@@ -1,4 +1,4 @@
-import { Button } from '@mantine/core';
+import { Button, Container } from '@mantine/core';
 import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
@@ -29,14 +29,16 @@ export default function Login() {
 	console.log(loaderData, '!');
 
 	return (
-        <Form method="post">
-            <Button
-                type="submit"
-                sx={{ backgroundColor: '#6441a5', color: 'white', ':hover': { backgroundColor: '#593A93' } }}
-                fullWidth
-            >
-                Sign in with Twitch
-            </Button>
-        </Form>
+		<Container>
+			<Form method="post">
+				<Button
+					type="submit"
+					sx={{ backgroundColor: '#6441a5', color: 'white', ':hover': { backgroundColor: '#593A93' } }}
+					fullWidth
+				>
+					Sign in with Twitch
+				</Button>
+			</Form>
+		</Container>
     );
 }

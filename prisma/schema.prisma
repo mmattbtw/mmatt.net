@@ -16,4 +16,7 @@ model posts {
   markdown String
   slug     String @unique
   title    String
+
+  CreatedAt DateTime
+  UpdatedAt DateTime @updatedAt
 }
