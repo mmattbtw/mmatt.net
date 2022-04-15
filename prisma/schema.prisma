@@ -17,6 +17,6 @@ model posts {
   slug     String @unique
   title    String
 
-  CreatedAt DateTime
+  CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
 }
