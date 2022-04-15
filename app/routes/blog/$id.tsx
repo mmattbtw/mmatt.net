@@ -1,32 +1,25 @@
 import { Container } from "@mantine/core";
-import { PrismaClient } from "@prisma/client";
+import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
+import { authenticator } from "~/services/auth.server";
+import { getPost } from "~/services/post.server";
 
+export const loader: LoaderFunction = async ({ params, request }) => {
+  const post = await getPost(params.id || "")
 
-interface params {
-  params: {
-    id: string;
-  };
-}
+  let session = await authenticator.isAuthenticated(request);
 
-export const loader = async ({ params }: params) => {
-  const prisma = new PrismaClient();
-
-  const post = await prisma.posts.findFirst({
-    where: {
-      slug: params.id
-    }
-  });
-
-
-
-  return post;
+  if (!session) {
+    session = null
+  }
+  
+  return {post, session};
 };
 
 export default function BlogItem() {
-  const post = useLoaderData()
+  const {post, session} = useLoaderData()
   
   const html = marked(post?.markdown.trim() ?? "");
 
@@ -34,6 +27,13 @@ export default function BlogItem() {
     <Container>
       <PostHeader {...post} />
       
+      {
+        session?.json.id === "640348450" ?
+          <h5>id: {post?.id}</h5>
+        :
+          ""
+      }
+
       <hr />
 
       <div dangerouslySetInnerHTML={{ __html: html }} />

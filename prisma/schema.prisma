@@ -10,7 +10,7 @@ datasource db {
 }
 
 model posts {
-  id       String @id
+  id       String @id @default(cuid())
   category String
   imageUrl String
   markdown String

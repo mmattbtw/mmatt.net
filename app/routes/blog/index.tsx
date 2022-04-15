@@ -1,21 +1,19 @@
 import { Container, Grid } from "@mantine/core";
-import { PrismaClient } from "@prisma/client";
 import { LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
 import { authenticator } from "~/services/auth.server";
+import { getPosts } from "~/services/post.server";
 
 
-export let loader: LoaderFunction = async ({ request }) => {
-  const prisma = new PrismaClient()
-  
+export let loader: LoaderFunction = async ({ request }) => {  
   let session = await authenticator.isAuthenticated(request);
 
   if (!session) {
     session = null
   }
 
-  const allPosts = await prisma.posts.findMany()
+  const allPosts = await getPosts();
 
   return {allPosts, session}
 }

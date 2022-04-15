@@ -1,6 +1,6 @@
 import { Container, Image } from "@mantine/core";
 import { LoaderFunction, redirect } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, Outlet, useLoaderData } from "@remix-run/react";
 import { authenticator } from "~/services/auth.server";
 import { sessionType } from "~/types/typings";
 
@@ -9,22 +9,31 @@ export let loader: LoaderFunction = async ({ request }) => {
 		failureRedirect: '/login',
 	});
 
+
+    if (!session) {
+        redirect('/login')
+    }
+
     return session
 };
 
-export default function BlogItem() {
+export default function AdminPage() {
   const session  = useLoaderData()
 
-  if (!session) {
-      redirect('/login')
-  }
-    
   return (
     <Container>
         {session.json.id === "640348450" ? 
 
             <div>
-                <h1>{session.json.display_name}</h1>
+                <h1>admin page:</h1>
+                <Link to='createpost' prefetch="intent">
+                    <h4>create post</h4>
+                </Link>
+                <Link to='deletepost' prefetch="intent">
+                    <h4>delete post</h4>
+                </Link>
+
+                <Outlet />
             </div> 
    
         : 
