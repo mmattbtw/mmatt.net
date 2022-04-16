@@ -7,6 +7,8 @@ import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getProjects } from "~/services/projects.server";
 
+const globalAny: any = global;
+let cached: any = globalAny.PROJECTS_DATA
 
 export let loader: LoaderFunction = async ({ request }) => {  
   let session = await authenticator.isAuthenticated(request);
@@ -15,9 +17,16 @@ export let loader: LoaderFunction = async ({ request }) => {
     session = null
   }
 
-  const allProjects = await getProjects();
+  if (cached) {
+    return {
+      allProjects: cached,
+      session
+    }
+  } else {
+    const allProjects = await getProjects();
 
-  return {allProjects, session}
+    return {allProjects, session}
+  }
 }
 
 export default function ProjectsPage() {

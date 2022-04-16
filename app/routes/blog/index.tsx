@@ -7,6 +7,8 @@ import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getPosts } from "~/services/post.server";
 
+const globalAny: any = global;
+let cached: any = globalAny.POSTS_DATA
 
 export let loader: LoaderFunction = async ({ request }) => {  
   let session = await authenticator.isAuthenticated(request);
@@ -15,9 +17,16 @@ export let loader: LoaderFunction = async ({ request }) => {
     session = null
   }
 
-  const allPosts = await getPosts();
+  if (cached) {
+    return {
+      allPosts: cached,
+      session
+    }
+  } else {
+    const allPosts = await getPosts();
 
-  return {allPosts, session}
+    return {allPosts, session}
+  }
 }
 
 export default function BlogPage() {
