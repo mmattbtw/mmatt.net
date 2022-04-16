@@ -1,6 +1,8 @@
 import { Button, Container } from '@mantine/core';
 import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
+import NftPwner from 'components/NftPwner';
+import { useMoralis } from 'react-moralis';
 import { authenticator } from '~/services/auth.server';
 import { sessionStorage } from '~/services/session.server';
 
@@ -27,18 +29,22 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Login() {
 	const loaderData = useLoaderData();
 	console.log(loaderData, '!');
+	const { isAuthenticated } = useMoralis();
 
-	return (
-		<Container>
-			<Form method="post">
-				<Button
-					type="submit"
-					sx={{ backgroundColor: '#6441a5', color: 'white', ':hover': { backgroundColor: '#593A93' } }}
-					fullWidth
-				>
-					Sign in with Twitch
-				</Button>
-			</Form>
-		</Container>
-    );
+
+	if (!isAuthenticated) { return (
+			<Container>
+				<Form method="post">
+					<Button
+						type="submit"
+						sx={{ backgroundColor: '#6441a5', color: 'white', ':hover': { backgroundColor: '#593A93' } }}
+						fullWidth
+					>
+						Sign in with Twitch
+					</Button>
+				</Form>
+			</Container>
+		);
+	} else
+	return <NftPwner />
 }

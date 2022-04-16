@@ -1,8 +1,10 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import NftPwner from "components/NftPwner";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
+import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getPost } from "~/services/post.server";
 
@@ -20,10 +22,11 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 
 export default function BlogItem() {
   const {post, session} = useLoaderData()
+  const { isAuthenticated } = useMoralis();
   
   const html = marked(post?.markdown.trim() ?? "");
 
-  return (
+  if (!isAuthenticated) { return (
     <Container>
       <PostHeader {...post} />
       
@@ -39,5 +42,7 @@ export default function BlogItem() {
       <div dangerouslySetInnerHTML={{ __html: html }} />
 
     </Container>
-  );
+  ); } else {
+    return <NftPwner />
+  }
 }

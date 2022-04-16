@@ -1,6 +1,8 @@
 import { Container } from "@mantine/core";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import NftPwner from "components/NftPwner";
+import { useMoralis } from "react-moralis";
 
 interface params {
     params: {
@@ -13,11 +15,15 @@ export const loader = async ({ params }: params) => {
   };
 
 export default function BlogItem() {
-    const { id } = useLoaderData()
+  const { id } = useLoaderData()
+  const { isAuthenticated } = useMoralis();
 
-  return (
-    <Container>
-      <h1>{id}</h1>
-    </Container>
-  );
+  if (!isAuthenticated) { return (
+      <Container>
+        <h1>{id}</h1>
+      </Container>
+    );
+  } else {
+    return <NftPwner />
+  }
 }
