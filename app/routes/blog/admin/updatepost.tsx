@@ -72,7 +72,7 @@ export default function updatePostPage() {
             </p>
             <p>
                 <label>
-                 UpdatedPost Image:{" "}
+                 Updated Post Image:{" "}
                 <TextInput
                     type="text"
                     name="imageUrl"
