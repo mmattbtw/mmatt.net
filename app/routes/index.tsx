@@ -69,16 +69,6 @@ export default function Index() {
         <li><a href={"https://anti-asianviolenceresources.carrd.co/"}>stop aapi hate</a></li>
       </ul>
 
-      <h2>NFTs</h2>
-      <p>
-        because i LOVE NFTs, i have decided to make a part of my website locked to the REAL CRYPTO GODS. just click the button below to connect your MetaMask wallet :3
-      </p>
-      <Button onClick={() => {
-                authenticate({ provider: "metamask" });
-              }}>
-        Connect MetaMask Wallet
-      </Button>
-
       <h2>about me</h2>
       <p>
         i sometimes stream video games (and programming) on my <a href="https://twitch.tv/mmattbtw">twitch</a>.
@@ -93,6 +83,19 @@ export default function Index() {
       <p>
         i enjoy collecting vinyl records, and i enjoy listening to music, in the next section, you will see some of the artists i like to listen to!
       </p>
+
+      <h2>NFTs</h2>
+      <p>
+        because i LOVE NFTs, i have decided to make a part of my website locked to the REAL CRYPTO GODS. just click the button below to connect your MetaMask wallet :3
+      </p>
+      <Button onClick={() => {
+                authenticate({ provider: "metamask" });
+              }}
+              variant='outline'
+              size='xs'
+              >
+        Connect MetaMask Wallet
+      </Button>
 
       <h2>music</h2>
       <h3>

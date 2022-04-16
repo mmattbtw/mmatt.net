@@ -13,3 +13,25 @@ export interface sessionType {
     created_at: number;
   };
 }
+
+type FormActionDataBlog =
+  | {
+      category: string;
+      imageUrl: string;
+      markdown: string;
+      slug: string;
+      title: string;
+      id: string;
+    }
+  | undefined;
+type FormActionDataProjects =
+  | {
+      category: string;
+      imageUrl: string;
+      markdown: string;
+      slug: string;
+      title: string;
+      id: string;
+      status: string;
+    }
+  | undefined;

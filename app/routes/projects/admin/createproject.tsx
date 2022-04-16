@@ -1,8 +1,8 @@
 import { Button, Textarea, TextInput } from "@mantine/core";
 import { ActionFunction, redirect } from "@remix-run/node";
 import { Form } from "@remix-run/react";
-import { updatePost } from "~/services/post.server";
-import { FormActionDataBlog } from "~/types/typings";
+import { createProject } from "~/services/projects.server";
+import { FormActionDataProjects } from "~/types/typings";
 
 export const action: ActionFunction = async ({ request }) => {
     const formData = await request.formData();
@@ -13,37 +13,30 @@ export const action: ActionFunction = async ({ request }) => {
     const slug = formData.get("slug") as string
     const markdown = formData.get("markdown") as string
     const id = formData.get("id") as string
+    const status = formData.get("status") as string
 
-    const post: FormActionDataBlog = {
+    const project: FormActionDataProjects = {
         category,
         imageUrl,
         markdown,
         slug,
         title,
-        id
+        id,
+        status
     }
 
-    await updatePost(id, post)
+    await createProject(project)
     
-    return redirect("/blog/" + slug);
+    return redirect("/projects/" + slug);
   };
 
-export default function updatePostPage() {
+export default function createProjectPage() {
   return (
     <>
         <Form method="post">
             <p>
                 <label>
-                ID of post to udpate:{" "}
-                <TextInput
-                    type="text"
-                    name="id"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Updated Post Title:{" "}
+                Project Title:{" "}
                 <TextInput
                     type="text"
                     name="title"
@@ -52,7 +45,7 @@ export default function updatePostPage() {
             </p>
             <p>
                 <label>
-                Updated Post Category:{" "}
+                Project Category:{" "}
                 <TextInput
                     type="text"
                     name="category"
@@ -61,7 +54,7 @@ export default function updatePostPage() {
             </p>
             <p>
                 <label>
-                 Updated Post Image:{" "}
+                Project Image:{" "}
                 <TextInput
                     type="text"
                     name="imageUrl"
@@ -70,7 +63,7 @@ export default function updatePostPage() {
             </p>
             <p>
                 <label>
-                Updated Post Slug:{" "}
+                Project Slug:{" "}
                 <TextInput
                     type="text"
                     name="slug"
@@ -78,7 +71,25 @@ export default function updatePostPage() {
                 </label>
             </p>
             <p>
-                <label htmlFor="markdown">Updated Markdown:</label>
+                <label>
+                Project Status:{" "}
+                <TextInput
+                    type="text"
+                    name="status"
+                />
+                </label>
+            </p>
+            <p>
+                <label>
+                Project ID:{" "}
+                <TextInput
+                    type="text"
+                    name="id"
+                />
+                </label>
+            </p>
+            <p>
+                <label htmlFor="markdown">Markdown:</label>
                 <br />
                 <Textarea
                 id="markdown"
@@ -91,7 +102,7 @@ export default function updatePostPage() {
                 <Button
                 type="submit"
                 >
-                Update Post
+                Create Post
                 </Button>
             </p>
         </Form>

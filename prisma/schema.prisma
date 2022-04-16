@@ -20,3 +20,16 @@ model posts {
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
 }
+
+model projects {
+  id       String @id @default(cuid())
+  category String
+  imageUrl String
+  markdown String
+  slug     String @unique
+  title    String
+  status   String
+
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+}

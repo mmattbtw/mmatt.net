@@ -18,7 +18,7 @@ export let loader: LoaderFunction = async ({ request }) => {
     return session
 };
 
-export default function AdminPageBlog() {
+export default function AdminPageProject() {
   const session  = useLoaderData()
   const { isAuthenticated } = useMoralis();
 
@@ -28,14 +28,14 @@ export default function AdminPageBlog() {
 
             <div>
                 <h1>admin page:</h1>
-                <Link to='createpost' prefetch="intent">
-                    <h4>create post</h4>
+                <Link to='createproject' prefetch="intent">
+                    <h4>create project</h4>
                 </Link>
-                <Link to='updatepost' prefetch="intent">
-                    <h4>update post</h4>
+                <Link to='updateproject' prefetch="intent">
+                    <h4>update project</h4>
                 </Link>
-                <Link to='deletepost' prefetch="intent">
-                    <h4>delete post</h4>
+                <Link to='deleteproject' prefetch="intent">
+                    <h4>delete project</h4>
                 </Link>
 
                 <Outlet />

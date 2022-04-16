@@ -1,29 +1,48 @@
 import { Container } from "@mantine/core";
-import { json } from "@remix-run/node";
+import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import NftPwner from "components/NftPwner";
+import { PostHeader } from "components/PostHeader";
+import { marked } from "marked";
 import { useMoralis } from "react-moralis";
+import { authenticator } from "~/services/auth.server";
+import { getProject } from "~/services/projects.server";
 
-interface params {
-    params: {
-        id: string;
-    };
-}
+export const loader: LoaderFunction = async ({ params, request }) => {
+  const post = await getProject(params.id || "")
 
-export const loader = async ({ params }: params) => {
-    return json({ id: params.id });
-  };
+  let session = await authenticator.isAuthenticated(request);
 
-export default function BlogItem() {
-  const { id } = useLoaderData()
+  if (!session) {
+    session = null
+  }
+  
+  return {post, session};
+};
+
+export default function ProjectPage() {
+  const {post, session} = useLoaderData()
   const { isAuthenticated } = useMoralis();
+  
+  const html = marked(post?.markdown.trim() ?? "");
 
   if (!isAuthenticated) { return (
-      <Container>
-        <h1>{id}</h1>
-      </Container>
-    );
-  } else {
+    <Container>
+      <PostHeader {...post} />
+      
+      {
+        session?.json.id === "640348450" ?
+          <h5>id: {post?.id}</h5>
+        :
+          ""
+      }
+
+      <hr />
+
+      <div dangerouslySetInnerHTML={{ __html: html }} />
+
+    </Container>
+  ); } else {
     return <NftPwner />
   }
 }
