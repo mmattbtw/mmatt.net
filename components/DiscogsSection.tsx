@@ -33,6 +33,9 @@ export async function loader() {
       const collectionValueData = await collectionValue.json()
       const collectionDataData = await collectionData.json()
 
+      console.log(collectionValueData)
+      console.log(collectionDataData)
+
       // cached = globalAny.DISCOGS_DATA = {
       //   collectionValue: collectionValueData,
       //   collectionData: collectionDataData
