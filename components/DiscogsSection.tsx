@@ -12,14 +12,14 @@ interface discogsReturn {
     collectionData: any
 }
 
-const globalAny: any = global;
+// const globalAny: any = global;
 
-let cached: discogsReturn = globalAny.DISCOGS_DATA
+// let cached: discogsReturn = globalAny.DISCOGS_DATA
 
 export async function loader() {
-if (cached) {
-    return cached
-} else {
+// if (cached) {
+//     return cached
+// } else {
     const discogsHeaders = {
     "Authorization": `Discogs token=${process.env.DISCOGS_TOKEN}`
     }
@@ -33,10 +33,10 @@ if (cached) {
         const collectionValueData = await collectionValue.json()
         const collectionDataData = await collectionData.json()
 
-        cached = globalAny.DISCOGS_DATA = {
-          collectionValue: collectionValueData,
-          collectionData: collectionDataData
-        }
+        // cached = globalAny.DISCOGS_DATA = {
+        //   collectionValue: collectionValueData,
+        //   collectionData: collectionDataData
+        // }
 
         return {
           collectionValue: collectionValueData,
@@ -49,7 +49,7 @@ if (cached) {
         } as discogsReturn
       }
     }
-}
+// }
 
 export default function DisocgsSection() {
   const { collectionValue: collectionValue, collectionData: collectionData} : any = useLoaderData() || {}
