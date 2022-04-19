@@ -52,7 +52,7 @@ if (cached) {
 }
 
 export default function DisocgsSection() {
-  const { collectionValue, collectionData} : any = useLoaderData()
+  const { collectionValue: collectionValue, collectionData: collectionData} : any = useLoaderData() || {}
   const [opened, setOpen] = useState(false);
 
 	return (
