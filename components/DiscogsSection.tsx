@@ -55,7 +55,7 @@ export async function loader() {
 // }
 
 export default function DisocgsSection() {
-  const { collectionValue, collectionData} : discogsReturn = useLoaderData()
+  const { collectionValue, collectionData } : discogsReturn = useLoaderData() || { collectionValue: null, collectionData: null }
   const [opened, setOpen] = useState(false);
 
 	return (
