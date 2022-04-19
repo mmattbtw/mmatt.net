@@ -1,5 +1,5 @@
 import { Container } from "@mantine/core";
-import NftPwner from "components/NftPwner";
+import NftPwner from "~/components/NftPwner";
 import { useMoralis } from "react-moralis";
 
 export default function DevicesPage() {

@@ -1,7 +1,7 @@
 import { Container, Image } from "@mantine/core";
 import { LoaderFunction, redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import NftPwner from "components/NftPwner";
+import NftPwner from "~/components/NftPwner";
 import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { sessionType } from "~/types/typings";

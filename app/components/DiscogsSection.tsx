@@ -1,7 +1,7 @@
 import { Button, Collapse, Grid, Image } from "@mantine/core";
+import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-
 
 interface discogsReturn {
     collectionValue: {
@@ -16,7 +16,7 @@ interface discogsReturn {
 
 // let cached: discogsReturn = globalAny.DISCOGS_DATA
 
-export async function loader() {
+export let loader: LoaderFunction = async ({}) => {
 // if (cached) {
 //     return cached
 // } else {

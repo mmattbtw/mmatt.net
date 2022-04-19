@@ -10,8 +10,8 @@ import {
   ScrollRestoration,
   useLoaderData
 } from "@remix-run/react";
-import { FooterSocial } from "components/Footer";
-import HeaderSimple from "components/Header";
+import { FooterSocial } from "~/components/Footer";
+import HeaderSimple from "~/components/Header";
 import { useState } from "react";
 import { MoralisProvider } from "react-moralis";
 

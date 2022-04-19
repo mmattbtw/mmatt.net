@@ -1,8 +1,8 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import NftPwner from "components/NftPwner";
-import { PostHeader } from "components/PostHeader";
+import NftPwner from "~/components/NftPwner";
+import { PostHeader } from "~/components/PostHeader";
 import { marked } from "marked";
 import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";

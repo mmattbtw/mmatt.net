@@ -1,7 +1,7 @@
 import { Button, Container } from '@mantine/core';
 import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import NftPwner from 'components/NftPwner';
+import NftPwner from '~/components/NftPwner';
 import { useMoralis } from 'react-moralis';
 import { authenticator } from '~/services/auth.server';
 import { sessionStorage } from '~/services/session.server';

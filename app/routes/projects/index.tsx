@@ -1,8 +1,8 @@
 import { Container, Grid } from "@mantine/core";
 import { LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
-import NftPwner from "components/NftPwner";
+import { ArticleCardImage, ArticleCardImageProps } from "~/components/BlogPreview";
+import NftPwner from "~/components/NftPwner";
 import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getProjects } from "~/services/projects.server";
