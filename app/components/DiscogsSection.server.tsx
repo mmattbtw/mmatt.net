@@ -16,7 +16,7 @@ interface discogsReturn {
 
 // let cached: discogsReturn = globalAny.DISCOGS_DATA
 
-export let loader: LoaderFunction = async ({}) => {
+export let loader: LoaderFunction = async () => {
 // if (cached) {
 //     return cached
 // } else {
@@ -25,26 +25,26 @@ export let loader: LoaderFunction = async ({}) => {
   }
 
   try {
-      let [collectionValue, collectionData] = await Promise.all([
-        fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
-        fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
-      ])
+    let [collectionValue, collectionData] = await Promise.all([
+      fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
+      fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
+    ])
 
-      const collectionValueData = await collectionValue.json()
-      const collectionDataData = await collectionData.json()
+    const collectionValueData = await collectionValue.json()
+    const collectionDataData = await collectionData.json()
 
-      console.log(collectionValueData)
-      console.log(collectionDataData)
+    console.log(collectionValueData)
+    console.log(collectionDataData)
 
-      // cached = globalAny.DISCOGS_DATA = {
-      //   collectionValue: collectionValueData,
-      //   collectionData: collectionDataData
-      // }
+    // cached = globalAny.DISCOGS_DATA = {
+    //   collectionValue: collectionValueData,
+    //   collectionData: collectionDataData
+    // }
 
-      return {
-        collectionValue: collectionValueData,
-        collectionData: collectionDataData
-      } as discogsReturn
+    return {
+      collectionValue: collectionValueData,
+      collectionData: collectionDataData
+    } as discogsReturn
   } catch(FetchError) {
       return {
         collectionValue: null,
@@ -55,7 +55,7 @@ export let loader: LoaderFunction = async ({}) => {
 // }
 
 export default function DisocgsSection() {
-  const { collectionValue, collectionData } : discogsReturn = useLoaderData() || { collectionValue: null, collectionData: null }
+  const { collectionValue, collectionData } : discogsReturn = useLoaderData()
   const [opened, setOpen] = useState(false);
 
 	return (

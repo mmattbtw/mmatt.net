@@ -1,8 +1,8 @@
 import { Button, Container } from '@mantine/core';
 import { Link } from "@remix-run/react";
-import DisocgsSection from '~/components/DiscogsSection';
-import NftPwner from '~/components/NftPwner';
 import { useMoralis } from 'react-moralis';
+import DisocgsSection from '~/components/DiscogsSection.server';
+import NftPwner from '~/components/NftPwner';
 
 export default function Index() {
   const { authenticate, isAuthenticated } = useMoralis();
