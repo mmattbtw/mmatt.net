@@ -33,6 +33,8 @@ export default function ProjectsPage() {
   const {allProjects, session} = useLoaderData()
 	const { isAuthenticated } = useMoralis();
 
+  const projectsExist = allProjects.length > 0
+
   if (!isAuthenticated) { return (
     <Container>
       <h1>/projects</h1>
@@ -45,15 +47,22 @@ export default function ProjectsPage() {
       :
         ""
       }
-      <Grid>
+      
       {
-        allProjects.map((post: ArticleCardImageProps) => (
-          <Grid.Col key={post.id}>
-            <ArticleCardImage key={post.slug} {...post} />
-          </Grid.Col>
-        ))
+        projectsExist ?
+        <Grid>
+          {
+            allProjects.map((post: ArticleCardImageProps) => (
+              <Grid.Col key={post.id}>
+                <ArticleCardImage key={post.slug} {...post} />
+              </Grid.Col>
+            ))
+          }
+        </Grid>
+        :
+        <h2>no projects found!</h2>
       }
-      </Grid>
+
     </Container>
   );} else {
     return <NftPwner />

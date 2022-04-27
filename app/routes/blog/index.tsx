@@ -33,6 +33,8 @@ export default function BlogPage() {
   const {allPosts, session} = useLoaderData()
 	const { isAuthenticated } = useMoralis();
 
+  const postsExist = allPosts.length > 0
+
   if (!isAuthenticated) { return (
     <Container>
       <h1>/blog</h1>
@@ -45,16 +47,24 @@ export default function BlogPage() {
       :
         ""
       }
-      <Grid>
       {
-        allPosts.map((post: ArticleCardImageProps) => (
-          <Grid.Col key={post.id}>
-            <ArticleCardImage key={post.slug} {...post} />
-          </Grid.Col>
-        ))
+        postsExist ? 
+        <Grid>
+          {
+            allPosts.map((post: ArticleCardImageProps) => (
+              <Grid.Col key={post.id}>
+                <ArticleCardImage key={post.slug} {...post} />
+              </Grid.Col>
+            ))
+          }
+        </Grid>
+        :
+        <>
+          <h2>no posts found!</h2>
+        </>
       }
-      </Grid>
-    </Container>
+
+   </Container>
   );} else {
     return <NftPwner />
   }
