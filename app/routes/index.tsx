@@ -1,4 +1,5 @@
 import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
+import { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from "@remix-run/react";
 import NftPwner from 'components/NftPwner';
 import { useState } from "react";
@@ -28,8 +29,8 @@ export async function loader() {
 
     try {
         let [collectionValue, collectionData] = await Promise.all([
-          fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders, cache: "force-cache" }),
-          fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders, cache: "force-cache" })
+          fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders }),
+          fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders })
         ])
 
         const collectionValueData = await collectionValue.json()
@@ -52,6 +53,13 @@ export async function loader() {
       } as discogsReturn
     }
   }
+}
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "/home - mmatt.net",
+    description: "mmatt.net/home",
+  };
 }
 
 export default function Index() {

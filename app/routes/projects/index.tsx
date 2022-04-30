@@ -1,5 +1,5 @@
 import { Container, Grid } from "@mantine/core";
-import { LoaderFunction } from "@remix-run/node";
+import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
 import NftPwner from "components/NftPwner";
@@ -28,6 +28,14 @@ export let loader: LoaderFunction = async ({ request }) => {
     return {allProjects, session}
   }
 }
+
+export const meta: MetaFunction = () => {
+  return {
+    title: "/projects - mmatt.net",
+    description: "mmatt.net/projects - information about all my projects.",
+  };
+}
+
 
 export default function ProjectsPage() {
   const {allProjects, session} = useLoaderData()

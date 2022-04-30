@@ -1,15 +1,20 @@
 import { Container } from "@mantine/core";
-import { LoaderFunction } from "@remix-run/node";
+import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import NftPwner from "components/NftPwner";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
 import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
-import { getProject } from "~/services/projects.server";
+import { getProject, projects } from "~/services/projects.server";
+
+type loaderData = {
+  project: projects;
+  session: any | null;
+}
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  const post = await getProject(params.id || "")
+  const project = await getProject(params.id || "")
 
   let session = await authenticator.isAuthenticated(request);
 
@@ -17,22 +22,38 @@ export const loader: LoaderFunction = async ({ params, request }) => {
     session = null
   }
   
-  return {post, session};
+  return { project, session } as unknown as loaderData;
 };
 
+export const meta: MetaFunction = ({ data, params }) => {
+  if (!data) {
+    return {
+      title: "Unknown Project - mmatt.net",
+      description: `There is no project with the ID of ${params.id}.`,
+    };
+  }
+
+  const { project } = data as loaderData;
+  return {
+    description: `${project.title} - ${project.CreatedAt}`,
+    title: `${project.title} - mmatt.net`,
+  };
+};
+
+
 export default function ProjectPage() {
-  const {post, session} = useLoaderData()
+  const { project, session } = useLoaderData() as loaderData
   const { isAuthenticated } = useMoralis();
   
-  const html = marked(post?.markdown.trim() ?? "");
+  const html = marked(project?.markdown.trim() ?? "");
 
   if (!isAuthenticated) { return (
     <Container>
-      <PostHeader {...post} />
+      <PostHeader {...project} />
       
       {
         session?.json.id === "640348450" ?
-          <h5>id: {post?.id}</h5>
+          <h5>id: {project?.id}</h5>
         :
           ""
       }
