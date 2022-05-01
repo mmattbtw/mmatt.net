@@ -59,6 +59,8 @@ export const meta: MetaFunction = () => {
   return {
     title: "/home - mmatt.net",
     description: "mmatt.net/home",
+    'twitter:title': "/home - mmatt.net",
+    'twitter:description': "mmatt.net/home",
   };
 }
 
