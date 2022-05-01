@@ -21,6 +21,7 @@ export const meta: MetaFunction = () => ({
   viewport: "width=device-width,initial-scale=1",
   'twitter:creator': '@mmattbtw',
   'twitter:site': '@mmattbtw',
+  'twitter:card': 'summary',
 });
 
 const links=[{label: "/home", link: "/"}, {label: "/blog", link: "/blog"}, {label: "/projects", link:"/projects"}, {label: "/devices", link:"/devices"}]
