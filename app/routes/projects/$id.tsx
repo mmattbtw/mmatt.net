@@ -37,6 +37,9 @@ export const meta: MetaFunction = ({ data, params }) => {
   return {
     description: `${project.title} - ${project.CreatedAt}`,
     title: `${project.title} - mmatt.net`,
+    'twitter:title': `${project.title} - mmatt.net`,
+    'twitter:image': project.imageUrl,
+    'twitter:description': `${project.title} - ${project.CreatedAt}`,
     'og:image': project.imageUrl,
   };
 };
