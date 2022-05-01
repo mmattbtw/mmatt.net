@@ -37,9 +37,7 @@ export const meta: MetaFunction = ({ data, params }) => {
   return {
     description: `${post.title} - ${post.CreatedAt}`,
     title: `${post.title} - mmatt.net`,
-    og: {
-      image: post.imageUrl,
-    }
+    'og:image': post.imageUrl,
   };
 };
 
