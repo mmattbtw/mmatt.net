@@ -1,10 +1,8 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import NftPwner from "components/NftPwner";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
-import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getPost, posts } from "~/services/post.server";
 
@@ -46,11 +44,10 @@ export const meta: MetaFunction = ({ data, params }) => {
 
 export default function BlogItem() {
   const {post, session} = useLoaderData() as loaderData;
-  const { isAuthenticated } = useMoralis();
   
   const html = marked(post?.markdown.trim() ?? "");
 
-  if (!isAuthenticated) { return (
+  return (
     <Container>
       <PostHeader {...post} />
       
@@ -66,7 +63,5 @@ export default function BlogItem() {
       <div dangerouslySetInnerHTML={{ __html: html }} />
 
     </Container>
-  ); } else {
-    return <NftPwner />
-  }
+  )
 }

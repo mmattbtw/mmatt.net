@@ -1,7 +1,5 @@
 import { Container } from "@mantine/core";
 import { MetaFunction } from "@remix-run/node";
-import NftPwner from "components/NftPwner";
-import { useMoralis } from "react-moralis";
 
 export const meta: MetaFunction = () => {
   return {
@@ -11,8 +9,7 @@ export const meta: MetaFunction = () => {
 }
 
 export default function DevicesPage() {
-  const { isAuthenticated } = useMoralis();
-  if (!isAuthenticated) { return (
+  return (
       <Container>
         <h1>/devices</h1>
         
@@ -39,8 +36,5 @@ export default function DevicesPage() {
           </p>
       </Container>
     );
-  } else {
-      return <NftPwner />
-    }
-  }
+  } 
   

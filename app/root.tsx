@@ -13,7 +13,6 @@ import {
 import { FooterSocial } from "components/Footer";
 import HeaderSimple from "components/Header";
 import { useState } from "react";
-import { MoralisProvider } from "react-moralis";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
@@ -27,16 +26,7 @@ export const meta: MetaFunction = () => ({
 const links=[{label: "/home", link: "/"}, {label: "/blog", link: "/blog"}, {label: "/projects", link:"/projects"}, {label: "/devices", link:"/devices"}]
 
 
-export async function loader() {
-  return {
-    MORALIS_SERVER_APP_ID: process.env.MORALIS_SERVER_APP_ID as string,
-    MORALIS_SERVER_URL: process.env.MORALIS_SERVER_URL as string,
-  }
-}
-
 export default function App() {
-  const { MORALIS_SERVER_APP_ID, MORALIS_SERVER_URL } = useLoaderData();
-
   return (
     <html lang="en">
       <head>
@@ -45,14 +35,12 @@ export default function App() {
       </head>
       <body>
         
-        <MoralisProvider appId={`${MORALIS_SERVER_APP_ID}`} serverUrl={`${MORALIS_SERVER_URL}`}>
-          <MantineTheme>
-            {}
-            <HeaderSimple links={links}  />
-            <Outlet />
-            <FooterSocial links={links} />
-          </MantineTheme>
-        </MoralisProvider>
+        <MantineTheme>
+          {}
+          <HeaderSimple links={links}  />
+          <Outlet />
+          <FooterSocial links={links} />
+        </MantineTheme>
 
         <ScrollRestoration />
         <Scripts />

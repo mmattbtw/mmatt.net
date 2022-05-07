@@ -2,8 +2,6 @@ import { Container, Grid } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
-import NftPwner from "components/NftPwner";
-import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { getProjects } from "~/services/projects.server";
 
@@ -39,11 +37,10 @@ export const meta: MetaFunction = () => {
 
 export default function ProjectsPage() {
   const {allProjects, session} = useLoaderData()
-	const { isAuthenticated } = useMoralis();
 
   const projectsExist = allProjects.length > 0
 
-  if (!isAuthenticated) { return (
+  return (
     <Container>
       <h1>/projects</h1>
       {session?.json.id === "640348450" ? 
@@ -72,7 +69,5 @@ export default function ProjectsPage() {
       }
 
     </Container>
-  );} else {
-    return <NftPwner />
-  }
+  );
 }

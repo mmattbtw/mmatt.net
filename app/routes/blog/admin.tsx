@@ -1,8 +1,6 @@
 import { Container, Image } from "@mantine/core";
 import { LoaderFunction, redirect } from "@remix-run/node";
 import { Link, Outlet, useLoaderData } from "@remix-run/react";
-import NftPwner from "components/NftPwner";
-import { useMoralis } from "react-moralis";
 import { authenticator } from "~/services/auth.server";
 import { sessionType } from "~/types/typings";
 
@@ -20,9 +18,8 @@ export let loader: LoaderFunction = async ({ request }) => {
 
 export default function AdminPageBlog() {
   const session  = useLoaderData()
-  const { isAuthenticated } = useMoralis();
 
-  if (!isAuthenticated) { return (
+  return (
     <Container>
         {session.json.id === "640348450" ? 
 
@@ -49,7 +46,5 @@ export default function AdminPageBlog() {
             </div>
         }
     </Container>
-  );} else {
-    return <NftPwner />
-  }
+  )
 }

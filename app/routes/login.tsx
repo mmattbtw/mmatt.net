@@ -1,8 +1,6 @@
 import { Button, Container } from '@mantine/core';
 import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import NftPwner from 'components/NftPwner';
-import { useMoralis } from 'react-moralis';
 import { authenticator } from '~/services/auth.server';
 import { sessionStorage } from '~/services/session.server';
 
@@ -29,10 +27,8 @@ export const loader: LoaderFunction = async ({ request }) => {
 export default function Login() {
 	const loaderData = useLoaderData();
 	console.log(loaderData, '!');
-	const { isAuthenticated } = useMoralis();
 
-
-	if (!isAuthenticated) { return (
+	return (
 			<Container>
 				<Form method="post">
 					<Button
@@ -45,6 +41,4 @@ export default function Login() {
 				</Form>
 			</Container>
 		);
-	} else
-	return <NftPwner />
 }

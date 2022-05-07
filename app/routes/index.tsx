@@ -1,9 +1,7 @@
 import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
 import { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from "@remix-run/react";
-import NftPwner from 'components/NftPwner';
 import { useState } from "react";
-import { useMoralis } from 'react-moralis';
 
 interface discogsReturn {
   collectionValue: {
@@ -13,7 +11,6 @@ interface discogsReturn {
   } | null,
   collectionData: any
 }
-
 
 const globalAny: any = global;
 
@@ -67,9 +64,8 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   const { collectionValue, collectionData }: discogsReturn = useLoaderData()
   const [opened, setOpen] = useState(false);
-  const { authenticate, isAuthenticated } = useMoralis();
 
-  if (!isAuthenticated) { return (
+  return (
     <Container>
       <h1>/home</h1>
 
@@ -93,19 +89,6 @@ export default function Index() {
       <p>
         i enjoy collecting vinyl records, and i enjoy listening to music, in the next section, you will see some of the artists i like to listen to!
       </p>
-
-      <h2>NFTs</h2>
-      <p>
-        because i LOVE NFTs, i have decided to make a part of my website locked to the REAL CRYPTO GODS. just click the button below to connect your MetaMask wallet :3
-      </p>
-      <Button onClick={() => {
-                authenticate({ provider: "metamask" });
-              }}
-              variant='outline'
-              size='xs'
-              >
-        Connect MetaMask Wallet
-      </Button>
 
       <h2>music</h2>
       <h3>
@@ -220,6 +203,4 @@ export default function Index() {
       </p>
     </Container>
   );
-} else {
-  return <NftPwner />
-}}
+}
