@@ -28,10 +28,6 @@ const useStyles = createStyles((theme) => ({
     fontWeight: 700,
     textTransform: 'uppercase',
   },
-
-  a: {
-    textDecoration: 'none',
-  }
 }));
 
 export interface ArticleCardImageProps {
@@ -41,11 +37,12 @@ export interface ArticleCardImageProps {
   markdown: string,
   slug: string,
   title: string,
+  status: string,
   CreatedAt: string,
   UpdatedAt: string
 }
 
-export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
+export function ProjectCardImage({ imageUrl, title, category, slug, status, CreatedAt }: ArticleCardImageProps) {
   const { classes } = useStyles();
 
   return (
@@ -59,10 +56,10 @@ export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }:
         >
         <div>
             <Text className={classes.category} size="xs">
-            {category} | created: {CreatedAt}
+              {category} - {status} | created: {CreatedAt}
             </Text>
             <Title order={3} className={classes.title}>
-            {title}
+              {title}
             </Title>
         </div>
         <Button variant="white" color="dark">

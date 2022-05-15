@@ -26,7 +26,7 @@ const useStyles = createStyles((theme) => ({
     opacity: 0.7,
     fontWeight: 700,
     textTransform: 'uppercase',
-  }
+  },
 }));
 
 export interface ArticleCardImageProps {
@@ -35,12 +35,13 @@ export interface ArticleCardImageProps {
   imageUrl: string,
   markdown: string,
   slug: string,
-  title: string
+  title: string,
+  status: string,
   CreatedAt: string,
-  UpdatedAt: string
+  UpdatedAt: string,
 }
 
-export function PostHeader({ imageUrl, title, category, CreatedAt, UpdatedAt }: ArticleCardImageProps) {
+export function ProjectHeader({ imageUrl, title, category, status, CreatedAt, UpdatedAt }: ArticleCardImageProps) {
   const { classes } = useStyles();
 
   return (
@@ -53,10 +54,10 @@ export function PostHeader({ imageUrl, title, category, CreatedAt, UpdatedAt }: 
       >
       <div>
           <Text className={classes.category} size="xs">
-          {category} | created: {CreatedAt} - updated: {UpdatedAt}
+            {category} - {status} | created: {CreatedAt} - updated: {UpdatedAt}
           </Text>
           <Title order={3} className={classes.title}>
-          {title}
+            {title}
           </Title>
       </div>
       </Paper>

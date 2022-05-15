@@ -1,7 +1,7 @@
 import { Container, Grid } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
+import { ArticleCardImageProps, ProjectCardImage } from "components/ProjectPreview";
 import { authenticator } from "~/services/auth.server";
 import { getProjects } from "~/services/projects.server";
 
@@ -59,7 +59,7 @@ export default function ProjectsPage() {
           {
             allProjects.map((post: ArticleCardImageProps) => (
               <Grid.Col key={post.id}>
-                <ArticleCardImage key={post.slug} {...post} />
+                <ProjectCardImage key={post.slug} {...post} />
               </Grid.Col>
             ))
           }

@@ -2,6 +2,7 @@ import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { PostHeader } from "components/PostHeader";
+import { ProjectHeader } from "components/ProjectHeader";
 import { marked } from "marked";
 import { authenticator } from "~/services/auth.server";
 import { getProject, projects } from "~/services/projects.server";
@@ -50,7 +51,7 @@ export default function ProjectPage() {
 
   return (
     <Container>
-      <PostHeader {...project} />
+      <ProjectHeader {...project} />
       
       {
         session?.json.id === "640348450" ?

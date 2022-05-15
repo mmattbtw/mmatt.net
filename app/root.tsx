@@ -71,7 +71,7 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
           styles={(theme) => ({
             a: {
               color: theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.colors.gray[7],
-              textDecoration: "underline",
+              textDecoration: 'underline',
           
               '&:hover': {
                 backgroundColor:
@@ -80,6 +80,7 @@ function MantineTheme({ children }: { children: React.ReactNode }) {
                     : theme.colors[theme.primaryColor][0],
                 color: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 7],
                 textDecoration: "none",
+                border: 'none',
               }
             }
           })}
