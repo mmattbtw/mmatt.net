@@ -27,13 +27,44 @@ export default function DevicesPage() {
                 <li>NVME: WD_BLACK: 1TB</li>
                 <li>SSD: Random generic one from how the computer came: 1TB</li>
               </ul>
-              <li>Amazon Listing: Click Here</li>
-              <li>Keyboard: Glorious GMMK TKL: Gateron Reds</li>
+              <li>Keyboard: <a href="https://www.pcgamingrace.com/products/gmmk-tkl-tenkeyless-brown-switch">Glorious GMMK TKL: Gateron Reds</a></li>
               <li>Mouse: Finalmouse Starlight-12 (Gold) - 400 DPI</li>
-              <li>Benchmark: Click Here</li>
-              <li>PC Part Picker: Click Here</li>
+              <li>Benchmark: <a href="https://www.userbenchmark.com/UserRun/49470833">Click Here</a></li>
+              <li>PC Part Picker: <a href="https://pcpartpicker.com/list/wsNGK4">Click Here</a></li>
             </ul>
           </p>
+
+        <h2>main laptop</h2>
+          <p>
+            <ul>
+              <li>Model: Apple Macbook Air (Late 2020) - M1</li>
+              <li>CPU: Apple M1</li>
+              <li>GPU: 8 Core GPU from M1</li>
+              <li>RAM: 16GB</li>
+              <li>Storage:</li>
+                <ul>  
+                  <li>SSD(?): 500GB</li>
+                </ul>
+              <li>OS: macOS Monterey (12.2)</li>
+            </ul>
+          </p>
+        
+        <h2>streaming laptop</h2>
+          <p>
+            <ul>
+              <li>CPU: Intel i7-7700HQ</li>
+              <li>RAM: 8GB Kingston 2400MHz</li>
+              <li>GPU: GTX 1050 (4GB)</li>
+              <li>Storage:</li>
+                <ul>
+                  <li>HDD: 1TB</li>
+                </ul>
+              <li>OS: Windows 11</li>
+              <li>Capture Card: Elgato HD60s</li>
+              <li>Benchmark: <a href="https://www.userbenchmark.com/UserRun/21437525">Click Here</a></li>
+            </ul>
+          </p>
+        
       </Container>
     );
   } 
