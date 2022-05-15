@@ -144,7 +144,7 @@ export default function Index() {
       collectionData ? 
       <>
         <Button onClick={() => setOpen((o) => !o)} size="xs" variant="light">
-          show collection (in order of when i added them to my collection):
+          show collection
         </Button>
 
         <Collapse in={opened}>
