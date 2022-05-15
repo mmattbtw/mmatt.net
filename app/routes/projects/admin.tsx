@@ -25,15 +25,17 @@ export default function AdminPageProject() {
 
             <div>
                 <h1>admin page:</h1>
-                <Link to='createproject' prefetch="intent">
-                    <h4>create project</h4>
-                </Link>
-                <Link to='updateproject' prefetch="intent">
-                    <h4>update project</h4>
-                </Link>
-                <Link to='deleteproject' prefetch="intent">
-                    <h4>delete project</h4>
-                </Link>
+                <h4>
+                    <Link to='createproject' prefetch="intent">
+                        create project
+                    </Link>{' '}
+                    <Link to='updateproject' prefetch="intent">
+                        update project
+                    </Link>{' '}
+                    <Link to='deleteproject' prefetch="intent">
+                        delete project
+                    </Link>
+                </h4>
 
                 <Outlet />
             </div> 

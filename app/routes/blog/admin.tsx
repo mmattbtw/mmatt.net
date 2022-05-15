@@ -25,15 +25,17 @@ export default function AdminPageBlog() {
 
             <div>
                 <h1>admin page:</h1>
-                <Link to='createpost' prefetch="intent">
-                    <h4>create post</h4>
-                </Link>
-                <Link to='updatepost' prefetch="intent">
-                    <h4>update post</h4>
-                </Link>
-                <Link to='deletepost' prefetch="intent">
-                    <h4>delete post</h4>
-                </Link>
+                <h4>
+                    <Link to='createpost' prefetch="intent">
+                        create post
+                    </Link>{' '}
+                    <Link to='updatepost' prefetch="intent">
+                        update post
+                    </Link>{' '}
+                    <Link to='deletepost' prefetch="intent">
+                        delete post
+                    </Link>
+                </h4>
 
                 <Outlet />
             </div> 
