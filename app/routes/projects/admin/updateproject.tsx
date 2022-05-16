@@ -36,7 +36,7 @@ export default function updateProjectPage() {
         <Form method="post">
             <p>
                 <label>
-                ID of project to udpate:{" "}
+                ID of project to update:{" "}
                 <TextInput
                     type="text"
                     name="id"

@@ -34,7 +34,7 @@ export default function updatePostPage() {
         <Form method="post">
             <p>
                 <label>
-                ID of post to udpate:{" "}
+                ID of post to update:{" "}
                 <TextInput
                     type="text"
                     name="id"
