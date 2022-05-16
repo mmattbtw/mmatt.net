@@ -25,7 +25,12 @@ export async function deletePost(id: string) {
 }
 
 export async function getPosts() {
-  return prisma.posts.findMany();
+  return prisma.posts.findMany({
+      orderBy: {
+        CreatedAt: "desc",
+      }
+    }
+  );
 }
 
 export async function getPost(slug: string) {

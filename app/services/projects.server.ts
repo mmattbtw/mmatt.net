@@ -25,7 +25,11 @@ export async function deleteProject(id: string) {
 }
 
 export async function getProjects() {
-  return prisma.projects.findMany();
+  return prisma.projects.findMany({
+    orderBy: {
+      CreatedAt: "desc",
+    }
+  });
 }
 
 export async function getProject(slug: string) {
