@@ -36,8 +36,8 @@ export interface ArticleCardImageProps {
   markdown: string,
   slug: string,
   title: string
-  CreatedAt: string,
-  UpdatedAt: string
+  CreatedAt: Date,
+  UpdatedAt: Date
 }
 
 export function PostHeader({ imageUrl, title, category, CreatedAt, UpdatedAt }: ArticleCardImageProps) {

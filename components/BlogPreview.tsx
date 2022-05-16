@@ -41,8 +41,8 @@ export interface ArticleCardImageProps {
   markdown: string,
   slug: string,
   title: string,
-  CreatedAt: string,
-  UpdatedAt: string
+  CreatedAt: Date,
+  UpdatedAt: Date
 }
 
 export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {

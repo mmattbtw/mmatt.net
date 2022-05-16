@@ -37,8 +37,8 @@ export interface ArticleCardImageProps {
   slug: string,
   title: string,
   status: string,
-  CreatedAt: string,
-  UpdatedAt: string,
+  CreatedAt: Date,
+  UpdatedAt: Date,
 }
 
 export function ProjectHeader({ imageUrl, title, category, status, CreatedAt, UpdatedAt }: ArticleCardImageProps) {
