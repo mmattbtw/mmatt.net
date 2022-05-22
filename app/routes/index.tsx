@@ -116,13 +116,15 @@ export default function Index() {
           </Button>
 
           <Collapse in={openedLastFm}>
-            <br />
-
             {lastFmData.topartists.artist.map((artist: any) => {
               return(
-                <a href={artist.url}><li key={artist.mbid} style={{listStyleType: "none"}}>
-                  <p key={artist.mbid}>#{artist['@attr'].rank} {artist.name} ({artist.playcount} plays)</p>
-                </li></a>
+                <li key={artist.mbid} style={{listStyleType: "none"}}>
+                  <p key={artist.mbid}>
+                    <a href={artist.url}>
+                      #{artist['@attr'].rank} {artist.name} ({artist.playcount} plays)
+                    </a>
+                  </p>
+                </li>
               )
             })}
           </Collapse>
