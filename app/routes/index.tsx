@@ -1,6 +1,8 @@
 import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
 import { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from "@remix-run/react";
+import LastFm from '@toplast/lastfm';
+import { IArtist } from '@toplast/lastfm/lib/common/common.interface';
 import { useState } from "react";
 
 interface discogsReturn {
@@ -9,7 +11,8 @@ interface discogsReturn {
     median: string,
     maximum: string,
   } | null,
-  collectionData: any
+  collectionData: any,
+  lastFmData: any,
 }
 
 const globalAny: any = global;
@@ -17,6 +20,8 @@ const globalAny: any = global;
 let cached: discogsReturn = globalAny.DISCOGS_DATA
 
 export async function loader() {
+  const lastFm = new LastFm(`${process.env.LASTFM_API_KEY}`)
+
   if (cached) {
     return cached
   } else {
@@ -25,28 +30,34 @@ export async function loader() {
     }
 
     try {
-        let [collectionValue, collectionData] = await Promise.all([
+        let [collectionValue, collectionData, lastfmData] = await Promise.all([
           fetch("https://api.discogs.com/users/mmattbtw/collection/value", { headers: discogsHeaders }),
-          fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders })
+          fetch("https://api.discogs.com/users/mmattbtw/collection/folders/0/releases?sort=added&sort_order=asc", { headers: discogsHeaders }),
+          lastFm.user.getTopArtists({user: "mmattbtw", limit: 20})
         ])
 
+        // lastfmData.topartists.artist[0].image[3]['#text']
+        
         const collectionValueData = await collectionValue.json()
         const collectionDataData = await collectionData.json()
 
         cached = globalAny.DISCOGS_DATA = {
           collectionValue: collectionValueData,
-          collectionData: collectionDataData
+          collectionData: collectionDataData,
+          lastFmData: lastfmData
         }
 
         return {
           collectionValue: collectionValueData,
-          collectionData: collectionDataData
+          collectionData: collectionDataData,
+          lastFmData: lastfmData
         } as discogsReturn
     }
     catch(FetchError) {
       return {
         collectionValue: null,
-        collectionData: null
+        collectionData: null,
+        lastFmData: null,
       } as discogsReturn
     }
   }
@@ -62,8 +73,9 @@ export const meta: MetaFunction = () => {
 }
 
 export default function Index() {
-  const { collectionValue, collectionData }: discogsReturn = useLoaderData()
+  const { collectionValue, collectionData, lastFmData }: discogsReturn = useLoaderData()
   const [opened, setOpen] = useState(false);
+  const [openedLastFm, setOpenLastFm] = useState(false);
 
   return (
     <Container>
@@ -92,26 +104,31 @@ export default function Index() {
 
       <h2>music</h2>
       <h3>
-        i like to listen to:
+        my top artists
       </h3>
+      <p>all gathered from my <a href="https://last.fm/user/mmattbtw">last.fm profile</a></p>
 
-      <ul>
-        <li>tyler, the creator</li>
-        <li>porter robinson / virtual self</li>
-        <li>madeon</li>
-        <li>kanye west</li>
-        <li>100 gecs</li>
-        <li>food hosue</li>
-        <li>kero kero bonito</li>
-        <li>fraxiom</li>
-        <li>kid cudi</li>
-        <li>charli xcx</li>
-        <li>daft punk</li>
-        <li>magdalena bay</li>
-        <li>baby keem</li>
-        <li>death grips</li>
-        <li><a href="https://last.fm/user/mmattbtw">and way way more</a></li>
-      </ul>
+      {
+        lastFmData ? 
+        <>
+          <Button onClick={() => setOpenLastFm((o) => !o)} size="xs" variant="light">
+            show top artists
+          </Button>
+
+          <Collapse in={openedLastFm}>
+            <br />
+
+            {lastFmData.topartists.artist.map((artist: any) => {
+              return(
+                <a href={artist.url}><li key={artist.mbid} style={{listStyleType: "none"}}>
+                  <p key={artist.mbid}>#{artist['@attr'].rank} {artist.name} ({artist.playcount} plays)</p>
+                </li></a>
+              )
+            })}
+          </Collapse>
+        </>
+      : ""} 
+
       <p>i like to regularly expand my music taste, so if you have any suggestions, let me know!</p>
 
       <h3>
