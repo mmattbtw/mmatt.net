@@ -40,6 +40,17 @@ export default function App() {
           <HeaderSimple links={links}  />
           <Outlet />
           <FooterSocial links={links} />
+          <canvas id="canvas" style={{
+            width: "100%",
+            height: "100%",
+            display: 'absolute',
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            zIndex: -9999
+          }}></canvas>
+
+          <script src="bg.js"></script>
         </MantineTheme>
 
         <ScrollRestoration />
