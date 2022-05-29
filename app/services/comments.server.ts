@@ -8,6 +8,9 @@ export async function getCommentsViaParentId(parentPostId: string) {
         where: {
             parentPostId,
         },
+        include: {
+            user: true,
+        },
         orderBy: {
             CreatedAt: "desc",
         }
@@ -19,6 +22,9 @@ export async function getCommentViaId(id: string) {
         where: {
             id,
         },
+        include: {
+            user: true,
+        }
     });
 }
 
@@ -26,6 +32,9 @@ export async function getUserComments(userId: string) {
     return prisma.comments.findMany({
         where: {
             userId,
+        },
+        include: {
+            user: true,
         },
         orderBy: {
             CreatedAt: "desc",
@@ -36,7 +45,7 @@ export async function getUserComments(userId: string) {
 export async function createComment(
     comment: Pick<
         comments,
-        "id" | "parentPostId" | "userId" | "content"
+        "parentPostId" | "userId" | "content"
     >
 ) {
     return prisma.comments.create({

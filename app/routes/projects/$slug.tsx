@@ -1,7 +1,7 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { ProjectHeader } from "components/ProjectHeader";
+import { ProjectHeader } from "~/components/ProjectHeader";
 import { marked } from "marked";
 import { authenticator } from "~/services/auth.server";
 import { getProjectViaSlug, projects } from "~/services/projects.server";

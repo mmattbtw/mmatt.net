@@ -1,18 +1,24 @@
-import { Container } from "@mantine/core";
-import { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
-import { PostHeader } from "components/PostHeader";
+import { Avatar, Button, Container, Textarea } from "@mantine/core";
+import { showNotification } from "@mantine/notifications";
+import { comments } from "@prisma/client";
+import { ActionFunction, LoaderFunction, MetaFunction, redirect } from "@remix-run/node";
+import { Form, Link, useLoaderData } from "@remix-run/react";
 import { marked } from "marked";
+import Comment from "~/components/Comment";
+import { PostHeader } from "~/components/PostHeader";
 import { authenticator } from "~/services/auth.server";
+import { createComment, getCommentsViaParentId } from "~/services/comments.server";
 import { getPostViaSlug, posts } from "~/services/post.server";
 
 type loaderData = {
   post: posts;
   session: any | null;
+  comments: comments[]
 }
 
 export const loader: LoaderFunction = async ({ params, request }) => {
   const post = await getPostViaSlug(params.slug || "")
+  const comments = await getCommentsViaParentId(post?.id || "")
 
   let session = await authenticator.isAuthenticated(request);
 
@@ -20,8 +26,31 @@ export const loader: LoaderFunction = async ({ params, request }) => {
     session = null
   }
   
-  return { post, session } as loaderData;
+  return { post, session, comments } as loaderData;
 };
+
+export const action: ActionFunction = async ({ request, params }) => {
+  const formData = await request.formData();
+
+  const content = formData.get("comment") as string;
+  const parentPost = await getPostViaSlug(params.slug || "");
+  const parentPostId = parentPost?.id || "";
+  const session = await authenticator.isAuthenticated(request);
+  if (!session) {
+    return redirect("/login");
+  }
+  const userId = session.json.id || "";
+
+  const commentData = {
+    parentPostId,
+    userId,
+    content
+  };
+
+  await createComment(commentData);
+
+  return null;
+}
 
 export const meta: MetaFunction = ({ data, params }) => {
   if (!data) {
@@ -43,7 +72,7 @@ export const meta: MetaFunction = ({ data, params }) => {
 };
 
 export default function BlogItem() {
-  const {post, session} = useLoaderData() as loaderData;
+  const {post, session, comments} = useLoaderData() as loaderData;
   
   const html = marked(post?.markdown.trim() ?? "");
 
@@ -65,6 +94,61 @@ export default function BlogItem() {
       <hr />
 
       <div dangerouslySetInnerHTML={{ __html: html }} />
+
+      <hr />
+
+      <h4>{comments.length} Comments</h4>
+
+      { session ? 
+        <Form method="post" reloadDocument>
+          <p>
+            <label>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: 'wrap',
+                }}
+              >
+                <Avatar radius={'xl'} style={{marginRight: '1rem'}} src={session?.json.profile_image_url} />
+                <Textarea
+                  name="comment"
+                  id="comment"
+                  placeholder="Leave a comment..."
+                  cols={100}
+                  autosize
+                />
+              </div>
+            </label>
+          </p>
+          <p>
+            <Button 
+              type="submit" 
+              size="xs"
+              onClick={
+                () => {
+                  showNotification({
+                    title: "Commenting...",
+                    message: "Your comment is being posted.",
+                    loading: true,
+                  })
+                }
+              }
+            >Comment</Button>
+          </p>
+        </Form>
+        : <> <Link to="/login" prefetch="intent">You must be logged in to comment.</Link> <br/> </>
+      }
+
+      { (comments.length >= 1) ?
+        comments.map(comment => (
+          <>
+            <br />
+            <Comment key={comment.id} {...comment} />
+          </>
+        ))
+        :
+        <p>No comments yet.</p>
+      }
 
     </Container>
   )

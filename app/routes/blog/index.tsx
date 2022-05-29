@@ -1,7 +1,7 @@
 import { Container, Grid } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArticleCardImage, ArticleCardImageProps } from "components/BlogPreview";
+import { ArticleCardImage, ArticleCardImageProps } from "~/components/BlogPreview";
 import { authenticator } from "~/services/auth.server";
 import { getPosts } from "~/services/post.server";
 
