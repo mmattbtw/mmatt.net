@@ -1,6 +1,6 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { ProjectHeader } from "components/ProjectHeader";
 import { marked } from "marked";
 import { authenticator } from "~/services/auth.server";
@@ -54,7 +54,11 @@ export default function ProjectPage() {
       
       {
         session?.json.id === "640348450" ?
-          <h5>id: {project?.id}</h5>
+          <h5>id: {project?.id} |{' '}
+          <Link
+            to={"/projects/admin/edit/" + project.id}
+            prefetch='intent'
+          >edit project</Link></h5>
         :
           ""
       }
