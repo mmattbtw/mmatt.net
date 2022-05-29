@@ -1,0 +1,17 @@
+{
+    "$schema": "https://turborepo.org/schema.json",
+    "baseBranch": "origin/main",
+    "pipeline": {
+      "build": {
+        "dependsOn": ["^build"],
+        "outputs": ["public/**"]
+      },
+      "vercel-build": {
+        "dependsOn": ["^vercel-build"],
+        "outputs": ["public/**"]
+      },
+      "dev": {
+        "cache": false
+      }
+    }
+}
