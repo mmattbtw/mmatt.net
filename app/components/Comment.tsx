@@ -22,7 +22,7 @@ export default function Comment({ CreatedAt, content, user }: any) {
         </div>
       </Group>
       <Text className={classes.body} size="sm">
-        {content}
+        {content.trim()}
       </Text>
     </div>
   );

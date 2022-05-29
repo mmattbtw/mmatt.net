@@ -1,13 +1,12 @@
 import { Avatar, Button, Container, Textarea } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
-import { comments } from "@prisma/client";
 import { ActionFunction, LoaderFunction, MetaFunction, redirect } from "@remix-run/node";
 import { Form, Link, useLoaderData } from "@remix-run/react";
 import { marked } from "marked";
 import Comment from "~/components/Comment";
 import { PostHeader } from "~/components/PostHeader";
 import { authenticator } from "~/services/auth.server";
-import { createComment, getCommentsViaParentId } from "~/services/comments.server";
+import { comments, createComment, getCommentsViaParentId } from "~/services/comments.server";
 import { getPostViaSlug, posts } from "~/services/post.server";
 
 type loaderData = {
@@ -33,6 +32,10 @@ export const action: ActionFunction = async ({ request, params }) => {
   const formData = await request.formData();
 
   const content = formData.get("comment") as string;
+  if (content === "" || content === null) {
+    return redirect("/blog/"  + params.slug);
+  }
+
   const parentPost = await getPostViaSlug(params.slug || "");
   const parentPostId = parentPost?.id || "";
   const session = await authenticator.isAuthenticated(request);
