@@ -1,5 +1,6 @@
 import type { ColorScheme } from "@mantine/core";
 import { ColorSchemeProvider, Global, MantineProvider } from "@mantine/core";
+import { NotificationsProvider } from "@mantine/notifications";
 import type { MetaFunction } from "@remix-run/node";
 import {
   Links,
@@ -36,20 +37,22 @@ export default function App() {
         
         <MantineTheme>
           {}
-          <HeaderSimple links={links}  />
-          <Outlet />
-          <FooterSocial links={links} />
-          <canvas id="canvas" style={{
-            width: "100%",
-            height: "100%",
-            display: 'absolute',
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            zIndex: -9999
-          }}></canvas>
+          <NotificationsProvider>
+            <HeaderSimple links={links}  />
+            <Outlet />
+            <FooterSocial links={links} />
+            <canvas id="canvas" style={{
+              width: "100%",
+              height: "100%",
+              display: 'absolute',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              zIndex: -9999
+            }}></canvas>
 
-          <script src="bg.js"></script>
+            <script src="bg.js"></script>
+          </NotificationsProvider>
         </MantineTheme>
 
         <ScrollRestoration />
