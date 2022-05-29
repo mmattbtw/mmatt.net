@@ -13,6 +13,7 @@ import {
   StrategyVerifyCallback
 } from "remix-auth";
 import { v4 as uuid } from "uuid";
+import { createUser, getUserViaId } from "./user.server";
 
 let debug = createDebug("OAuth2Strategy");
 
@@ -245,6 +246,17 @@ export class OAuth2Strategy<
     }
 
     let json = await response.json();
+    
+    let user = await getUserViaId(json.data[0].id);
+
+    if (!user) {
+      user = await createUser({
+        id: json.data[0].id,
+        username: json.data[0].login,
+        displayName: json.data[0].display_name,
+        profilePicture: json.data[0].profile_image_url,
+      });
+    }
 
     return { provider: "oauth2", json: json.data[0] } as Profile;
   }
