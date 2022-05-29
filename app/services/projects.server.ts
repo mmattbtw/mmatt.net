@@ -32,10 +32,18 @@ export async function getProjects() {
   });
 }
 
-export async function getProject(slug: string) {
+export async function getProjectViaSlug(slug: string) {
   return prisma.projects.findFirst({
     where: {
       slug,
+    },
+  });
+}
+
+export async function getProjectViaId(id: string) {
+  return prisma.projects.findFirst({
+    where: {
+      id,
     },
   });
 }

@@ -51,24 +51,48 @@ export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }:
   return (
     <Link to={slug} prefetch={'intent'} style={{textDecoration: 'none'}}>
         <Paper
+          shadow="md"
+          p="xl"
+          radius="md"
+          sx={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.25)),url(${imageUrl})` }}
+          className={classes.card}
+        >
+          <div>
+              <Text className={classes.category} size="xs">
+                {category} | created: {CreatedAt}
+              </Text>
+              <Title order={3} className={classes.title}>
+                {title}
+              </Title>
+          </div>
+          <Button variant="white" color="dark">
+              Read post
+          </Button>
+        </Paper>
+    </Link>
+  );
+}
+export function ArticleCardImageAdminPage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
+  const { classes } = useStyles();
+  return (
+      <Paper
         shadow="md"
         p="xl"
         radius="md"
         sx={{ backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.81), rgba(0, 0, 0, 0.25)),url(${imageUrl})` }}
         className={classes.card}
-        >
+      >
         <div>
             <Text className={classes.category} size="xs">
-            {category} | created: {CreatedAt}
+              {category} | created: {CreatedAt}
             </Text>
             <Title order={3} className={classes.title}>
-            {title}
+              {title}
             </Title>
         </div>
         <Button variant="white" color="dark">
-            Read post
+            Edit post
         </Button>
-        </Paper>
-    </Link>
+      </Paper>
   );
 }

@@ -2,7 +2,6 @@ import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
 import { MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from "@remix-run/react";
 import LastFm from '@toplast/lastfm';
-import { IArtist } from '@toplast/lastfm/lib/common/common.interface';
 import { useState } from "react";
 
 interface discogsReturn {

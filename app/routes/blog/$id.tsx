@@ -1,10 +1,10 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { PostHeader } from "components/PostHeader";
 import { marked } from "marked";
 import { authenticator } from "~/services/auth.server";
-import { getPost, posts } from "~/services/post.server";
+import { getPostViaSlug, posts } from "~/services/post.server";
 
 type loaderData = {
   post: posts;
@@ -12,7 +12,7 @@ type loaderData = {
 }
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  const post = await getPost(params.id || "")
+  const post = await getPostViaSlug(params.id || "")
 
   let session = await authenticator.isAuthenticated(request);
 
@@ -53,7 +53,11 @@ export default function BlogItem() {
       
       {
         session?.json.id === "640348450" ?
-          <h5>id: {post?.id}</h5>
+          <h5>id: {post?.id} |{' '}
+          <Link 
+            to={"/blog/admin/edit/" + post.id} 
+            prefetch='intent'
+          >edit post</Link></h5>
         :
           ""
       }

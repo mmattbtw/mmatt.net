@@ -1,111 +1,44 @@
-import { Button, Textarea, TextInput } from "@mantine/core";
-import { ActionFunction, redirect } from "@remix-run/node";
-import { Form } from "@remix-run/react";
-import { updateProject } from "~/services/projects.server";
-import { FormActionDataProjects } from "~/types/typings";
+import { Grid } from "@mantine/core";
+import { projects } from "@prisma/client";
+import { LoaderFunction } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
+import { ArticleCardImageAdminPage } from "components/BlogPreview";
+import { getProjects } from "~/services/projects.server";
 
-export const action: ActionFunction = async ({ request }) => {
-    const formData = await request.formData();
-  
-    const title = formData.get("title") as string
-    const category = formData.get("category") as string
-    const imageUrl = formData.get("imageUrl") as string
-    const slug = formData.get("slug") as string
-    const markdown = formData.get("markdown") as string
-    const id = formData.get("id") as string
-    const status = formData.get("status") as string
+type loaderData = {
+    projects: projects[];
+}
 
-    const project: FormActionDataProjects = {
-        category,
-        imageUrl,
-        markdown,
-        slug,
-        title,
-        id,
-        status
-    }
+export const loader: LoaderFunction = async () => {
+    const projects = await getProjects()
 
-    await updateProject(id, project)
-    
-    return redirect("/projects/" + slug);
-  };
+    return { projects: projects } as loaderData;
+};
 
-export default function updateProjectPage() {
+export default function updatePostPage() {
+    const { projects } = useLoaderData() as loaderData;
+
   return (
     <>
-        <Form method="post">
-            <p>
-                <label>
-                ID of project to update:{" "}
-                <TextInput
-                    type="text"
-                    name="id"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Updated Project Title:{" "}
-                <TextInput
-                    type="text"
-                    name="title"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Updated Project Category:{" "}
-                <TextInput
-                    type="text"
-                    name="category"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                 Updated Project Image:{" "}
-                <TextInput
-                    type="text"
-                    name="imageUrl"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Updated Project Slug:{" "}
-                <TextInput
-                    type="text"
-                    name="slug"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Updated Project Status:{" "}
-                <TextInput
-                    type="text"
-                    name="status"
-                />
-                </label>
-            </p>
-            <p>
-                <label htmlFor="markdown">Updated Markdown:</label>
-                <br />
-                <Textarea
-                id="markdown"
-                rows={20}
-                name="markdown"
-                autosize
-                />
-            </p>
-            <p className="text-right">
-                <Button
-                type="submit"
-                >
-                Update Project
-                </Button>
-            </p>
-        </Form>
+        <Grid>
+            {
+                projects.map(project => {
+                    return (
+                        <Link
+                            to={'/projects/admin/edit/' + project.id}
+                            prefetch='intent'
+                            style={{
+                                textDecoration: 'none',
+                            }}
+                        >
+                            <Grid.Col key={project.id}>
+                                <ArticleCardImageAdminPage key={project.slug} {...project} />
+                            </Grid.Col>
+                        </Link>
+                    )
+                })
+            }   
+        </Grid>
     </>
   );
 }

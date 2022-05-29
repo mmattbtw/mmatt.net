@@ -33,10 +33,18 @@ export async function getPosts() {
   );
 }
 
-export async function getPost(slug: string) {
+export async function getPostViaSlug(slug: string) {
   return prisma.posts.findFirst({
     where: {
       slug,
+    },
+  });
+}
+
+export async function getPostViaId(id: string) {
+  return prisma.posts.findFirst({
+    where: {
+      id,
     },
   });
 }

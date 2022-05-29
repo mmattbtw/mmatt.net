@@ -1,11 +1,10 @@
 import { Container } from "@mantine/core";
 import { LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { PostHeader } from "components/PostHeader";
 import { ProjectHeader } from "components/ProjectHeader";
 import { marked } from "marked";
 import { authenticator } from "~/services/auth.server";
-import { getProject, projects } from "~/services/projects.server";
+import { getProjectViaSlug, projects } from "~/services/projects.server";
 
 type loaderData = {
   project: projects;
@@ -13,7 +12,7 @@ type loaderData = {
 }
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  const project = await getProject(params.id || "")
+  const project = await getProjectViaSlug(params.id || "")
 
   let session = await authenticator.isAuthenticated(request);
 

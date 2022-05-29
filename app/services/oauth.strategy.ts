@@ -4,13 +4,13 @@ import {
   AppLoadContext,
   json,
   redirect,
-  SessionStorage,
+  SessionStorage
 } from "@remix-run/node";
 import createDebug from "debug";
 import {
   AuthenticateOptions,
   Strategy,
-  StrategyVerifyCallback,
+  StrategyVerifyCallback
 } from "remix-auth";
 import { v4 as uuid } from "uuid";
 
