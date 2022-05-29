@@ -12,7 +12,6 @@ export const action: ActionFunction = async ({ request }) => {
     const imageUrl = formData.get("imageUrl") as string
     const slug = formData.get("slug") as string
     const markdown = formData.get("markdown") as string
-    const id = formData.get("id") as string
     const status = formData.get("status") as string
 
     const project: FormActionDataProjects = {
@@ -21,7 +20,6 @@ export const action: ActionFunction = async ({ request }) => {
         markdown,
         slug,
         title,
-        id,
         status
     }
 
@@ -76,15 +74,6 @@ export default function createProjectPage() {
                 <TextInput
                     type="text"
                     name="status"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Project ID:{" "}
-                <TextInput
-                    type="text"
-                    name="id"
                 />
                 </label>
             </p>

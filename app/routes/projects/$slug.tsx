@@ -12,7 +12,7 @@ type loaderData = {
 }
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  const project = await getProjectViaSlug(params.id || "")
+  const project = await getProjectViaSlug(params.slug || "")
 
   let session = await authenticator.isAuthenticated(request);
 
@@ -27,7 +27,7 @@ export const meta: MetaFunction = ({ data, params }) => {
   if (!data) {
     return {
       title: "Unknown Project - mmatt.net",
-      description: `There is no project with the ID of ${params.id}.`,
+      description: `There is no project with the slug of ${params.slug}.`,
     };
   }
 

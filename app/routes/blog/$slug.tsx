@@ -12,7 +12,7 @@ type loaderData = {
 }
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-  const post = await getPostViaSlug(params.id || "")
+  const post = await getPostViaSlug(params.slug || "")
 
   let session = await authenticator.isAuthenticated(request);
 
@@ -27,7 +27,7 @@ export const meta: MetaFunction = ({ data, params }) => {
   if (!data) {
     return {
       title: "Unknown Post - mmatt.net",
-      description: `There is no post with the ID of ${params.id}.`,
+      description: `There is no post with the slug of ${params.slug}.`,
     };
   }
 

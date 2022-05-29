@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function createProject(
   post: Pick<
     projects,
-    "category" | "imageUrl" | "markdown" | "slug" | "title" | "id" | "status"
+    "category" | "imageUrl" | "markdown" | "slug" | "title" | "status"
   >
 ) {
   return prisma.projects.create({

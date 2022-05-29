@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function createPost(
   post: Pick<
     posts,
-    "category" | "imageUrl" | "markdown" | "slug" | "title" | "id"
+    "category" | "imageUrl" | "markdown" | "slug" | "title"
   >
 ) {
   return prisma.posts.create({

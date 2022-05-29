@@ -12,7 +12,6 @@ export const action: ActionFunction = async ({ request }) => {
     const imageUrl = formData.get("imageUrl") as string
     const slug = formData.get("slug") as string
     const markdown = formData.get("markdown") as string
-    const id = formData.get("id") as string
 
     const post: FormActionDataBlog = {
         category,
@@ -20,7 +19,6 @@ export const action: ActionFunction = async ({ request }) => {
         markdown,
         slug,
         title,
-        id
     }
 
     await createPost(post)
@@ -34,57 +32,48 @@ export default function createPostPage() {
         <Form method="post">
             <p>
                 <label>
-                Post Title:{" "}
-                <TextInput
-                    type="text"
-                    name="title"
-                />
+                    Post Title:{" "}
+                    <TextInput
+                        type="text"
+                        name="title"
+                    />
                 </label>
             </p>
             <p>
                 <label>
-                Post Category:{" "}
-                <TextInput
-                    type="text"
-                    name="category"
-                />
+                    Post Category:{" "}
+                    <TextInput
+                        type="text"
+                        name="category"
+                    />
                 </label>
             </p>
             <p>
                 <label>
-                Post Image:{" "}
-                <TextInput
-                    type="text"
-                    name="imageUrl"
-                />
+                    Post Image:{" "}
+                    <TextInput
+                        type="text"
+                        name="imageUrl"
+                    />
                 </label>
             </p>
             <p>
                 <label>
-                Post Slug:{" "}
-                <TextInput
-                    type="text"
-                    name="slug"
-                />
-                </label>
-            </p>
-            <p>
-                <label>
-                Post ID:{" "}
-                <TextInput
-                    type="text"
-                    name="id"
-                />
+                    Post Slug:{" "}
+                    <TextInput
+                        type="text"
+                        name="slug"
+                    />
                 </label>
             </p>
             <p>
                 <label htmlFor="markdown">Markdown:</label>
                 <br />
                 <Textarea
-                id="markdown"
-                rows={20}
-                name="markdown"
-                autosize
+                    id="markdown"
+                    rows={20}
+                    name="markdown"
+                    autosize
                 />
             </p>
             <p className="text-right">
