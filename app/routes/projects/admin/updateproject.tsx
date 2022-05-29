@@ -1,9 +1,8 @@
 import { Grid } from "@mantine/core";
-import { projects } from "@prisma/client";
 import { LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { ArticleCardImageAdminPage } from "components/BlogPreview";
-import { getProjects } from "~/services/projects.server";
+import { getProjects, projects } from "~/services/projects.server";
 
 type loaderData = {
     projects: projects[];

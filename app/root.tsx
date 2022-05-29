@@ -7,8 +7,7 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
-  useLoaderData
+  ScrollRestoration
 } from "@remix-run/react";
 import { FooterSocial } from "components/Footer";
 import HeaderSimple from "components/Header";
