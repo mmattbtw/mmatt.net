@@ -23,7 +23,7 @@ export default function Comment({ CreatedAt, content, user }: CommentProps) {
   return (
     <div>
       <Group>
-        <Avatar src={user?.profilePicture} alt={user?.displayName} radius="xl" />
+        <Avatar src={user?.profilePicture} alt={user?.displayName + "'s profile image."} radius="xl" />
         <div>
           <Text size="sm">{user?.displayName}</Text>
           {/* @ts-ignore */}

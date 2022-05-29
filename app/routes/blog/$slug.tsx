@@ -112,7 +112,7 @@ export default function BlogItem() {
                   flexWrap: 'wrap',
                 }}
               >
-                <Avatar radius={'xl'} style={{marginRight: '1rem'}} src={session?.json.profile_image_url} />
+                <Avatar radius={'xl'} style={{marginRight: '1rem'}} alt={session?.json.display_name + "'s profile image."} src={session?.json.profile_image_url} />
                 <Textarea
                   name="comment"
                   id="comment"
