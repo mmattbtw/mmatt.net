@@ -89,6 +89,16 @@ export default function updatePostPage() {
                 </label>
             </p>
             <p>
+                <label>
+                Updated Post Status:{" "}
+                <TextInput
+                    type="text"
+                    name="status"
+                    defaultValue={project?.status || ""}
+                />
+                </label>
+            </p>
+            <p>
                 <label htmlFor="markdown">Updated Markdown:</label>
                 <br />
                 <Textarea

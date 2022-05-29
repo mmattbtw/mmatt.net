@@ -31,7 +31,7 @@ type FormActionDataProjects =
       markdown: string;
       slug: string;
       title: string;
-      id?: string;
+      id: string;
       status: string;
     }
   | undefined;
