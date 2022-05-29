@@ -10,8 +10,8 @@ import {
   Scripts,
   ScrollRestoration
 } from "@remix-run/react";
-import { FooterSocial } from "components/Footer";
-import HeaderSimple from "components/Header";
+import { FooterSocial } from "~/components/Footer";
+import HeaderSimple from "~/components/Header";
 import { useState } from "react";
 
 export const meta: MetaFunction = () => ({

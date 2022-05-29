@@ -1,7 +1,7 @@
 import { Grid } from "@mantine/core";
 import { LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
-import { ArticleCardImageAdminPage } from "components/BlogPreview";
+import { ArticleCardImageAdminPage } from "~/components/BlogPreview";
 import { getProjects, projects } from "~/services/projects.server";
 
 type loaderData = {

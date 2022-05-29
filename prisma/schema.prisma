@@ -33,3 +33,28 @@ model projects {
   CreatedAt DateTime @default(now())
   UpdatedAt DateTime @updatedAt
 }
+
+model User {
+  id             String @id
+  username       String
+  displayName    String
+  profilePicture String
+
+  comments comments[]
+
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+}
+
+model comments {
+  id String @id @default(cuid())
+
+  parentPostId String
+
+  content String
+  userId  String  
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @updatedAt
+}
