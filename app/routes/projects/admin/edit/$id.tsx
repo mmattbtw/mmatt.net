@@ -2,7 +2,6 @@ import { Button, Textarea, TextInput } from '@mantine/core';
 import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { getProjectViaId, projects, updateProject } from '~/services/projects.server';
-import { FormActionDataProjects } from '~/types/typings';
 
 export const action: ActionFunction = async ({ params, request }) => {
     const formData = await request.formData();
@@ -16,7 +15,7 @@ export const action: ActionFunction = async ({ params, request }) => {
 
     const id = params.id as string;
 
-    const project: FormActionDataProjects = {
+    await updateProject(id, {
         category,
         imageUrl,
         markdown,
@@ -24,9 +23,7 @@ export const action: ActionFunction = async ({ params, request }) => {
         title,
         id,
         status,
-    };
-
-    await updateProject(id, project);
+    });
 
     return redirect('/projects/' + slug);
 };
