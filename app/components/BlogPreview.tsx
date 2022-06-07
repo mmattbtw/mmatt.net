@@ -84,6 +84,7 @@ export function ArticleCardImageAdminPage({ imageUrl, title, category, slug, Cre
             className={classes.card}
         >
             <div>
+                {/* @ts-ignore �� */}
                 <Text className={classes.category} size="xs">
                     {category} | created: {CreatedAt}
                 </Text>
