@@ -1,7 +1,7 @@
 import { Button, createStyles, Paper, Text, Title } from '@mantine/core';
 import { Link } from '@remix-run/react';
 import React from 'react';
-import DateFunction from './DateFunction';
+import PrettyDate from './DateFunction';
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -48,7 +48,7 @@ export interface ArticleCardImageProps {
 
 export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
     const { classes } = useStyles();
-    const aboveTitleText = `${category} | created: ${DateFunction({ date: CreatedAt })}`;
+    const aboveTitleText = `${category} | created: ${PrettyDate(CreatedAt)}`;
 
     return (
         <Link to={slug} prefetch={'intent'} style={{ textDecoration: 'none' }}>
@@ -76,7 +76,7 @@ export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }:
 }
 export function ArticleCardImageAdminPage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
     const { classes } = useStyles();
-    const aboveTitleText = `${category} | created: ${DateFunction({ date: CreatedAt })}`;
+    const aboveTitleText = `${category} | created: ${PrettyDate(CreatedAt)}`;
 
     return (
         <Paper

@@ -4,7 +4,7 @@ import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-r
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import Comment from '~/components/Comment';
-import DateFunction from '~/components/DateFunction';
+import PrettyDate from '~/components/DateFunction';
 import { ProjectHeader } from '~/components/ProjectHeader';
 import { authenticator } from '~/services/auth.server';
 import { comments, createComment, getCommentsViaParentId } from '~/services/comments.server';
@@ -66,11 +66,11 @@ export const meta: MetaFunction = ({ data, params }) => {
 
     const { project } = data as loaderData;
     return {
-        description: `${project.title} - ${DateFunction({ date: project.CreatedAt })}`,
+        description: `${project.title} - ${PrettyDate(project.CreatedAt)}`,
         title: `${project.title} - mmatt.net`,
         'twitter:title': `${project.title} - mmatt.net`,
         'twitter:image': project.imageUrl,
-        'twitter:description': `${project.title} - ${DateFunction({ date: project.CreatedAt })}`,
+        'twitter:description': `${project.title} - ${PrettyDate(project.CreatedAt)}`,
         'og:image': project.imageUrl,
     };
 };

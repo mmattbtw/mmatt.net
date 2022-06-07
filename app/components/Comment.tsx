@@ -1,7 +1,7 @@
 import { Avatar, createStyles, Group, Text } from '@mantine/core';
 import { User } from '@prisma/client';
 import React from 'react';
-import DateFunction from './DateFunction';
+import PrettyDate from './DateFunction';
 
 const useStyles = createStyles((theme) => ({
     body: {
@@ -26,7 +26,7 @@ export default function Comment({ CreatedAt, content, user }: CommentProps) {
                 <div>
                     <Text size="sm">{user?.displayName}</Text>
                     <Text size="xs" color="dimmed">
-                        {DateFunction({ date: CreatedAt })}
+                        {PrettyDate(CreatedAt)}
                     </Text>
                 </div>
             </Group>

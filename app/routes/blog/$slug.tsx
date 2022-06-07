@@ -4,7 +4,7 @@ import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-r
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import Comment from '~/components/Comment';
-import DateFunction from '~/components/DateFunction';
+import PrettyDate from '~/components/DateFunction';
 import { PostHeader } from '~/components/PostHeader';
 import { authenticator } from '~/services/auth.server';
 import { comments, createComment, getCommentsViaParentId } from '~/services/comments.server';
@@ -66,11 +66,11 @@ export const meta: MetaFunction = ({ data, params }) => {
 
     const { post } = data as loaderData;
     return {
-        description: `${post.title} - ${DateFunction({ date: post.CreatedAt })}`,
+        description: `${post.title} - ${PrettyDate(post.CreatedAt)}`,
         title: `${post.title} - mmatt.net`,
         'twitter:title': `${post.title} - mmatt.net`,
         'twitter:image': post.imageUrl,
-        'twitter:description': `${post.title} - ${DateFunction({ date: post.CreatedAt })}`,
+        'twitter:description': `${post.title} - ${PrettyDate(post.CreatedAt)}`,
         'og:image': post.imageUrl,
     };
 };

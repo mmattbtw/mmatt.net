@@ -28,6 +28,7 @@ export default function updatePostPage() {
                             style={{
                                 textDecoration: 'none',
                             }}
+                            key={project.id}
                         >
                             <Grid.Col key={project.id}>
                                 <ArticleCardImageAdminPage key={project.slug} {...project} />
