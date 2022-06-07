@@ -2,7 +2,6 @@ import { Button, Textarea, TextInput } from '@mantine/core';
 import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { getPostViaId, posts, updatePost } from '~/services/post.server';
-import { FormActionDataBlog } from '~/types/typings';
 
 export const action: ActionFunction = async ({ params, request }) => {
     const formData = await request.formData();
@@ -14,16 +13,14 @@ export const action: ActionFunction = async ({ params, request }) => {
     const markdown = formData.get('markdown') as string;
     const id = params.id as string;
 
-    const post: FormActionDataBlog = {
+    await updatePost(id, {
         category,
         imageUrl,
         markdown,
         slug,
         title,
         id,
-    };
-
-    await updatePost(id, post);
+    });
 
     return redirect('/blog/' + slug);
 };

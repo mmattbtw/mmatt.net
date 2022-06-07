@@ -1,6 +1,7 @@
 import { Button, createStyles, Paper, Text, Title } from '@mantine/core';
 import { Link } from '@remix-run/react';
 import React from 'react';
+import DateFunction from './DateFunction';
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -47,6 +48,7 @@ export interface ArticleCardImageProps {
 
 export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
     const { classes } = useStyles();
+    const aboveTitleText = `${category} | created: ${DateFunction({ date: CreatedAt })}`;
 
     return (
         <Link to={slug} prefetch={'intent'} style={{ textDecoration: 'none' }}>
@@ -58,9 +60,8 @@ export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }:
                 className={classes.card}
             >
                 <div>
-                    {/* @ts-ignore ratio */}
                     <Text className={classes.category} size="xs">
-                        {category} | created: {CreatedAt}
+                        {aboveTitleText}
                     </Text>
                     <Title order={3} className={classes.title}>
                         {title}
@@ -75,6 +76,8 @@ export function ArticleCardImage({ imageUrl, title, category, slug, CreatedAt }:
 }
 export function ArticleCardImageAdminPage({ imageUrl, title, category, slug, CreatedAt }: ArticleCardImageProps) {
     const { classes } = useStyles();
+    const aboveTitleText = `${category} | created: ${DateFunction({ date: CreatedAt })}`;
+
     return (
         <Paper
             shadow="md"
@@ -84,9 +87,8 @@ export function ArticleCardImageAdminPage({ imageUrl, title, category, slug, Cre
             className={classes.card}
         >
             <div>
-                {/* @ts-ignore �� */}
                 <Text className={classes.category} size="xs">
-                    {category} | created: {CreatedAt}
+                    {aboveTitleText}
                 </Text>
                 <Title order={3} className={classes.title}>
                     {title}

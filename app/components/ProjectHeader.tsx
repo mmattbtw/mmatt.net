@@ -1,5 +1,6 @@
 import { createStyles, Paper, Text, Title } from '@mantine/core';
 import React from 'react';
+import DateFunction from './DateFunction';
 
 const useStyles = createStyles((theme) => ({
     card: {
@@ -43,6 +44,7 @@ export interface ArticleCardImageProps {
 
 export function ProjectHeader({ imageUrl, title, category, status, CreatedAt, UpdatedAt }: ArticleCardImageProps) {
     const { classes } = useStyles();
+    const aboveTitleText = `${category} - ${status} | created: ${DateFunction({ date: CreatedAt })} | updated: ${DateFunction({ date: UpdatedAt })}`;
 
     return (
         <Paper
@@ -54,7 +56,7 @@ export function ProjectHeader({ imageUrl, title, category, status, CreatedAt, Up
         >
             <div>
                 <Text className={classes.category} size="xs">
-                    {category} - {status} | created: {CreatedAt} - updated: {UpdatedAt}
+                    {aboveTitleText}
                 </Text>
                 <Title order={3} className={classes.title}>
                     {title}

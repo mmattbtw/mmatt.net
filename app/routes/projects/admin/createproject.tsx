@@ -2,7 +2,6 @@ import { Button, Textarea, TextInput } from '@mantine/core';
 import { ActionFunction, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { createProject } from '~/services/projects.server';
-import { FormActionDataProjects } from '~/types/typings';
 
 export const action: ActionFunction = async ({ request }) => {
     const formData = await request.formData();
@@ -14,16 +13,14 @@ export const action: ActionFunction = async ({ request }) => {
     const markdown = formData.get('markdown') as string;
     const status = formData.get('status') as string;
 
-    const project: FormActionDataProjects = {
+    await createProject({
+        title,
         category,
         imageUrl,
-        markdown,
         slug,
-        title,
+        markdown,
         status,
-    };
-
-    await createProject(project);
+    });
 
     return redirect('/projects/' + slug);
 };

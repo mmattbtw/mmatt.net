@@ -2,7 +2,6 @@ import { Button, Textarea, TextInput } from '@mantine/core';
 import { ActionFunction, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { createPost } from '~/services/post.server';
-import { FormActionDataBlog } from '~/types/typings';
 
 export const action: ActionFunction = async ({ request }) => {
     const formData = await request.formData();
@@ -13,15 +12,13 @@ export const action: ActionFunction = async ({ request }) => {
     const slug = formData.get('slug') as string;
     const markdown = formData.get('markdown') as string;
 
-    const post: FormActionDataBlog = {
+    await createPost({
         category,
         imageUrl,
         markdown,
         slug,
         title,
-    };
-
-    await createPost(post);
+    });
 
     return redirect('/blog/' + slug);
 };
