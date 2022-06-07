@@ -6,9 +6,9 @@ const prisma = new PrismaClient();
 export async function getUsers() {
     return prisma.user.findMany({
         orderBy: {
-            CreatedAt: "desc",
-        }
-    })
+            CreatedAt: 'desc',
+        },
+    });
 }
 
 export async function getUserViaId(id: string) {
@@ -27,12 +27,7 @@ export async function getUserViaUsername(username: string) {
     });
 }
 
-export async function createUser(
-    user: Pick<
-        User,
-        "id" | "username" | "displayName" | "profilePicture"
-    >
-) {
+export async function createUser(user: Pick<User, 'id' | 'username' | 'displayName' | 'profilePicture'>) {
     return prisma.user.create({
         data: {
             ...user,

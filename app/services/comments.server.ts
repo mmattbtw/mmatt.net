@@ -12,9 +12,9 @@ export async function getCommentsViaParentId(parentPostId: string) {
             user: true,
         },
         orderBy: {
-            CreatedAt: "desc",
-        }
-    })
+            CreatedAt: 'desc',
+        },
+    });
 }
 
 export async function getCommentViaId(id: string) {
@@ -24,7 +24,7 @@ export async function getCommentViaId(id: string) {
         },
         include: {
             user: true,
-        }
+        },
     });
 }
 
@@ -37,17 +37,12 @@ export async function getUserComments(userId: string) {
             user: true,
         },
         orderBy: {
-            CreatedAt: "desc",
-        }
-    })
+            CreatedAt: 'desc',
+        },
+    });
 }
 
-export async function createComment(
-    comment: Pick<
-        comments,
-        "parentPostId" | "userId" | "content"
-    >
-) {
+export async function createComment(comment: Pick<comments, 'parentPostId' | 'userId' | 'content'>) {
     return prisma.comments.create({
         data: {
             ...comment,
