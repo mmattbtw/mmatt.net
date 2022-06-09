@@ -6,6 +6,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import { FooterSocial } from '~/components/Footer';
 import HeaderSimple from '~/components/Header';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export const meta: MetaFunction = () => ({
     charset: 'utf-8',
@@ -35,7 +36,16 @@ export default function App() {
                     {}
                     <NotificationsProvider>
                         <HeaderSimple links={links} />
-                        <Outlet />
+                        <motion.div
+                            initial={{ y: 100, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{
+                                type: 'spring',
+                                delay: 0.1,
+                            }}
+                        >
+                            <Outlet />
+                        </motion.div>
                         <FooterSocial links={links} />
                         <canvas
                             id="canvas"
