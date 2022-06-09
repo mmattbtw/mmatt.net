@@ -51,13 +51,13 @@ export default function ProjectsPage() {
             )}
 
             {projectsExist ? (
-                <Grid>
-                    {allProjects.map((post: ArticleCardImageProps) => (
-                        <Grid.Col key={post.id}>
-                            <ProjectCardImage key={post.slug} {...post} />
-                        </Grid.Col>
-                    ))}
-                </Grid>
+                    <Grid>
+                        {allProjects.map((post: ArticleCardImageProps) => (
+                            <Grid.Col key={post.id}>
+                                <ProjectCardImage key={post.slug} {...post} />
+                            </Grid.Col>
+                        ))}
+                    </Grid>
             ) : (
                 <h2>no projects found!</h2>
             )}
