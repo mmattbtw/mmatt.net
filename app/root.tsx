@@ -3,10 +3,10 @@ import { ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import type { MetaFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { FooterSocial } from '~/components/Footer';
 import HeaderSimple from '~/components/Header';
-import { useState } from 'react';
-import { motion } from 'framer-motion';
 
 export const meta: MetaFunction = () => ({
     charset: 'utf-8',
@@ -29,6 +29,8 @@ export default function App() {
         <html lang="en">
             <head>
                 <Meta />
+                {/* Twitch Chat name color for the 'theme color' (shows on Discord embed only.) */}
+                <meta name="theme-color" content="#F7BEFF" media="not screen" />
                 <Links />
             </head>
             <body>
