@@ -268,6 +268,9 @@ export default function Index() {
                         epic games store (use code matt) - you can also use code matt in the fortnite item shop #EpicPartner
                     </a>
                 </li>
+                <li>
+                    <a href="https://cash.app/app/WHRZRCK">cash app - get $5 cash app balance on signup</a>
+                </li>
             </ul>
             <p style={{ fontStyle: 'italic' }}>
                 All links above are affiliate links that help benefit me, I either get a kickback, or some other perks.
