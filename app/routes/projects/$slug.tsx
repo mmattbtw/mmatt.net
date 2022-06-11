@@ -71,7 +71,11 @@ export const meta: MetaFunction = ({ data, params }) => {
         'twitter:title': `${project.title} - mmatt.net`,
         'twitter:image': project.imageUrl,
         'twitter:description': `${project.title} - ${PrettyDate(project.CreatedAt)}`,
+
         'og:image': project.imageUrl,
+        'og:title': `${project.title} - mmatt.net`,
+        'og:description': `${project.title} - ${PrettyDate(project.CreatedAt)}`,
+        'og:url': `https://mmatt.net/projects/${params.slug}`,
     };
 };
 

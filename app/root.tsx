@@ -12,7 +12,13 @@ export const meta: MetaFunction = () => ({
     charset: 'utf-8',
     title: 'mmatt.net',
     viewport: 'width=device-width,initial-scale=1',
+    'og:title': 'mmatt.net',
+    'og:type': 'website',
+    'og:url': 'https://mmatt.net',
+    'og:image': 'https://mmatt.net/assets/images/mmattDonk.png',
+
     'twitter:creator': '@mmattbtw',
+    'twitter:image': 'https://mmatt.net/assets/images/mmattDonk.png',
     'twitter:site': '@mmattbtw',
     'twitter:card': 'summary',
 });
