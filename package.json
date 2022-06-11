@@ -14,7 +14,7 @@
         "@mantine/hooks": "^4.2.8",
         "@mantine/notifications": "^4.2.8",
         "@mantine/ssr": "^4.2.8",
-        "@prisma/client": "^3.15.0",
+        "@prisma/client": "^3.15.1",
         "@remix-run/node": "^1.5.1",
         "@remix-run/react": "^1.5.1",
         "@remix-run/vercel": "^1.5.1",
@@ -22,6 +22,7 @@
         "@vercel/node": "^2.0.1",
         "debug": "^4.3.4",
         "dompurify": "^2.3.8",
+        "framer-motion": "^6.3.11",
         "jsonwebtoken": "^8.5.1",
         "marked": "^4.0.16",
         "react": "^18.1.0",
@@ -43,7 +44,7 @@
         "@types/uuid": "^8.3.4",
         "eslint": "^8.17.0",
         "eslint-config-mantine": "^1.1.0",
-        "prisma": "^3.15.0",
+        "prisma": "^3.15.1",
         "typescript": "^4.7.3"
     },
     "engines": {

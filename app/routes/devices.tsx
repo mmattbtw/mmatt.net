@@ -21,7 +21,7 @@ export default function DevicesPage() {
                         RAM: 32GB 3200 MHz <a href="https://www.amazon.com/dp/B081XWLQKS">(Corsair Vengence Pro)</a>
                     </li>
                     <li>GPU: RTX 2070</li>
-                    <li>OS: Windows 11</li>
+                    <li>OS: Pop!_OS 22.04 LTS</li>
                     <li>Storage:</li>
                     <ul>
                         <li>NVME: WD_BLACK: 1TB</li>
