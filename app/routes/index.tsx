@@ -67,6 +67,9 @@ export const meta: MetaFunction = () => {
         description: 'mmatt.net/home',
         'twitter:title': '/home - mmatt.net',
         'twitter:description': 'mmatt.net/home',
+        'og:title': '/home - mmatt.net',
+        'og:description': 'mmatt.net/home',
+        'og:url': 'https://mmatt.net/home',
     };
 };
 
