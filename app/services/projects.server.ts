@@ -1,4 +1,4 @@
-import { PrismaClient, projects } from '@prisma/client';
+import { PrismaClient, projects } from '@prisma/client/edge';
 export type { projects };
 
 const prisma = new PrismaClient();

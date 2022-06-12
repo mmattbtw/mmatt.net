@@ -1,5 +1,5 @@
 import { Avatar, createStyles, Group, Text } from '@mantine/core';
-import { User } from '@prisma/client';
+import { User } from '@prisma/client/edge';
 import React from 'react';
 import PrettyDate from './DateFunction';
 
