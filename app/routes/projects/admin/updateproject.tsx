@@ -1,4 +1,3 @@
-import { Grid } from '@mantine/core';
 import { LoaderFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageAdminPage } from '~/components/BlogPreview';
@@ -19,24 +18,21 @@ export default function updatePostPage() {
 
     return (
         <>
-            <Grid>
-                {projects.map((project) => {
-                    return (
-                        <Link
-                            to={'/projects/admin/edit/' + project.id}
-                            prefetch="intent"
-                            style={{
-                                textDecoration: 'none',
-                            }}
-                            key={project.id}
-                        >
-                            <Grid.Col key={project.id}>
-                                <ArticleCardImageAdminPage key={project.slug} {...project} />
-                            </Grid.Col>
-                        </Link>
-                    );
-                })}
-            </Grid>
+            {projects.map((project) => {
+                return (
+                    <Link
+                        to={'/projects/admin/edit/' + project.id}
+                        prefetch="intent"
+                        style={{
+                            textDecoration: 'none',
+                        }}
+                        key={project.id}
+                    >
+                        <br />
+                        <ArticleCardImageAdminPage key={project.slug} {...project} />
+                    </Link>
+                );
+            })}
         </>
     );
 }
