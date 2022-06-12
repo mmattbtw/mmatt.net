@@ -1,4 +1,4 @@
-import { posts, PrismaClient } from '@prisma/client';
+import { posts, PrismaClient } from '@prisma/client/edge';
 export type { posts };
 
 const prisma = new PrismaClient();
