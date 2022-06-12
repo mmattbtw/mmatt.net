@@ -1,5 +1,4 @@
-import type { ColorScheme } from '@mantine/core';
-import { Button, ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
+import { Button, ColorScheme, ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import type { MetaFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
@@ -91,7 +90,7 @@ export default function App() {
                                 right: 0,
                                 marginRight: '10px',
                                 marginBottom: '10px',
-                                opacity: 0.75
+                                opacity: 0.75,
                             }}
                             size="xs"
                             variant="outline"

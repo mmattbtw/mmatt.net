@@ -290,6 +290,13 @@ export default function Index() {
                 this site was made using the wonderful <a href="https://remix.run">remix.js</a> and <a href="https://mantine.dev/">mantine</a>. it's
                 hosted on vercel, and is open sourced here: <a href="https://github.com/mmattbtw/remix-mmatt.net">mmattbtw/remix-mmatt.net</a>.
             </p>
+
+            <h3>what's the deal with the scribbles?</h3>
+            <p>
+                if you took a look at my top artists, you can see that one of my top artists is porter robinson. one of his new aesthetic things with
+                his new album 'nurture' are these cool scribbles that i think look nice. anyways i pretty much just stole the idea and worked it into
+                my website. sorry nature boy but mr. mmattbtw has stolen your funny little scribbles for his website
+            </p>
         </Container>
     );
 }
