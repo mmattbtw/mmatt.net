@@ -1,5 +1,5 @@
 import type { ColorScheme } from '@mantine/core';
-import { ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
+import { Button, ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import type { MetaFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
@@ -7,6 +7,19 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FooterSocial } from '~/components/Footer';
 import HeaderSimple from '~/components/Header';
+
+function toggleScribbles() {
+    var x = document.getElementById('canvas');
+    if (x) {
+        if (x.style.display === 'none') {
+            x.style.display = 'block';
+        } else {
+            x.style.display = 'none';
+        }
+    } else {
+        return;
+    }
+}
 
 export const meta: MetaFunction = () => ({
     charset: 'utf-8',
@@ -69,6 +82,22 @@ export default function App() {
                         ></canvas>
 
                         <script src="bg.js"></script>
+
+                        <Button
+                            onClick={() => toggleScribbles()}
+                            style={{
+                                position: 'fixed',
+                                bottom: 0,
+                                right: 0,
+                                marginRight: '10px',
+                                marginBottom: '10px',
+                                opacity: 0.75
+                            }}
+                            size="xs"
+                            variant="outline"
+                        >
+                            Toggle Scribbles
+                        </Button>
                     </NotificationsProvider>
                 </MantineTheme>
 
