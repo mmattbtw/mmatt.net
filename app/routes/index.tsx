@@ -231,6 +231,12 @@ export default function Index() {
                 ''
             )}
 
+            <h2>socials</h2>
+            <p>
+                all of my socials are available on <a href="https://mm.omg.lol">mm.omg.lol</a>. i don't list them all here because they aren't always
+                going to be up to date, and my omg.lol page is much easier to just link everywhere and update, and it updates accross all platforms.
+            </p>
+
             <h2>contact</h2>
             <p>
                 formal contact can be done over <a href="https://mmatt.link/email">email</a>
