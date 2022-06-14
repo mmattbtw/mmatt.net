@@ -1,5 +1,5 @@
 import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
-import { MetaFunction } from '@remix-run/node';
+import { json, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import LastFm from '@toplast/lastfm';
 import { useState } from 'react';
@@ -18,11 +18,12 @@ const globalAny: any = global;
 
 let cached: discogsReturn = globalAny.DISCOGS_DATA;
 
+// I HATE THIS, ITS SLOW AN INEFFICIENT (AT LEAST ON VERCEL) MAYBE EDGE FUNCTION MOMENT? IDK
 export async function loader() {
     const lastFm = new LastFm(`${process.env.LASTFM_API_KEY}`);
 
     if (cached) {
-        return cached;
+        return json(cached);
     } else {
         const discogsHeaders = {
             Authorization: `Discogs token=${process.env.DISCOGS_TOKEN}`,
@@ -35,10 +36,7 @@ export async function loader() {
                 lastFm.user.getTopArtists({ user: 'mmattbtw', limit: 20 }),
             ]);
 
-            // lastfmData.topartists.artist[0].image[3]['#text']
-
-            const collectionValueData = await collectionValue.json();
-            const collectionDataData = await collectionData.json();
+            let [collectionValueData, collectionDataData] = await Promise.all([collectionValue.json(), collectionData.json()]);
 
             cached = globalAny.DISCOGS_DATA = {
                 collectionValue: collectionValueData,
@@ -46,17 +44,17 @@ export async function loader() {
                 lastFmData: lastfmData,
             };
 
-            return {
+            return json({
                 collectionValue: collectionValueData,
                 collectionData: collectionDataData,
                 lastFmData: lastfmData,
-            } as discogsReturn;
+            });
         } catch (FetchError) {
-            return {
+            return json({
                 collectionValue: null,
                 collectionData: null,
                 lastFmData: null,
-            } as discogsReturn;
+            });
         }
     }
 }
@@ -101,7 +99,7 @@ export default function Index() {
             </p>
             <p>
                 you can learn more about my other projects over at{' '}
-                <Link to={'/projects'} prefetch={'intent'}>
+                <Link to="/projects" prefetch="intent">
                     /projects
                 </Link>
             </p>
@@ -112,13 +110,13 @@ export default function Index() {
             </p>
 
             <h2>music</h2>
-            <h3>my top artists</h3>
-            <p>
-                all gathered from my <a href="https://last.fm/user/mmattbtw">last.fm profile</a>
-            </p>
 
             {lastFmData ? (
                 <>
+                    <h3>my top artists</h3>
+                    <p>
+                        all gathered from my <a href="https://last.fm/user/mmattbtw">last.fm profile</a>
+                    </p>
                     <Button onClick={() => setOpenLastFm((o) => !o)} size="xs" variant="light">
                         show top artists
                     </Button>
@@ -138,7 +136,10 @@ export default function Index() {
                     </Collapse>
                 </>
             ) : (
-                ''
+                <p>
+                    usually my top artists render here, but it seems like it hasn't so go check out my{' '}
+                    <a href="https://last.fm/user/mmattbtw">last.fm profile!</a>
+                </p>
             )}
 
             <p>i like to regularly expand my music taste, so if you have any suggestions, let me know!</p>
@@ -182,9 +183,17 @@ export default function Index() {
 
             <h3>my vinyl record collection</h3>
             <p>
-                i own quite a bit of vinyl records, and i add things to my collection all the time. according to{' '}
-                <a href="https://www.discogs.com/user/mmattbtw">discogs</a> i have a median collection value of{' '}
-                {collectionValue ? collectionValue.median : '???'}
+                i own quite a bit of vinyl records, and i add things to my collection all the time. so check out my{' '}
+                <a href="https://discogs.com/user/mmattbtw">discogs!</a>
+                {collectionValue ? (
+                    <>
+                        <br />
+                        according to <a href="https://www.discogs.com/user/mmattbtw">discogs</a> i have a median collection value of{' '}
+                        {collectionValue.median}
+                    </>
+                ) : (
+                    ''
+                )}
             </p>
 
             {collectionData ? (
@@ -207,7 +216,7 @@ export default function Index() {
                                                     src={release.basic_information.cover_image}
                                                     height={100}
                                                     fit={'contain'}
-                                                    alt={`picture of the album cover for ${release.basic_information.title}`}
+                                                    alt={`the album cover for ${release.basic_information.title}`}
                                                 />
                                             </Grid.Col>
                                             <Grid.Col span={4}>
