@@ -23,7 +23,7 @@ jobs:
                   node-version: 16
 
             - name: Install Node.js dependencies
-              run: npm i -G pnpm && pnpm i
+              run: npm i prettier
 
             - name: Run linters
               uses: wearerequired/lint-action@v1
