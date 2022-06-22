@@ -1,5 +1,5 @@
 import { Container } from '@mantine/core';
-import { MetaFunction } from '@remix-run/node';
+import { MetaFunction } from '@remix-run/cloudflare';
 
 export const meta: MetaFunction = () => {
     return {

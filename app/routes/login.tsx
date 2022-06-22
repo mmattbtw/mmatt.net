@@ -1,5 +1,5 @@
 import { Button, Container } from '@mantine/core';
-import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
+import { ActionFunction, json, LoaderFunction } from '@remix-run/cloudflare';
 import { Form, useLoaderData } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
 import { sessionStorage } from '~/services/session.server';

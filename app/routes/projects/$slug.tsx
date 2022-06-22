@@ -1,6 +1,6 @@
 import { Avatar, Button, Container, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-run/node';
+import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-run/cloudflare';
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import Comment from '~/components/Comment';

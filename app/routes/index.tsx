@@ -1,5 +1,5 @@
 import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
-import { json, MetaFunction } from '@remix-run/node';
+import { json, MetaFunction } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
 import LastFm from '@toplast/lastfm';
 import { useState } from 'react';
@@ -39,6 +39,7 @@ export async function loader() {
             let [collectionValueData, collectionDataData] = await Promise.all([collectionValue.json(), collectionData.json()]);
 
             cached = globalAny.DISCOGS_DATA = {
+                // @ts-ignore
                 collectionValue: collectionValueData,
                 collectionData: collectionDataData,
                 lastFmData: lastfmData,

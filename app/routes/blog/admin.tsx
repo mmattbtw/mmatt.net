@@ -1,5 +1,5 @@
 import { Container, Image } from '@mantine/core';
-import { LoaderFunction, redirect } from '@remix-run/node';
+import { LoaderFunction, redirect } from '@remix-run/cloudflare';
 import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
 import { sessionType } from '~/types/typings';

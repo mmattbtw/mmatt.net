@@ -1,6 +1,6 @@
 // HOLY WIDEHARDO THANKS AURO LOLOL
 
-import { AppLoadContext, json, redirect, SessionStorage } from '@remix-run/node';
+import { AppLoadContext, json, redirect, SessionStorage } from '@remix-run/cloudflare';
 import createDebug from 'debug';
 import { AuthenticateOptions, Strategy, StrategyVerifyCallback } from 'remix-auth';
 import { v4 as uuid } from 'uuid';
@@ -221,17 +221,23 @@ export class OAuth2Strategy<
 
         let json = await response.json();
 
+        // @ts-ignore
         let user = await getUserViaId(json.data[0].id);
 
         if (!user) {
             user = await createUser({
+                // @ts-ignore
                 id: json.data[0].id,
+                // @ts-ignore
                 username: json.data[0].login,
+                // @ts-ignore
                 displayName: json.data[0].display_name,
+                // @ts-ignore
                 profilePicture: json.data[0].profile_image_url,
             });
         }
 
+        // @ts-ignore
         return { provider: 'oauth2', json: json.data[0] } as Profile;
     }
 
@@ -267,6 +273,7 @@ export class OAuth2Strategy<
         extraParams: ExtraParams;
     }> {
         let { access_token, refresh_token, ...extraParams } = await response.json();
+        // @ts-ignore
         return {
             accessToken: access_token as string,
             refreshToken: refresh_token as string,

@@ -1,5 +1,5 @@
 import { Button, Textarea, TextInput } from '@mantine/core';
-import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
+import { ActionFunction, LoaderFunction, redirect } from '@remix-run/cloudflare';
 import { Form, useLoaderData } from '@remix-run/react';
 import { getPostViaId, posts, updatePost } from '~/services/post.server';
 

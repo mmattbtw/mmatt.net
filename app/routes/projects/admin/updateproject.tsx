@@ -1,4 +1,4 @@
-import { LoaderFunction } from '@remix-run/node';
+import { LoaderFunction } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageAdminPage } from '~/components/BlogPreview';
 import { getProjects, projects } from '~/services/projects.server';

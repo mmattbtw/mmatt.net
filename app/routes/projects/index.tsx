@@ -1,5 +1,5 @@
 import { Container, Grid } from '@mantine/core';
-import { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { LoaderFunction, MetaFunction } from '@remix-run/cloudflare';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageProps, ProjectCardImage } from '~/components/ProjectPreview';
 import { authenticator } from '~/services/auth.server';

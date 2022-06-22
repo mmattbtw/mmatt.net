@@ -1,6 +1,6 @@
 import { Button, ColorScheme, ColorSchemeProvider, Global, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
-import type { MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from '@remix-run/cloudflare';
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
