@@ -55,18 +55,18 @@ export default function App() {
                 <MantineTheme>
                     {}
                     <NotificationsProvider>
-                        <HeaderSimple links={links} />
                         <motion.div
-                            initial={{ y: 100, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
                             transition={{
-                                type: 'spring',
+                                type: 'tween',
                                 delay: 0.1,
                             }}
                         >
+                            <HeaderSimple links={links} />
                             <Outlet />
+                            <FooterSocial links={links} />
                         </motion.div>
-                        <FooterSocial links={links} />
                         <canvas
                             id="canvas"
                             style={{
