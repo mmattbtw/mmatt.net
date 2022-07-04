@@ -14,11 +14,12 @@ export const action: ActionFunction = async ({ request, context }) => {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
-    await authenticator.isAuthenticated(request, {
-        successRedirect: '/',
-    });
-
-    const session = await sessionStorage.getSession(request.headers.get('Cookie'));
+    let [_, session] = await Promise.all([
+        authenticator.isAuthenticated(request, {
+            successRedirect: '/',
+        }),
+        sessionStorage.getSession(request.headers.get('Cookie')),
+    ]);
 
     const error = session.get('sessionErrorKey');
     return json<any>({ error });

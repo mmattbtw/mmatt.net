@@ -17,10 +17,8 @@ type loaderData = {
 };
 
 export const loader: LoaderFunction = async ({ params, request }) => {
-    const post = await getPostViaSlug(params.slug || '');
+    let [post, session] = await Promise.all([getPostViaSlug(params.slug || ''), authenticator.isAuthenticated(request)]);
     const comments = await getCommentsViaParentId(post?.id || '');
-
-    let session = await authenticator.isAuthenticated(request);
 
     if (!session) {
         session = null;
@@ -37,12 +35,14 @@ export const action: ActionFunction = async ({ request, params }) => {
         return redirect('/blog/' + params.slug);
     }
 
-    const parentPost = await getPostViaSlug(params.slug || '');
-    const parentPostId = parentPost?.id || '';
     const session = await authenticator.isAuthenticated(request);
     if (!session) {
         return redirect('/login');
     }
+
+    const parentPost = await getPostViaSlug(params.slug || '');
+
+    const parentPostId = parentPost?.id || '';
     const userId = session.json.id || '';
 
     const commentData = {
