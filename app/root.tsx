@@ -80,7 +80,7 @@ export default function App() {
                             }}
                         ></canvas>
 
-                        <script src="bg.js"></script>
+                        <script src="/bg.js"></script>
 
                         <Button
                             onClick={() => toggleScribbles()}
