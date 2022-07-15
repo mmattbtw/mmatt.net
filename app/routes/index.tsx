@@ -144,6 +144,21 @@ export default function Index() {
 
             <p>i like to regularly expand my music taste, so if you have any suggestions, let me know!</p>
 
+            <h3>my playlist</h3>
+            <p>
+                i mainly used spotify's "liked songs" as my main playlist, but you can't make that public so the playlist below is a regularly updated
+                mirror of it, enjoy, or don't :^)
+            </p>
+
+            <iframe
+                style={{ borderRadius: '12px' }}
+                src="https://open.spotify.com/embed/playlist/078j7sfJjY3CKgsf005R2V?utm_source=generator"
+                width="100%"
+                height="380"
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            ></iframe>
+
             <h3>required listening</h3>
             <p>these songs are too good to pass up on.</p>
 
