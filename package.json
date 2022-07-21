@@ -10,6 +10,8 @@
         "vercel-build": "prisma generate --data-proxy && remix build"
     },
     "dependencies": {
+        "@liveblocks/client": "^0.17.6",
+        "@liveblocks/react": "^0.17.6",
         "@mantine/core": "^4.2.8",
         "@mantine/hooks": "^4.2.8",
         "@mantine/notifications": "^4.2.8",
