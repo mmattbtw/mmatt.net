@@ -2,9 +2,9 @@ import { Button, Collapse, Container, Grid, Image } from '@mantine/core';
 import { json, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import LastFm from '@toplast/lastfm';
-import { useMyPresence, useOthers } from '~/liveblocks.config';
 import { useState } from 'react';
 import Cursor from '~/components/Cursor';
+import { useMyPresence, useOthers } from '~/liveblocks.config';
 
 interface discogsReturn {
     collectionValue: {
@@ -347,6 +347,19 @@ export default function Index() {
                     it into my website. sorry nature boy but mr. mmattbtw has stolen your funny little scribbles for his website
                 </p>
             </Container>
+
+            <p
+                style={{
+                    position: 'fixed',
+                    bottom: 0,
+                    right: 0,
+                    marginRight: '10px',
+                    marginBottom: '40px',
+                    opacity: 0.75,
+                }}
+            >
+                {others.count} {others.count == 1 ? 'other' : 'others'}.
+            </p>
 
             {
                 /**
