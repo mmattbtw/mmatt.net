@@ -8,7 +8,7 @@ export default function Cursor({ color, x, y }: Props) {
     return (
         <svg
             style={{
-                position: 'absolute',
+                position: 'fixed',
                 left: 0,
                 top: 0,
                 transition: 'transform 120ms linear',
