@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FooterSocial } from '~/components/Footer';
 import HeaderSimple from '~/components/Header';
+import { RoomProvider } from '~/liveblocks.config';
 
 function toggleScribbles() {
     var x = document.getElementById('canvas');
@@ -52,57 +53,64 @@ export default function App() {
                 <Links />
             </head>
             <body>
-                <MantineTheme>
-                    {}
-                    <NotificationsProvider>
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{
-                                type: 'tween',
-                                delay: 0.1,
-                            }}
-                        >
-                            <HeaderSimple links={links} />
-                            <Outlet />
-                            <FooterSocial links={links} />
-                        </motion.div>
-                        <canvas
-                            id="canvas"
-                            style={{
-                                width: '100%',
-                                height: '100%',
-                                display: 'absolute',
-                                position: 'fixed',
-                                top: 0,
-                                left: 0,
-                                zIndex: -9999,
-                            }}
-                        ></canvas>
+                <RoomProvider
+                    id="mmatt-net"
+                    initialPresence={{
+                        cursor: null,
+                    }}
+                >
+                    <MantineTheme>
+                        {}
+                        <NotificationsProvider>
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{
+                                    type: 'tween',
+                                    delay: 0.1,
+                                }}
+                            >
+                                <HeaderSimple links={links} />
+                                <Outlet />
+                                <FooterSocial links={links} />
+                            </motion.div>
+                            <canvas
+                                id="canvas"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    display: 'absolute',
+                                    position: 'fixed',
+                                    top: 0,
+                                    left: 0,
+                                    zIndex: -9999,
+                                }}
+                            ></canvas>
 
-                        <script src="/bg.js"></script>
+                            <script src="/bg.js"></script>
 
-                        <Button
-                            onClick={() => toggleScribbles()}
-                            style={{
-                                position: 'fixed',
-                                bottom: 0,
-                                right: 0,
-                                marginRight: '10px',
-                                marginBottom: '10px',
-                                opacity: 0.75,
-                            }}
-                            size="xs"
-                            variant="outline"
-                        >
-                            Toggle Scribbles
-                        </Button>
-                    </NotificationsProvider>
-                </MantineTheme>
+                            <Button
+                                onClick={() => toggleScribbles()}
+                                style={{
+                                    position: 'fixed',
+                                    bottom: 0,
+                                    right: 0,
+                                    marginRight: '10px',
+                                    marginBottom: '10px',
+                                    opacity: 0.75,
+                                }}
+                                size="xs"
+                                variant="outline"
+                            >
+                                Toggle Scribbles
+                            </Button>
+                        </NotificationsProvider>
+                    </MantineTheme>
 
-                <ScrollRestoration />
-                <Scripts />
-                <LiveReload />
+                    <ScrollRestoration />
+                    <Scripts />
+                    <LiveReload />
+                </RoomProvider>
             </body>
         </html>
     );

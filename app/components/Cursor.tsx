@@ -14,6 +14,7 @@ export default function Cursor({ color, x, y }: Props) {
                 transition: 'transform 120ms linear',
                 transform: `translateX(${x}px) translateY(${y}px)`,
                 zIndex: -9998,
+                opacity: 0.25,
             }}
             width="24"
             height="36"
