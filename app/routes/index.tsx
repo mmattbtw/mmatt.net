@@ -78,6 +78,7 @@ export default function Index() {
     const { collectionValue, collectionData, lastFmData } = useLoaderData<typeof loader>();
     const [opened, setOpen] = useState(false);
     const [openedLastFm, setOpenLastFm] = useState(false);
+    const [openedSupport, setOpenSupport] = useState(false);
 
     const [{ cursor }, updateMyPresence] = useMyPresence();
     const others = useOthers();
@@ -104,16 +105,6 @@ export default function Index() {
             <Container>
                 <h1>/home</h1>
 
-                <h2>support these links below</h2>
-                <ul>
-                    <li>
-                        <a href={'https://blacklivesmatters.carrd.co/'}>black lives matter</a>
-                    </li>
-                    <li>
-                        <a href={'https://anti-asianviolenceresources.carrd.co/'}>stop aapi hate</a>
-                    </li>
-                </ul>
-
                 <h2>about me</h2>
                 <p>
                     i sometimes stream video games (and programming) on my <a href="https://twitch.tv/mmattbtw">twitch</a>.
@@ -132,6 +123,21 @@ export default function Index() {
                     i enjoy collecting vinyl records, and i enjoy listening to music, in the next section, you will see some of the artists i like to
                     listen to!
                 </p>
+
+                <Button onClick={() => setOpenSupport((o) => !o)} size="xs" variant="light">
+                    things i encourage supporting:
+                </Button>
+                <Collapse in={openedSupport}>
+                    <h2>support these links below</h2>
+                    <ul>
+                        <li>
+                            <a href={'https://blacklivesmatters.carrd.co/'}>black lives matter</a>
+                        </li>
+                        <li>
+                            <a href={'https://anti-asianviolenceresources.carrd.co/'}>stop aapi hate</a>
+                        </li>
+                    </ul>
+                </Collapse>
 
                 <h2>music</h2>
 
