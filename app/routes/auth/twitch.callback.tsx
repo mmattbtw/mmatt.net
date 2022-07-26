@@ -1,9 +1,9 @@
-import { LoaderFunction } from '@remix-run/node';
+import { LoaderArgs } from '@remix-run/node';
 import { authenticator } from '~/services/auth.server';
 
-export let loader: LoaderFunction = ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
     return authenticator.authenticate('oauth2', request, {
         successRedirect: '/',
         failureRedirect: '/login',
     });
-};
+}

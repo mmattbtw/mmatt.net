@@ -1,5 +1,4 @@
 import { createStyles, Paper, Text, Title } from '@mantine/core';
-import React from 'react';
 import PrettyDate from './DateFunction';
 
 const useStyles = createStyles((theme) => ({
@@ -37,8 +36,8 @@ export interface ArticleCardImageProps {
     markdown: string;
     slug: string;
     title: string;
-    CreatedAt: Date;
-    UpdatedAt: Date;
+    CreatedAt: Date | string;
+    UpdatedAt: Date | string;
 }
 
 export function PostHeader({ imageUrl, title, category, CreatedAt, UpdatedAt }: ArticleCardImageProps) {

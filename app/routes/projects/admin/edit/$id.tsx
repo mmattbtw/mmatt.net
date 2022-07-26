@@ -1,9 +1,9 @@
 import { Button, Textarea, TextInput } from '@mantine/core';
-import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
+import { ActionArgs, json, LoaderArgs, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import { getProjectViaId, projects, updateProject } from '~/services/projects.server';
+import { getProjectViaId, updateProject } from '~/services/projects.server';
 
-export const action: ActionFunction = async ({ params, request }) => {
+export async function action({ params, request }: ActionArgs) {
     const formData = await request.formData();
 
     const title = formData.get('title') as string;
@@ -26,20 +26,16 @@ export const action: ActionFunction = async ({ params, request }) => {
     });
 
     return redirect('/projects/' + slug);
-};
+}
 
-export const loader: LoaderFunction = async ({ params }) => {
+export async function loader({ params }: LoaderArgs) {
     const project = await getProjectViaId(params.id || '');
 
-    return { project: project } as loaderData;
-};
-
-type loaderData = {
-    project: projects | null;
-};
+    return json({ project: project });
+}
 
 export default function updatePostPage() {
-    const { project: project } = useLoaderData() as loaderData;
+    const { project: project } = useLoaderData<typeof loader>();
 
     return (
         <>

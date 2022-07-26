@@ -1,5 +1,5 @@
 import { Container, Grid } from '@mantine/core';
-import { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { json, LoaderArgs, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImage, ArticleCardImageProps } from '~/components/BlogPreview';
 import { authenticator } from '~/services/auth.server';
@@ -8,7 +8,7 @@ import { getPosts } from '~/services/post.server';
 const globalAny: any = global;
 let cached: any = globalAny.POSTS_DATA;
 
-export let loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
     let session = await authenticator.isAuthenticated(request);
 
     if (!session) {
@@ -16,16 +16,16 @@ export let loader: LoaderFunction = async ({ request }) => {
     }
 
     if (cached) {
-        return {
+        return json({
             allPosts: cached,
             session,
-        };
+        });
     } else {
         const allPosts = await getPosts();
 
-        return { allPosts, session };
+        return json({ allPosts, session });
     }
-};
+}
 
 export const meta: MetaFunction = () => {
     return {
@@ -35,7 +35,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function BlogPage() {
-    const { allPosts, session } = useLoaderData();
+    const { allPosts, session } = useLoaderData<typeof loader>();
 
     const postsExist = allPosts.length > 0;
 

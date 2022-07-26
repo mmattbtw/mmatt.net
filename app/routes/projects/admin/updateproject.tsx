@@ -1,20 +1,16 @@
-import { LoaderFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageAdminPage } from '~/components/BlogPreview';
-import { getProjects, projects } from '~/services/projects.server';
+import { getProjects } from '~/services/projects.server';
 
-type loaderData = {
-    projects: projects[];
-};
-
-export const loader: LoaderFunction = async () => {
+export async function loader() {
     const projects = await getProjects();
 
-    return { projects: projects } as loaderData;
-};
+    return json({ projects: projects });
+}
 
 export default function updatePostPage() {
-    const { projects } = useLoaderData() as loaderData;
+    const { projects } = useLoaderData<typeof loader>();
 
     return (
         <>

@@ -1,6 +1,6 @@
 import { Avatar, Button, Container, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-run/node';
+import { ActionArgs, json, LoaderArgs, MetaFunction, redirect } from '@remix-run/node';
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import Comment from '~/components/Comment';
@@ -16,7 +16,7 @@ type loaderData = {
     comments: comments[];
 };
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export async function loader({ params, request }: LoaderArgs) {
     let [project, session] = await Promise.all([getProjectViaSlug(params.slug || ''), authenticator.isAuthenticated(request)]);
 
     const comments = await getCommentsViaParentId(project?.id || '');
@@ -25,10 +25,10 @@ export const loader: LoaderFunction = async ({ params, request }) => {
         session = null;
     }
 
-    return { project, session, comments } as unknown as loaderData;
-};
+    return json({ project, session, comments }) as unknown as loaderData;
+}
 
-export const action: ActionFunction = async ({ request, params }) => {
+export async function action({ request, params }: ActionArgs) {
     const session = await authenticator.isAuthenticated(request);
     if (!session) {
         return redirect('/login');
@@ -54,7 +54,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     await createComment(commentData);
 
     return null;
-};
+}
 
 export const meta: MetaFunction = ({ data, params }) => {
     if (!data) {
@@ -80,9 +80,17 @@ export const meta: MetaFunction = ({ data, params }) => {
 };
 
 export default function ProjectPage() {
-    const { project, session, comments } = useLoaderData() as loaderData;
+    const { project, session, comments } = useLoaderData<typeof loader>();
 
     const html = marked(project?.markdown.trim() ?? '');
+
+    if (!project) {
+        return (
+            <Container>
+                <h1>Unknown Project</h1>
+            </Container>
+        );
+    }
 
     return (
         <Container>

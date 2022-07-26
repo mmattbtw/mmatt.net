@@ -1,6 +1,6 @@
 import { Avatar, Button, Container, Textarea } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { ActionFunction, LoaderFunction, MetaFunction, redirect } from '@remix-run/node';
+import { ActionArgs, json, LoaderArgs, MetaFunction, redirect } from '@remix-run/node';
 import { Form, Link, useLoaderData } from '@remix-run/react';
 import { marked } from 'marked';
 import Comment from '~/components/Comment';
@@ -16,7 +16,7 @@ type loaderData = {
     comments: comments[];
 };
 
-export const loader: LoaderFunction = async ({ params, request }) => {
+export async function loader({ params, request }: LoaderArgs) {
     let [post, session] = await Promise.all([getPostViaSlug(params.slug || ''), authenticator.isAuthenticated(request)]);
     const comments = await getCommentsViaParentId(post?.id || '');
 
@@ -24,10 +24,10 @@ export const loader: LoaderFunction = async ({ params, request }) => {
         session = null;
     }
 
-    return { post, session, comments } as loaderData;
-};
+    return json({ post, session, comments });
+}
 
-export const action: ActionFunction = async ({ request, params }) => {
+export async function action({ request, params }: ActionArgs) {
     const formData = await request.formData();
 
     const content = formData.get('comment') as string;
@@ -54,7 +54,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     await createComment(commentData);
 
     return null;
-};
+}
 
 export const meta: MetaFunction = ({ data, params }) => {
     if (!data) {
@@ -79,9 +79,17 @@ export const meta: MetaFunction = ({ data, params }) => {
 };
 
 export default function BlogItem() {
-    const { post, session, comments } = useLoaderData() as loaderData;
+    const { post, session, comments } = useLoaderData<typeof loader>();
 
     const html = marked(post?.markdown.trim() ?? '');
+
+    if (!post) {
+        return (
+            <Container>
+                <h1>Unknown Post</h1>
+            </Container>
+        );
+    }
 
     return (
         <Container>
@@ -156,6 +164,7 @@ export default function BlogItem() {
                 comments.map((comment) => (
                     <>
                         <br />
+                        {/* @ts-ignore user createdat posts are 1000% Date types. */}
                         <Comment key={comment.id} {...comment} />
                     </>
                 ))

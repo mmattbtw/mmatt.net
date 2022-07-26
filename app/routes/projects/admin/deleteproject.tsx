@@ -1,30 +1,26 @@
 import { Button, TextInput } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
+import { ActionArgs, json, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import { deleteProject, getProjects, projects } from '~/services/projects.server';
+import { deleteProject, getProjects } from '~/services/projects.server';
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
     const formData = await request.formData();
 
     const id = formData.get('id') as string;
     await deleteProject(id);
 
     return redirect('/projects');
-};
+}
 
-type loaderType = {
-    projects: projects[];
-};
-
-export const loader: LoaderFunction = async () => {
+export async function loader() {
     const projects = await getProjects();
 
-    return { projects } as loaderType;
-};
+    return json({ projects });
+}
 
 export default function deleteProjectPage() {
-    const { projects } = useLoaderData() as loaderType;
+    const { projects } = useLoaderData<typeof loader>();
 
     return (
         <>
