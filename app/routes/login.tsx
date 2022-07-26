@@ -1,19 +1,19 @@
 import { Button, Container } from '@mantine/core';
-import { ActionFunction, json, LoaderFunction } from '@remix-run/node';
+import { ActionArgs, json, LoaderArgs } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
 import { sessionStorage } from '~/services/session.server';
 
-export const action: ActionFunction = async ({ request, context }) => {
+export async function action({ request, context }: ActionArgs) {
     await authenticator.authenticate('oauth2', request, {
         successRedirect: '/',
         failureRedirect: '/login',
         throwOnError: true,
         context,
     });
-};
+}
 
-export const loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
     let [_, session] = await Promise.all([
         authenticator.isAuthenticated(request, {
             successRedirect: '/',
@@ -23,10 +23,10 @@ export const loader: LoaderFunction = async ({ request }) => {
 
     const error = session.get('sessionErrorKey');
     return json<any>({ error });
-};
+}
 
 export default function Login() {
-    const loaderData = useLoaderData();
+    const loaderData = useLoaderData<typeof loader>();
 
     return (
         <Container>

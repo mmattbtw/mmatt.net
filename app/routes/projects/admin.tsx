@@ -1,10 +1,10 @@
 import { Container, Image } from '@mantine/core';
-import { LoaderFunction, redirect } from '@remix-run/node';
+import { LoaderArgs, redirect } from '@remix-run/node';
 import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { authenticator } from '~/services/auth.server';
 import { sessionType } from '~/types/typings';
 
-export let loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
     const session: sessionType = await authenticator.isAuthenticated(request, {
         failureRedirect: '/login',
     });
@@ -14,10 +14,10 @@ export let loader: LoaderFunction = async ({ request }) => {
     }
 
     return session;
-};
+}
 
 export default function AdminPageProject() {
-    const session = useLoaderData();
+    const session = useLoaderData<typeof loader>();
 
     return (
         <Container>

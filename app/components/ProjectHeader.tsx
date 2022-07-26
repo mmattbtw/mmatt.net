@@ -38,8 +38,8 @@ export interface ArticleCardImageProps {
     slug: string;
     title: string;
     status: string;
-    CreatedAt: Date;
-    UpdatedAt: Date;
+    CreatedAt: Date | string;
+    UpdatedAt: Date | string;
 }
 
 export function ProjectHeader({ imageUrl, title, category, status, CreatedAt, UpdatedAt }: ArticleCardImageProps) {

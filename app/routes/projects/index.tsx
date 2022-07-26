@@ -1,5 +1,5 @@
 import { Container, Grid } from '@mantine/core';
-import { LoaderFunction, MetaFunction } from '@remix-run/node';
+import { LoaderArgs, MetaFunction } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageProps, ProjectCardImage } from '~/components/ProjectPreview';
 import { authenticator } from '~/services/auth.server';
@@ -8,13 +8,14 @@ import { getProjects } from '~/services/projects.server';
 const globalAny: any = global;
 let cached: any = globalAny.PROJECTS_DATA;
 
-export let loader: LoaderFunction = async ({ request }) => {
+export async function loader({ request }: LoaderArgs) {
     let session = await authenticator.isAuthenticated(request);
 
     if (!session) {
         session = null;
     }
 
+    // TODO: cached doesn't even get set???
     if (cached) {
         return {
             allProjects: cached,
@@ -25,7 +26,7 @@ export let loader: LoaderFunction = async ({ request }) => {
 
         return { allProjects, session };
     }
-};
+}
 
 export const meta: MetaFunction = () => {
     return {
@@ -35,7 +36,7 @@ export const meta: MetaFunction = () => {
 };
 
 export default function ProjectsPage() {
-    const { allProjects, session } = useLoaderData();
+    const { allProjects, session } = useLoaderData<typeof loader>();
 
     const projectsExist = allProjects.length > 0;
 

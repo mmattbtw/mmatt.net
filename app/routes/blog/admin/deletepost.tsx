@@ -1,30 +1,26 @@
 import { Button, TextInput } from '@mantine/core';
 import { showNotification } from '@mantine/notifications';
-import { ActionFunction, LoaderFunction, redirect } from '@remix-run/node';
+import { ActionArgs, json, redirect } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
-import { deletePost, getPosts, posts } from '~/services/post.server';
+import { deletePost, getPosts } from '~/services/post.server';
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
     const formData = await request.formData();
 
     const id = formData.get('id') as string;
     await deletePost(id);
 
     return redirect('/blog');
-};
+}
 
-type loaderType = {
-    posts: posts[];
-};
-
-export const loader: LoaderFunction = async () => {
+export async function loader() {
     const posts = await getPosts();
 
-    return { posts } as loaderType;
-};
+    return json({ posts });
+}
 
 export default function deletePostPage() {
-    const { posts } = useLoaderData() as loaderType;
+    const { posts } = useLoaderData<typeof loader>();
 
     return (
         <>

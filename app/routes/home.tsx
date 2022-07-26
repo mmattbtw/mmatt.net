@@ -1,10 +1,9 @@
-import type { LoaderFunction } from '@remix-run/node';
 import { redirect } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 
-export const loader: LoaderFunction = async () => {
+export async function loader() {
     return redirect('/');
-};
+}
 
 export async function home() {
     useLoaderData();

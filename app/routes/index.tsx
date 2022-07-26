@@ -21,6 +21,7 @@ const globalAny: any = global;
 let cached: discogsReturn = globalAny.DISCOGS_DATA;
 
 // I HATE THIS, ITS SLOW AN INEFFICIENT (AT LEAST ON VERCEL) MAYBE EDGE FUNCTION MOMENT? IDK
+// update: nah honestly it's chillin i think its just cold starts on vercel :p
 export async function loader() {
     const lastFm = new LastFm(`${process.env.LASTFM_API_KEY}`);
 
@@ -74,7 +75,7 @@ export const meta: MetaFunction = () => {
 };
 const COLORS = ['#ffffff'];
 export default function Index() {
-    const { collectionValue, collectionData, lastFmData }: discogsReturn = useLoaderData();
+    const { collectionValue, collectionData, lastFmData } = useLoaderData<typeof loader>();
     const [opened, setOpen] = useState(false);
     const [openedLastFm, setOpenLastFm] = useState(false);
 

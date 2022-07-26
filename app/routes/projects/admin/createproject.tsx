@@ -1,9 +1,9 @@
 import { Button, Textarea, TextInput } from '@mantine/core';
-import { ActionFunction, redirect } from '@remix-run/node';
+import { ActionArgs, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { createProject } from '~/services/projects.server';
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
     const formData = await request.formData();
 
     const title = formData.get('title') as string;
@@ -23,7 +23,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
 
     return redirect('/projects/' + slug);
-};
+}
 
 export default function createProjectPage() {
     return (

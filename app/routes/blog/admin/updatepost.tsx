@@ -1,20 +1,15 @@
-import { LoaderFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
 import { Link, useLoaderData } from '@remix-run/react';
 import { ArticleCardImageAdminPage } from '~/components/BlogPreview';
-import { getPosts, posts } from '~/services/post.server';
+import { getPosts } from '~/services/post.server';
 
-type loaderData = {
-    posts: posts[];
-};
-
-export const loader: LoaderFunction = async () => {
+export async function loader() {
     const posts = await getPosts();
-
-    return { posts } as loaderData;
-};
+    return json({ posts });
+}
 
 export default function updatePostPage() {
-    const { posts } = useLoaderData() as loaderData;
+    const { posts } = useLoaderData<typeof loader>();
 
     return (
         <>

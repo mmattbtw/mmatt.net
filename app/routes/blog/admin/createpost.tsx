@@ -1,9 +1,9 @@
 import { Button, Textarea, TextInput } from '@mantine/core';
-import { ActionFunction, redirect } from '@remix-run/node';
+import { ActionArgs, redirect } from '@remix-run/node';
 import { Form } from '@remix-run/react';
 import { createPost } from '~/services/post.server';
 
-export const action: ActionFunction = async ({ request }) => {
+export async function action({ request }: ActionArgs) {
     const formData = await request.formData();
 
     const title = formData.get('title') as string;
@@ -21,7 +21,7 @@ export const action: ActionFunction = async ({ request }) => {
     });
 
     return redirect('/blog/' + slug);
-};
+}
 
 export default function createPostPage() {
     return (
