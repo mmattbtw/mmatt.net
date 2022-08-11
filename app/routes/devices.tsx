@@ -37,6 +37,7 @@ export default function DevicesPage() {
                     <li>
                         (Out of date) PC Part Picker: <a href="https://pcpartpicker.com/list/wsNGK4">Click Here</a>
                     </li>
+		    <li><a href="https://settings.gg/player/166736678">CS:GO Settings</a></li>
                 </ul>
             </p>
 
