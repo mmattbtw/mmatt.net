@@ -1,7 +1,7 @@
 import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
-import React from 'react';
+import { useEffect, useState } from 'react';
 import ToggleTheme from './ToggleTheme';
 
 const HEADER_HEIGHT = 60;
@@ -33,6 +33,8 @@ const useStyles = createStyles((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center',
         height: '100%',
+        width: '100%',
+        backdropFilter: 'blur(10px)',
     },
 
     links: {
@@ -74,7 +76,20 @@ interface HeaderResponsiveProps {
 
 export default function HeaderSimple({ links }: HeaderResponsiveProps) {
     const [opened, toggleOpened] = useBooleanToggle(false);
+    const [isAtTop, setIsAtTop] = useState(true);
     const { classes } = useStyles();
+
+    function onScroll() {
+        if ((window.pageYOffset || 0) < 20) setIsAtTop(true);
+        else if (isAtTop) setIsAtTop(false);
+    }
+
+    useEffect(() => {
+        if (!window) return;
+        setTimeout(onScroll, 0);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     const items = links.map((link) => (
         <Link key={link.label} to={link.link} className={classes.link} prefetch="intent">
@@ -83,7 +98,16 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
     ));
 
     return (
-        <Header height={HEADER_HEIGHT} mb={20} className={classes.root}>
+        <Header
+            height={HEADER_HEIGHT}
+            mb={20}
+            className={classes.root}
+            style={{
+                position: 'fixed',
+                backgroundColor: isAtTop ? 'rgba(0, 0, 0, 0.0)' : 'rgba(0, 0, 0, 0.25)',
+                transition: 'background-color 0.2s ease-in-out',
+            }}
+        >
             <Container className={classes.header}>
                 <h1>mmatt.net</h1>
                 <Group spacing={5} className={classes.links}>

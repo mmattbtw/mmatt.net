@@ -71,6 +71,8 @@ export default function App() {
                                 }}
                             >
                                 <HeaderSimple links={links} />
+                                <br />
+                                <br />
                                 <Outlet />
                                 <FooterSocial links={links} />
                             </motion.div>
