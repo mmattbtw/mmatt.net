@@ -78,13 +78,13 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
     const [isAtTop, setIsAtTop] = useState(true);
     const { classes } = useStyles();
 
+    // Credit: @spacedriveapp 2022
+    // https://github.com/spacedriveapp/spacedrive/blob/151920dd6f8f3f663b18531f30a6e9b4599427cb/apps/landing/src/components/NavBar.tsx#L47-L57
+
     function onScroll() {
         if ((window.pageYOffset || 0) < 20) setIsAtTop(true);
         else if (isAtTop) setIsAtTop(false);
     }
-
-    // Credit: @spacedriveapp 2022
-    // https://github.com/spacedriveapp/spacedrive/blob/151920dd6f8f3f663b18531f30a6e9b4599427cb/apps/landing/src/components/NavBar.tsx#L47-L57
 
     useEffect(() => {
         if (!window) return;
@@ -109,6 +109,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
                 backgroundColor: isAtTop ? 'rgba(0, 0, 0, 0.0)' : 'rgba(0, 0, 0, 0.25)',
                 transition: 'background-color 0.2s ease-in-out',
                 backdropFilter: 'blur(10px)',
+                WebkitBackdropFilter: 'blur(10px)',
             }}
         >
             <Container className={classes.header}>
