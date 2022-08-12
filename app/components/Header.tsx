@@ -34,7 +34,6 @@ const useStyles = createStyles((theme) => ({
         alignItems: 'center',
         height: '100%',
         width: '100%',
-        backdropFilter: 'blur(10px)',
     },
 
     links: {
@@ -106,6 +105,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
                 position: 'fixed',
                 backgroundColor: isAtTop ? 'rgba(0, 0, 0, 0.0)' : 'rgba(0, 0, 0, 0.25)',
                 transition: 'background-color 0.2s ease-in-out',
+                backdropFilter: 'blur(10px)',
             }}
         >
             <Container className={classes.header}>
