@@ -353,6 +353,7 @@ export default function Index() {
                     with his new album 'nurture' are these cool scribbles that i think look nice. anyways i pretty much just stole the idea and worked
                     it into my website. sorry nature boy but mr. mmattbtw has stolen your funny little scribbles for his website
                 </p>
+                <a rel="me" href="https://social.lol/@mm" />
             </Container>
 
             <p
