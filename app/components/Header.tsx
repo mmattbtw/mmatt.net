@@ -1,4 +1,4 @@
-import { Burger, Container, createStyles, Group, Header, Paper, Transition } from '@mantine/core';
+import { Burger, Container, createStyles, Group, Header, Paper, Transition, useMantineTheme } from '@mantine/core';
 import { useBooleanToggle } from '@mantine/hooks';
 import { Link } from '@remix-run/react';
 import { useEffect, useState } from 'react';
@@ -8,8 +8,11 @@ const HEADER_HEIGHT = 60;
 
 const useStyles = createStyles((theme) => ({
     root: {
-        position: 'relative',
         zIndex: 1,
+        position: 'fixed',
+        transition: 'background-color 0.2s ease-in-out',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
     },
 
     dropdown: {
@@ -77,6 +80,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
     const [opened, toggleOpened] = useBooleanToggle(false);
     const [isAtTop, setIsAtTop] = useState(true);
     const { classes } = useStyles();
+    const theme = useMantineTheme();
 
     // Credit: @spacedriveapp 2022
     // https://github.com/spacedriveapp/spacedrive/blob/151920dd6f8f3f663b18531f30a6e9b4599427cb/apps/landing/src/components/NavBar.tsx#L47-L57
@@ -105,11 +109,7 @@ export default function HeaderSimple({ links }: HeaderResponsiveProps) {
             mb={20}
             className={classes.root}
             style={{
-                position: 'fixed',
-                backgroundColor: isAtTop ? 'rgba(0, 0, 0, 0.0)' : 'rgba(0, 0, 0, 0.25)',
-                transition: 'background-color 0.2s ease-in-out',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
+                backgroundColor: isAtTop ? 'rgba(0, 0, 0, 0.0)' : theme.colorScheme === 'dark' ? 'rgba(0, 0, 0, 0.25)' : 'rgba(255, 255, 255, 0.25)',
             }}
         >
             <Container className={classes.header}>
