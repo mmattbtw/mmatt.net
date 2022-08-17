@@ -1,21 +1,44 @@
-# Remix mmatt.net
+# Welcome to [Astro](https://astro.build)
 
-## Stack
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
 
--   [Remix](https://remix.run) (React Framework)
--   [Mantine](https://mantine.dev) (Component Library)
--   [Prisma](https://prisma.io) (Database)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-## `.env` template:
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
 
 ```
-DISCOGS_TOKEN=API token from Discogs
-DATABASE_URL=URL to Prisma database (specifically using the Prisma PostgreSQL data proxy service)
-
-CLIENT_ID=Twitch Client ID (dev.twitch.tv)
-CLIENT_SECRET=Twitch Client Secret (dev.twitch.tv)
-
-LASTFM_API_KEY=Last.fm API key (last.fm)
-
-LIVEBLOCKS_PUBLIC_KEY=Liveblocks public key (liveblocks.io)
+/
+├── public/
+│   └── favicon.ico
+├── src/
+│   ├── components/
+│   │   └── Layout.astro
+│   └── pages/
+│       └── index.astro
+└── package.json
 ```
+
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components or layouts.
+
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                | Action                                             |
+| :--------------------- | :------------------------------------------------- |
+| `npm install`          | Installs dependencies                              |
+| `npm run dev`          | Starts local dev server at `localhost:3000`        |
+| `npm run build`        | Build your production site to `./dist/`            |
+| `npm run preview`      | Preview your build locally, before deploying       |
+| `npm run astro ...`    | Run CLI commands like `astro add`, `astro preview` |
+| `npm run astro --help` | Get help using the Astro CLI                       |
+
+## 👀 Want to learn more?
+
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
