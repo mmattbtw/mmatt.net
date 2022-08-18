@@ -1,104 +1,109 @@
 ---
-import Card from '../components/Card.astro';
-import Layout from '../layouts/Layout.astro';
+// const discogsHeaders = {
+// Authorization: `Discogs token=${import.meta.env.DISCOGS_TOKEN}`,
+// };
+// const response = await fetch("https://api.discogs.com/users/mmattbtw/collection/value", {headers: discogsHeaders});
+// const data = await response.json()
 
-const discogsHeaders = {
-            Authorization: `Discogs token=${import.meta.env.DISCOGS_TOKEN}`,
-        };
-
-const response = await fetch("https://api.discogs.com/users/mmattbtw/collection/value", {headers: discogsHeaders});
-const data = await response.json()
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p>{JSON.stringify(data)}</p>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="home. - mmatt.net">
+  <main class="max-w-4xl lg:ml-auto lg:mr-auto relative sm:mr-5 sm:ml-5">
+    <div class="flex flex-row justify-evenly max-w-5xl gap-5">
+      <div class="flex flex-col">
+        <p class="text-3xl font-bold animate-fadeInDown">yo i'm matt 👋</p>
+        <p class="animate-fadeInDown animation-delay-300">
+          i'm 17, a{" "}
+          <a
+            href="https://last.fm/user/mmattbtw"
+            class="transition-all text-red-400 hover:bg-red-400/50 hover:text-white hover:p-0.5 hover:rounded"
+            >music lover
+          </a>, <a
+            href="https://www.discogs.com/user/mmattbtw"
+            class="transition-all text-gray-400 hover:bg-gray-400/50 hover:text-white hover:p-0.5 hover:rounded"
+            >record collector
+          </a>, former <a
+            class="transition-all text-purple-400 hover:bg-purple-400/50 hover:text-white hover:p-0.5 hover:rounded"
+            href="https://twitch.tv/mmattbtw"
+            >twitch
+          </a> streamer, current twitch chatter, <span class="line-through"
+            >mostly ex
+          </span>
+          <a
+            href="https://github.com/mmattbtw"
+            class="transition-all text-teal-600 hover:bg-teal-600/50 hover:text-white hover:p-0.5 hover:rounded"
+            >python developer and frontend developer.
+          </a>
+        </p>
+        <br />
+        <p class="animate-fadeInDown animation-delay-350">
+          right now i am focussing on building free and open source software to
+          make Twitch more fun for <a
+            href="https://mmattDonk.com"
+            class="transition-all text-blue-400 hover:bg-blue-400/50 hover:text-white hover:p-0.5 hover:rounded"
+            >mmattDonk
+          </a>.
+        </p>
+      </div>
+      <img
+        src="/images/mmattbtw.jpeg"
+        class="animate-fadeIn animation-delay-400 shadow-2xl shadow-white/30 rounded-xl"
+        height="auto"
+        width="200px"
+      />
+    </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+  </main>
 </Layout>
-
-<style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
-
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
