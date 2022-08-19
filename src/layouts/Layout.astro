@@ -1,36 +1,41 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props as Props;
-import Header from '../components/Header';
+import Header from "../components/Header";
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-black text-white">
-		<Header client:load links={[{
-			href: '/',
-			title: 'Home',
-		}]} />
-		<slot />
-	</body>
-</html>
-<style>
-	html {
-		font-family: system-ui, sans-serif;
-	}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-black text-white">
+    <Header
+      client:load
+      links={[
+        {
+          href: "/",
+          title: "Home",
+        },
+      ]}
+    />
+    <slot />
+    <style>
+      html {
+        font-family: system-ui, sans-serif;
+      }
 
-	:global(code) {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>
+      :global(code) {
+        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+      }
+    </style>
+  </body>
+</html>
