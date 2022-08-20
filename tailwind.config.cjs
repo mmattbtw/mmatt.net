@@ -27,10 +27,6 @@ module.exports = {
             opacity: 1,
           },
         },
-
-        colors: {
-          gradient: "linear-gradient(to right, #f12711, #f5af19)",
-        },
       },
     },
     plugins: [require("tailwindcss-animation-delay")],

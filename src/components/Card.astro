@@ -4,19 +4,22 @@ export interface Props {
   description: string;
   tags: string;
   link: string;
+  imgUrl: string;
 }
 
-const { title, description, tags, link } = Astro.props as Props;
+const { title, description, tags, link, imgUrl } = Astro.props as Props;
 ---
 
 <a href={link}>
   <div
-    class="flex flex-col bg-neutral-800/50 backdrop-blur-lg p-5 rounded-lg max-w-sm min-w-sm max-h-lg min-h-lg transition-all"
+    class="flex flex-col bg-neutral-800/50 backdrop-blur-lg p-5 rounded-lg max-w-sm min-w-sm max-h-lg min-h-lg transition-all border border-neutral-800 hover:border-white/30 hover:shadow-lg hover:shadow-white/30"
   >
+    <img src={imgUrl} alt={title} class="w-full h-auto pb-4" />
+
     <h1 class="text-2xl font-bold">{title}</h1>
     <p class="text-xs font-bold">{tags}</p>
     <hr class="border-neutral-600" />
     <p class="text-sm">{description}</p>
-    <p class="text-xs text-neutral-600 hover:text-">{link} &rarr;</p>
+    <p class="text-xs text-neutral-600">{link} &rarr;</p>
   </div>
 </a>

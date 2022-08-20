@@ -10,9 +10,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="home. - mmatt.net">
-  <main class="max-w-4xl lg:ml-auto lg:mr-auto relative sm:mr-5 sm:ml-5">
+  <main class="max-w-4xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
     <div
-      class="flex flex-row justify-evenly max-w-5xl gap-5 sm:justify-center sm:flex-col"
+      class="flex flex-col text-center md:text-left justify-center items-center max-w-5xl gap-5 md:justify-evenly md:flex-row"
     >
       <div class="flex flex-col">
         <p class="text-3xl font-bold animate-fadeInDown">yo i'm matt 👋</p>
@@ -21,12 +21,13 @@ import Layout from "../layouts/Layout.astro";
           <a
             href="https://last.fm/user/mmattbtw"
             class="transition-all text-red-400 hover:bg-red-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            >music lover
-          </a>, <a
+            >music lover,
+          </a>
+          <a
             href="https://www.discogs.com/user/mmattbtw"
             class="transition-all text-gray-400 hover:bg-gray-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            >record collector
-          </a>, former <a
+            >record collector,
+          </a> former <a
             class="transition-all text-purple-400 hover:bg-purple-400/50 hover:text-white hover:p-0.5 hover:rounded"
             href="https://twitch.tv/mmattbtw"
             >twitch
@@ -60,18 +61,20 @@ import Layout from "../layouts/Layout.astro";
     <div class="mt-48">
       <h1 class="text-2xl font-bold text-center">things i've worked on</h1>
       <div
-        class="mt-4 flex md:flex-row sm:flex-col justify-evenly items-center gap-4"
+        class="mt-4 flex flex-col md:flex-row justify-center items-center md:justify-evenly gap-4"
       >
         <Card
           title="AI TTS Donations"
           tags="wip • open source • mmattDonk • twitch • python 3"
           link="https://github.com/mmattDonk/AI-TTS-Donations"
+          imgUrl="https://mmatt.net/assets/images/ai_tts.png"
           description="AI TTS Donations (working name) is a free and open source AI TTS program. This was made because other solutions were private / cost streamers tons of money. AI TTS Donations includes playsounds, voice effects, and thousands of voices using Uberduck and FakeYou"
         />
         <Card
           title="TwitchTunes"
           tags="open source • mmattDonk • twitch • python 3"
           description="TwitchTunes is a Twitch chat bot that lets your viewers use Spotify to request songs."
+          imgUrl="https://mmatt.net/assets/images/ai_tts.png"
           link="https://github.com/mmattDonk/TwitchTunes  "
         />
       </div>
