@@ -18,7 +18,7 @@ export default function LightModeDisclaimer() {
     return (
       <div
         id="lightModeDetection"
-        className="flex flex-row ml-auto mr-auto bg-neutral-500/50 sticky top-5 max-w-lg z-50 backdrop-blur-lg text-lg text-red-400 p-4 text-center transition-all"
+        className="flex gap-2 flex-col md:flex-row ml-auto mr-auto bg-neutral-500/50 sticky top-5 max-w-lg z-50 backdrop-blur-lg text-lg text-red-400 p-4 text-center transition-all"
       >
         <p>
           Your device is in Light Mode, which is currently not supported by this
