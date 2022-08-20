@@ -7,6 +7,17 @@
 
 import Card from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
+
+// const projects: Props[] = [
+//   {
+//     title: "AI TTS Donations",
+//     tags: "wip • open source • mmattDonk • twitch • python 3",
+//     link: "https://github.com/mmattDonk/AI-TTS-Donations",
+//     imgUrl: "/images/ai_tts.webp",
+//     description:
+//       "AI TTS Donations (working name) is a free and open source AI TTS program. This was made because other solutions were private / cost streamers tons of money. AI TTS Donations includes playsounds, voice effects, and thousands of voices using Uberduck and FakeYou",
+//   },
+// ];
 ---
 
 <Layout title="home. - mmatt.net">
@@ -51,7 +62,7 @@ import Layout from "../layouts/Layout.astro";
         </p>
       </div>
       <img
-        src="/images/mmattbtw.jpeg"
+        src="/images/mmattbtw.webp"
         class="animate-fadeIn animation-delay-400 shadow-2xl shadow-white/30 rounded-xl"
         height="200px"
         width="200px"
@@ -63,18 +74,19 @@ import Layout from "../layouts/Layout.astro";
       <div
         class="mt-4 flex flex-col md:flex-row justify-center items-center md:justify-evenly gap-4"
       >
+        <!-- {projects.map((project, index) => <Card key={index} {...project} />)} -->
         <Card
           title="AI TTS Donations"
           tags="wip • open source • mmattDonk • twitch • python 3"
           link="https://github.com/mmattDonk/AI-TTS-Donations"
-          imgUrl="https://mmatt.net/assets/images/ai_tts.png"
+          imgUrl="/images/ai_tts.webp"
           description="AI TTS Donations (working name) is a free and open source AI TTS program. This was made because other solutions were private / cost streamers tons of money. AI TTS Donations includes playsounds, voice effects, and thousands of voices using Uberduck and FakeYou"
         />
         <Card
           title="TwitchTunes"
           tags="open source • mmattDonk • twitch • python 3"
           description="TwitchTunes is a Twitch chat bot that lets your viewers use Spotify to request songs."
-          imgUrl="https://mmatt.net/assets/images/ai_tts.png"
+          imgUrl="/images/twitchtunes.webp"
           link="https://github.com/mmattDonk/TwitchTunes  "
         />
       </div>
