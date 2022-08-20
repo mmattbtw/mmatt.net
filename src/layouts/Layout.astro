@@ -5,7 +5,7 @@ export interface Props {
 
 const { title } = Astro.props as Props;
 import Header from "../components/Header";
-import LightModeDisclaimer from "../components/LightModeDisclaimer";
+import LightModeDisclaimer from "../components/LightModeDisclaimer.astro";
 ---
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ import LightModeDisclaimer from "../components/LightModeDisclaimer";
     <title>{title}</title>
   </head>
   <body class="bg-black text-white">
-    <LightModeDisclaimer client:load />
+    <LightModeDisclaimer />
     <Header
       client:load
       links={[
