@@ -25,13 +25,21 @@ const projects: Props[] = [
     imgUrl: "/images/twitchtunes.webp",
     link: "https://github.com/mmattDonk/TwitchTunes",
   },
+  {
+    title: "VIBEFEST.live",
+    tags: "remix • react • typescript • music festival",
+    description:
+      "VIBEFEST.live is a website made for the VIBEFEST online music festival. It uses the React framework Remix and uses the Component Library Mantine. It includes a news feed with a comment section, a stream page with a Twitch embed and donation information, and a guestbook!",
+    imgUrl: "/images/vibefestlive.webp",
+    link: "https://vibefest.live",
+  },
 ];
 ---
 
 <Layout title="home. - mmatt.net">
-  <main class="max-w-4xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
+  <main class="max-w-6xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
     <div
-      class="flex flex-col text-center md:text-left justify-center items-center max-w-5xl gap-5 md:justify-evenly md:flex-row"
+      class="flex flex-col text-center md:text-left justify-center items-center gap-5 md:justify-evenly md:flex-row"
     >
       <div class="flex flex-col">
         <p class="text-3xl font-bold animate-fadeInDown">yo i'm matt 👋</p>
@@ -71,7 +79,7 @@ const projects: Props[] = [
       </div>
       <img
         src="/images/mmattbtw.webp"
-        class="transition-all animate-fadeIn animation-delay-400 shadow-2xl shadow-white/30 rounded-xl hover:border-2 hover:border-cyan-200"
+        class="transition-all animate-fadeIn animation-delay-400 shadow-2xl shadow-black/30 dark:shadow-white/30 rounded-xl hover:border-2 hover:border-cyan-200"
         height="200px"
         width="200px"
       />
@@ -82,7 +90,7 @@ const projects: Props[] = [
         things i've worked on
       </h1>
       <div
-        class="mt-4 flex flex-col md:flex-row justify-center items-center md:justify-evenly gap-4 animate-fadeIn max-w-5xl"
+        class="mt-4 flex flex-col md:grid md:grid-cols-3 md:items-stretch justify-center items-center gap-4 animate-fadeIn"
       >
         {projects.map((project) => <Card {...project} />)}
       </div>

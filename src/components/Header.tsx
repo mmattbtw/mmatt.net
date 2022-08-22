@@ -24,14 +24,14 @@ export default function Header(props: {
   }, []);
 
   const textHover =
-    "hover:text-blue-300 hover:bg-neutral-800 rounded pt-2 pb-2 pr-2 pl-2";
+    "dark:hover:text-blue-300 dark:hover:bg-neutral-800 hover:text-blue-700 hover:bg-neutral-200 rounded pt-2 pb-2 pr-2 pl-2";
 
   return (
     <div
       className={
         "sticky top-0 flex items-center justify-between flex-row p-5 backdrop-blur-lg w-full mb-10 z-10 max-h-16 transition-all border-b-2 border-b-neutral-900" +
         " " +
-        (isAtTop ? `bg-transparent` : `bg-neutral-800/50`)
+        (isAtTop ? `bg-transparent` : `dark:bg-neutral-800/50 bg-white/50`)
       }
     >
       <h1 className="text-xl font-bold">mmatt.net</h1>
