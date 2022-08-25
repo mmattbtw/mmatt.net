@@ -1,0 +1,12 @@
+---
+const { frontmatter } = Astro.props;
+import Layout from "./Layout.astro";
+---
+
+<Layout title={frontmatter.title + " - mmatt.net"}>
+  <div class="max-w-6xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
+    <div class="prose md:prose-lg lg:prose-xl dark:prose-invert">
+      <slot />
+    </div>
+  </div>
+</Layout>
