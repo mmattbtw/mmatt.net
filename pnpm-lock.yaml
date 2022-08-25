@@ -13,10 +13,7 @@ specifiers:
   prettier-plugin-astro: ^0.5.0
   react: ^18.0.0
   react-dom: ^18.0.0
-  tailwindcss-animation-delay: ^1.0.7
-
-dependencies:
-  tailwindcss-animation-delay: 1.0.7
+  tailwind-animation-delay: ^1.0.0
 
 devDependencies:
   '@astrojs/image': 0.3.4
@@ -31,6 +28,7 @@ devDependencies:
   prettier-plugin-astro: 0.5.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  tailwind-animation-delay: 1.0.0
 
 packages:
 
@@ -3391,11 +3389,9 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /tailwindcss-animation-delay/1.0.7:
-    resolution: {integrity: sha512-nJIQGJ7zePh7FiLFiZJOi7Vo+dRo+2Tqt8BRFa9yk8um0OFpuD7K3i8bZaNO3C8qMxdv0Y7YlHtCZq4/ydok9A==}
-    peerDependencies:
-      tailwindcss: '>=2.0.0'
-    dev: false
+  /tailwind-animation-delay/1.0.0:
+    resolution: {integrity: sha512-hTalsMto34MQCgxW1DG5Yht7G3Xsie66dtLt4RDYd+lw+OG4YNkYcN2UJipHO0CF8zKuiKdwtVKuToGvdP9guQ==}
+    dev: true
 
   /tailwindcss/3.1.8:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}

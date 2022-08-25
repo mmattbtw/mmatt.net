@@ -34,7 +34,9 @@ export default function Header(props: {
         (isAtTop ? `bg-transparent` : `dark:bg-neutral-800/50 bg-white/50`)
       }
     >
-      <h1 className="text-xl font-bold">mmatt.net</h1>
+      <a href="/">
+        <h1 className="text-xl font-bold">mmatt.net</h1>
+      </a>
       <div className="flex flex-row gap-9 mr-5">
         {props.links.map((link) => (
           <a key={link.href} href={link.href} className={textHover}>
