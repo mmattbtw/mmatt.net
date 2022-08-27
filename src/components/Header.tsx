@@ -30,9 +30,9 @@ export default function Header(props: {
   return (
     <div
       className={
-        "sticky top-0 flex items-center justify-between flex-row p-5 backdrop-blur-lg w-full mb-10 z-10 max-h-16 transition-all border-b-2 border-b-neutral-900" +
+        (props.disableHeaderOnScroll ? `static` : `sticky`) +
         " " +
-        (props.disableHeaderOnScroll && !isAtTop ? `hidden` : ``) +
+        "top-0 flex items-center justify-between flex-row p-5 backdrop-blur-lg w-full mb-10 z-10 max-h-16 transition-all border-b-2 border-b-neutral-900" +
         " " +
         (isAtTop ? `bg-transparent` : `dark:bg-neutral-800/50 bg-white/50`)
       }
