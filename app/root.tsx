@@ -90,6 +90,7 @@ export default function App() {
                             ></canvas>
 
                             <script src="/bg.js"></script>
+                            <script async defer data-website-id="8e8fa1e5-bce4-4fb1-9b72-d0b7806b5063" src="https://supercooldankage.mmatt.net/umami.js"></script>
 
                             <Button
                                 onClick={() => toggleScribbles()}
