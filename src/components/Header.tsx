@@ -5,6 +5,7 @@ export default function Header(props: {
     title: string;
     href: string;
   }[];
+  disableHeaderOnScroll: boolean;
 }) {
   const [isAtTop, setIsAtTop] = useState(true);
 
@@ -31,13 +32,15 @@ export default function Header(props: {
       className={
         "sticky top-0 flex items-center justify-between flex-row p-5 backdrop-blur-lg w-full mb-10 z-10 max-h-16 transition-all border-b-2 border-b-neutral-900" +
         " " +
+        (props.disableHeaderOnScroll && !isAtTop ? `hidden` : ``) +
+        " " +
         (isAtTop ? `bg-transparent` : `dark:bg-neutral-800/50 bg-white/50`)
       }
     >
       <a href="/">
         <h1 className="text-xl font-bold">mmatt.net</h1>
       </a>
-      <div className="flex flex-row gap-9 mr-5">
+      <div className="flex flex-row gap-5 mr-5">
         {props.links.map((link) => (
           <a key={link.href} href={link.href} className={textHover}>
             {link.title}

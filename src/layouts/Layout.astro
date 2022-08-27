@@ -1,9 +1,11 @@
 ---
 export interface Props {
   title: string;
+  disableScribbles?: boolean
+  disableHeaderOnScroll?: boolean
 }
 
-const { title } = Astro.props as Props;
+const { title, disableScribbles, disableHeaderOnScroll } = Astro.props as Props;
 import Header from "../components/Header";
 ---
 
@@ -19,14 +21,20 @@ import Header from "../components/Header";
   <body class="dark:bg-black dark:text-white bg-white text-black">
     <Header
       client:load
+      disableHeaderOnScroll={disableHeaderOnScroll ?? false}
       links={[
         {
           href: "/",
           title: "Home",
         },
+        {
+          href: "/stream",
+          title: "Stream",
+        },
       ]}
     />
     <slot />
+    { !disableScribbles && (
     <canvas
       id="canvas"
       style={{
@@ -102,6 +110,7 @@ import Header from "../components/Header";
     >
       Toggle Scribbles
     </button>
+  )}
     <style>
       html {
         font-family: system-ui, sans-serif;
