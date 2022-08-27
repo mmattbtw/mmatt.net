@@ -23,7 +23,9 @@ const embedID = "nWDRIPdKYWc";
       allowfullscreen></iframe>
     <iframe
       id="chat_embed"
-      src="https://www.twitch.tv/embed/mmattbtw/chat?parent=localhost"
+      src={`https://www.twitch.tv/embed/mmattbtw/chat?parent=${
+        process.env.VERCEL_URL ? `${process.env.VERCEL_URL}` : "localhost"
+      }`}
       height="100%"
       class="w-screen h-screen lg:w-[500px]"
     >
