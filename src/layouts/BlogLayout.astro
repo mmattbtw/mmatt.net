@@ -5,9 +5,14 @@ import Layout from "./Layout.astro";
 
 <Layout title={frontmatter.title + " - mmatt.net"}>
   <div class="max-w-6xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
-    <div class="prose md:prose-lg lg:prose-xl">
-      <slot />
-      <script is:inline src="https://giscus.app/client.js"
+    <div>
+      <div class="prose prose-lg">
+        <slot />
+      </div>
+
+      <br />
+      <div class="mt-10 mb-10">
+        <script src="https://giscus.app/client.js"
         data-repo="mmattbtw/mmatt.net-discussions"
         data-repo-id="R_kgDOH54_Mw"
         data-category="General"
@@ -21,8 +26,9 @@ import Layout from "./Layout.astro";
         data-lang="en"
         data-loading="lazy"
         crossorigin="anonymous"
-        async>
-</script>
+        async />
+      </div>
+
     </div>
   </div>
 </Layout>
