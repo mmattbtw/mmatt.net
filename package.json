@@ -15,12 +15,14 @@
     "@astrojs/react": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.4",
     "@types/react": "^18.0.17",
     "astro": "^1.0.6",
     "prettier": "^2.7.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwind-animation-delay": "^1.0.0"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.5.6"
   }
 }

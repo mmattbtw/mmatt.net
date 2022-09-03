@@ -6,9 +6,9 @@ import Layout from "./Layout.astro";
 <Layout title={frontmatter.title + " - mmatt.net"}>
   <div class="max-w-6xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
     <div>
-      <div class="prose prose-lg">
+      <article class="prose lg:prose-xs dark:prose-invert">
         <slot />
-      </div>
+      </article>
 
       <br />
       <div class="mt-10 mb-10">
