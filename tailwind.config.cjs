@@ -30,8 +30,8 @@ module.exports = {
       },
     },
     plugins: [
-      require("@tailwindcss/typography"),
       require("tailwind-animation-delay"),
+      require("@tailwindcss/typography"),
     ],
   },
 };
