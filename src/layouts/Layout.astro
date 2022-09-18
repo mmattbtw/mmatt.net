@@ -8,6 +8,7 @@ export interface Props {
 }
 
 const { title, disableScribbles, disableHeaderOnScroll, imgUrl, description } = Astro.props as Props;
+const ifImgLocal = imgUrl?.startsWith('/');
 import Header from "../components/Header";
 ---
 
@@ -20,9 +21,11 @@ import Header from "../components/Header";
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={imgUrl} />
+    <meta property="og:image" content={imgUrl ? 
+      ifImgLocal ? `https://mmatt.net${imgUrl}` : imgUrl
+    : "https://mmatt.net/images/mmattbtw.webp"} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={description ?? "..."} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary" />
