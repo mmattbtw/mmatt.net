@@ -5,7 +5,7 @@
 // const response = await fetch("https://api.discogs.com/users/mmattbtw/collection/value", {headers: discogsHeaders});
 // const data = await response.json()
 
-import Card, { Props } from "../components/Card.astro";
+import Card,{ Props } from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 const projects: Props[] = [
@@ -105,7 +105,7 @@ const projects: Props[] = [
       >
         <a
           href="https://twitter.com/mmattbtw"
-          class="transition-all rounded fill-neutral-300 hover:fill-white"
+          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -119,7 +119,7 @@ const projects: Props[] = [
         </a>
         <a
           href="https://github.com/mmattbtw"
-          class="transition-all rounded fill-neutral-300 hover:fill-white"
+          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -133,7 +133,7 @@ const projects: Props[] = [
         </a>
         <a
           href="https://twitch.tv/mmattbtw"
-          class="transition-all rounded fill-neutral-300 hover:fill-white"
+          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -147,14 +147,12 @@ const projects: Props[] = [
         </a>
         <a
           href="https://mm.omg.lol"
-          class="transition-all rounded fill-neutral-300 hover:fill-white"
+          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="w-20 h-20 transition-all"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
           >
             <path
               stroke-linecap="round"

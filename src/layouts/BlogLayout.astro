@@ -12,7 +12,7 @@ import Layout from "./Layout.astro";
     class="max-w-[65ch] lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert"
   >
     <div>
-      <img src={frontmatter.imgUrl} />
+      <img src={frontmatter.imgUrl} class="rounded" />
       <h1>{frontmatter.title}</h1>
       <p class="text-sm text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
     </div>
@@ -37,6 +37,5 @@ import Layout from "./Layout.astro";
       crossorigin="anonymous"
       async
     />
-
-  </div>
+</div>
 </Layout>
