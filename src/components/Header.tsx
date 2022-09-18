@@ -40,7 +40,7 @@ export default function Header(props: {
       <a href="/">
         <h1 className="text-xl font-bold">mmatt.net</h1>
       </a>
-      <div className="flex flex-row gap-5 mr-5">
+      <div className="flex flex-row gap-2 md:gap-5 mr-5">
         {props.links.map((link) => (
           <a key={link.href} href={link.href} className={textHover}>
             {link.title}
