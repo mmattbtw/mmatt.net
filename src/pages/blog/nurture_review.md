@@ -3,7 +3,7 @@ layout: ../../layouts/BlogLayout.astro
 title: "nurture - Porter Robinson | Track-by-track Review"
 date: "12 Jun 2021"
 category: "music"
-imgUrl: "https://mmatt.net/assets/images/nurture.jpg"
+imgUrl: "/images/nurture.jpg"
 ---
 
 ## ‼️ Disclaimer ‼️

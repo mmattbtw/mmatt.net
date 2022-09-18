@@ -3,7 +3,7 @@ layout: ../../layouts/BlogLayout.astro
 title: "How to set up Cool Channel Point Rewards"
 date: "18 Sep 2020"
 category: "twitch"
-imgUrl: "https://mmatt.net/assets/images/channelpoints.jpg"
+imgUrl: "/images/channelpoints.jpg"
 ---
 
 _originally written: https://www.reddit.com/r/Twitch/comments/iw13xu/cool_channel_point_reward_ideas_and_how_to_set/_

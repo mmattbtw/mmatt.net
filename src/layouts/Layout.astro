@@ -3,9 +3,11 @@ export interface Props {
   title: string;
   disableScribbles?: boolean
   disableHeaderOnScroll?: boolean
+  imgUrl?: string
+  description?: string
 }
 
-const { title, disableScribbles, disableHeaderOnScroll } = Astro.props as Props;
+const { title, disableScribbles, disableHeaderOnScroll, imgUrl, description } = Astro.props as Props;
 import Header from "../components/Header";
 ---
 
@@ -16,6 +18,21 @@ import Header from "../components/Header";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:image" content={imgUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@mmattbtw" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description ?? ""}/>
+    <meta name="twitter:image" content={imgUrl} />
+
+    <meta name="author" content="mmatt">
+    <meta property="description" content={description} />
     <title>{title}</title>
   </head>
   <body class="dark:bg-black dark:text-white bg-white text-black">

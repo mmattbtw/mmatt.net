@@ -3,7 +3,7 @@ layout: ../../layouts/BlogLayout.astro
 title: "AI TTS Donations is changing..."
 date: "26 Aug 2022"
 category: "mmattDonk"
-imgUrl: "https://mmatt.net/assets/images/ai_tts.png"
+imgUrl: "/images/ai_tts.webp"
 ---
 
 AI TTS Donations is changing...

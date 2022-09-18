@@ -3,10 +3,21 @@ const { frontmatter } = Astro.props;
 import Layout from "./Layout.astro";
 ---
 
-<Layout title={frontmatter.title + " - mmatt.net"}>
-    <div class="max-w-[65ch] lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert">
-      <slot />
+<Layout
+  title={frontmatter.title + " - mmatt.net"}
+  description={frontmatter.description}
+  imgUrl={frontmatter.imgUrl}
+>
+  <div
+    class="max-w-[65ch] lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert"
+  >
+    <div>
+      <img src={frontmatter.imgUrl} />
+      <h1>{frontmatter.title}</h1>
+      <p class="text-sm text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
     </div>
+    <slot />
+  </div>
 
   <div class="max-w-6xl mt-10 mb-10 ml-auto mr-auto">
     <script
@@ -25,6 +36,7 @@ import Layout from "./Layout.astro";
       data-loading="lazy"
       crossorigin="anonymous"
       async
-    /></div>
+    />
 
+  </div>
 </Layout>
