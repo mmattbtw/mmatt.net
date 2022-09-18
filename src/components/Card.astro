@@ -20,6 +20,6 @@ const { title, description, tags, link, imgUrl } = Astro.props as Props;
     <p class="text-xs font-bold">{tags}</p>
     <hr class="border-neutral-600" />
     <p class="text-sm">{description}</p>
-    <p class="text-xs text-neutral-600">{link} &rarr;</p>
+    <p class="text-xs text-neutral-600 overflow-ellipsis overflow-hidden">{link} &rarr;</p>
   </div>
 </a>

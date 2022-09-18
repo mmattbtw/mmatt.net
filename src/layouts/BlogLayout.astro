@@ -14,7 +14,9 @@ import Layout from "./Layout.astro";
     <div>
       <img src={frontmatter.imgUrl} class="rounded" />
       <h1>{frontmatter.title}</h1>
-      <p class="text-sm text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
+      <p class="text-md text-gray-500 dark:text-gray-400">{frontmatter.description}</p>
+      <p class="text-xs text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
+      <hr/>
     </div>
     <slot />
   </div>
@@ -37,5 +39,5 @@ import Layout from "./Layout.astro";
       crossorigin="anonymous"
       async
     />
-</div>
+</div>  
 </Layout>
