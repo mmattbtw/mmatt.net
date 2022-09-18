@@ -10,10 +10,7 @@ specifiers:
   prettier: ^2.7.1
   prettier-plugin-astro: ^0.5.4
   tailwind-animation-delay: ^1.0.0
-  tailwindcss: ^3.0.24
-
-dependencies:
-  tailwind-animation-delay: 1.0.0
+  tailwindcss: ^3.1.8
 
 devDependencies:
   '@astrojs/preact': 1.1.0_preact@10.11.0
@@ -24,6 +21,7 @@ devDependencies:
   preact: 10.11.0
   prettier: 2.7.1
   prettier-plugin-astro: 0.5.4
+  tailwind-animation-delay: 1.0.0
   tailwindcss: 3.1.8_postcss@8.4.16
 
 packages:
@@ -3502,7 +3500,7 @@ packages:
 
   /tailwind-animation-delay/1.0.0:
     resolution: {integrity: sha512-hTalsMto34MQCgxW1DG5Yht7G3Xsie66dtLt4RDYd+lw+OG4YNkYcN2UJipHO0CF8zKuiKdwtVKuToGvdP9guQ==}
-    dev: false
+    dev: true
 
   /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
