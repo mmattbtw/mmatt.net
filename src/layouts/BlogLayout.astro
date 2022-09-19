@@ -12,7 +12,7 @@ import Layout from "./Layout.astro";
     class="max-w-[65ch] lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert"
   >
     <div>
-      <img src={frontmatter.imgUrl} class="rounded" />
+      <img src={frontmatter.imgUrl} class="rounded" alt={`Thumbnail for the ${frontmatter.title} blog post.`} />
       <h1>{frontmatter.title}</h1>
       <p class="text-md text-gray-500 dark:text-gray-400">{frontmatter.description}</p>
       <p class="text-xs text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
@@ -38,6 +38,6 @@ import Layout from "./Layout.astro";
       data-loading="lazy"
       crossorigin="anonymous"
       async
-    />
-</div>  
+    /></div>
+
 </Layout>
