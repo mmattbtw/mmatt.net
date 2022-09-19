@@ -4,7 +4,7 @@ title: "VIRTUAI SELF - UTOPIA SUBSYSTEM [FAQ]"
 description: '"virtuai self- utopia subsystem" is a tribute show to Virtual Self''s "Utopia System" shows. Expect a lot of similar music, visuals, and the same kind of vibe in general.'
 date: "07 Jul 2022"
 category: "music / virtuai self"
-imgUrl: "https://i.imgur.com/S5MrkHM.jpeg"
+imgUrl: "/images/utopia-subsystem.webp"
 ---
 
 Hey! I assume you are reading this post after watching the reveal trailer for my new live show "virtuai self - utopia subsystem".

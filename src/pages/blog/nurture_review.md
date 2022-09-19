@@ -89,7 +89,7 @@ I absolutely love this song, the production on this is amazing making it a bange
 
 When the next track (Musician) came out as a single, [@alivenextyear](https://twitter.com/alivenextyear) on Twitter replied, [to Porter talking about how nurture needed an instrumental](https://twitter.com/porterrobinson/status/1367202814645178370), saying, "oh cool so no instrumentals on the album." Porter jokingly responded with this banger tweet:
 
-[![This image shows Porter's Tweet replying "INCORRECTO" to @alivenextyear](https://i.imgur.com/MmmIyRw.png)](https://twitter.com/porterrobinson/status/1367203283203424260)
+[![This image shows Porter's Tweet replying "INCORRECTO" to @alivenextyear](/images/incorrecto.webp)](https://twitter.com/porterrobinson/status/1367203283203424260)
 
 Anyways, what I'm trying to get at here is that Wind Tempos is the first instrumental track in the tracklist. Yes, this means that there is at least 1 more. ;)
 

@@ -4,7 +4,7 @@ title: "How to set up Cool Channel Point Rewards"
 description: "Hello everyone! I come to you with some Channel Point reward ideas, based on some of the ones on my personal channel."
 date: "18 Sep 2020"
 category: "twitch"
-imgUrl: "/images/channelpoints.jpg"
+imgUrl: "/images/channelpoints.webp"
 ---
 
 _originally written: https://www.reddit.com/r/Twitch/comments/iw13xu/cool_channel_point_reward_ideas_and_how_to_set/_
