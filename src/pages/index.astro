@@ -86,7 +86,7 @@ const projects: Props[] = [
       />
     </div>
 
-    <div class="mt-48">
+    <div class="mt-32">
       <h1 class="text-2xl font-bold text-center animate-fadeInDown">
         things i've worked on
       </h1>
@@ -95,18 +95,19 @@ const projects: Props[] = [
       >
         {projects.map((project) => <Card {...project} />)}
       </div>
+      <p class="text-lg text-center mt-5"><a class="transition-all text-black hover:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded" href="https://github.com/mmattbtw">and more!</a></p>
     </div>
 
-    <div class="mt-48 mb-36">
+    <div class="mt-32">
       <h1 class="text-2xl font-bold text-center animate-fadeInDown">
         internet profiles
       </h1>
       <div
-        class="mt-10 flex flex-col md:grid md:grid-cols-4 md:items-stretch justify-center items-center lg:gap-4 gap-20 animate-fadeIn"
+        class="mt-10 flex flex-col md:flex-row md:items-stretch justify-center items-center md:gap-40 gap-20 animate-fadeIn"
       >
         <a
           href="https://twitter.com/mmattbtw"
-          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
+          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -120,7 +121,7 @@ const projects: Props[] = [
         </a>
         <a
           href="https://github.com/mmattbtw"
-          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
+          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -134,7 +135,7 @@ const projects: Props[] = [
         </a>
         <a
           href="https://twitch.tv/mmattbtw"
-          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
+          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
         >
           <svg
             role="img"
@@ -146,23 +147,14 @@ const projects: Props[] = [
             ></path>
           </svg>
         </a>
-        <a
-          href="https://mm.omg.lol"
-          class="transition-all rounded dark:fill-neutral-300 dark:hover:fill-white fill-neutral-700 hover:fill-black"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-20 h-20 transition-all"
-            viewBox="0 0 24 24"
-          >
-            <title>everything else!</title>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
-            ></path>
-          </svg>
-        </a>
+        <p class="text-lg text-center mt-5"><a class="transition-all text-black hover:bg-black dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded" href="https://mm.omg.lol">everything else!</a></p>
+      </div>
+    </div>
+    <div class="mb-36 mt-32">
+      <h1 class="text-2xl font-bold text-center animate-fadeInDown">contact me!</h1>
+      <div class="text-lg text-center animate-fadeIn">
+        <p>you can find me on discord: <a class="transition-all text-blue-300 hover:bg-blue-300/50 hover:text-white hover:p-0.5 hover:rounded" href="https://discord.com/users/308000668181069824">mmatt#4051 (id: 308000668181069824)</a></p>
+        <p>or if you need more formal contact, my email is <a href="mailto:matt@mmatt.net" class="transition-all text-green-300 hover:bg-green-300/50 hover:text-white hover:p-0.5 hover:rounded">matt at mmatt.net</a></p> 
       </div>
     </div>
   </main>
