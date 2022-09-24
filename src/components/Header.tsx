@@ -25,7 +25,7 @@ export default function Header(props: {
   }, []);
 
   const textHover =
-    "dark:hover:text-blue-300 dark:hover:bg-neutral-800 hover:text-blue-700 hover:bg-neutral-200 rounded pt-2 pb-2 pr-2 pl-2";
+    "dark:hover:text-blue-300 dark:hover:bg-neutral-800 hover:text-blue-700 hover:bg-neutral-200 rounded pt-2 pb-2 pr-2 pl-2 transition-all";
 
   return (
     <div
