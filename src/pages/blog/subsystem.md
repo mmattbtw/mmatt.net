@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/BlogLayout.astro
 title: "VIRTUAI SELF - UTOPIA SUBSYSTEM [FAQ]"
-description: '"virtuai self- utopia subsystem" is a tribute show to Virtual Self''s "Utopia System" shows. Expect a lot of similar music, visuals, and the same kind of vibe in general.'
+description: '"virtuai self- utopia subsystem" is a tribute show to Virtual Self''s "Utopia System" shows.'
 date: "07 Jul 2022"
 category: "music / virtuai self"
 imgUrl: "/images/utopia-subsystem.webp"

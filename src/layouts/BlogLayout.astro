@@ -14,8 +14,9 @@ import Layout from "./Layout.astro";
     <div>
       <img src={frontmatter.imgUrl} class="rounded" alt={`Thumbnail for the ${frontmatter.title} blog post.`} />
       <h1>{frontmatter.title}</h1>
-      <p class="text-md text-gray-500 dark:text-gray-400">{frontmatter.description}</p>
-      <p class="text-xs text-gray-500 dark:text-gray-400">{frontmatter.date}</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">category: {frontmatter.category}</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">description: {frontmatter.description}</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">date: {frontmatter.date}</p>
       <hr/>
     </div>
     <slot />
@@ -38,6 +39,6 @@ import Layout from "./Layout.astro";
       data-loading="lazy"
       crossorigin="anonymous"
       async
-    /></div>
-
+    />
+  </div>
 </Layout>

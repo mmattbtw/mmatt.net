@@ -26,7 +26,9 @@ const sortedPosts = allPosts.sort(
             <div class="flex gap-5 flex-row">
                 <div class="flex flex-col pb-10">
                     <h2 class="text-2xl font-bold">{p.frontmatter.title}</h2>
-                    <p class="text-lg">{p.frontmatter.date}</p>
+                    <p class="text-lg">{p.frontmatter.category}</p>
+                    <p class="text-sm">{p.frontmatter.date}</p>
+                    <p class="text-xs overflow-none overflow-ellipsis">"{p.frontmatter.description}"</p>
                 </div>
                 {
                     p.frontmatter.imgUrl ? (
