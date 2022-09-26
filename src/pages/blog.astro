@@ -23,18 +23,19 @@ const sortedPosts = allPosts.sort(
       sortedPosts.map((p) => (
         <div class="animate-fadeInDown">
           <a href={"/blog/" + p.url?.split("/")[2]}>
-            <div class="flex gap-5 flex-row">
-                <div class="flex flex-col pb-10">
-                    <h2 class="text-2xl font-bold">{p.frontmatter.title}</h2>
-                    <p class="text-lg">{p.frontmatter.category}</p>
-                    <p class="text-sm">{p.frontmatter.date}</p>
-                    <p class="text-xs overflow-none overflow-ellipsis">"{p.frontmatter.description}"</p>
+            <div class="flex gap-5 flex-col md:flex-row md:justify-between">
+                <div class="flex flex-col">
+                  <h2 class="text-2xl font-bold">{p.frontmatter.title}</h2>
+                  <p class="text-lg">{p.frontmatter.category}</p>
+                  <p class="text-sm">{p.frontmatter.date}</p>
+                  <p class="text-xs overflow-none overflow-ellipsis">"{p.frontmatter.description}"</p>
                 </div>
                 {
                     p.frontmatter.imgUrl ? (
-                        <img src={p.frontmatter.imgUrl} alt={p.frontmatter.title} width="auto" class="max-h-20 rounded" height="50" />
+                        <img src={p.frontmatter.imgUrl} alt={p.frontmatter.title} class="max-h-20 max-w-full w-auto h-auto rounded object-cover" height="50" />
                     ) : null
                 }
+                <hr class="block md:hidden" />
             </div>
           </a>
         </div>
