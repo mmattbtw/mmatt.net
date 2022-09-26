@@ -9,14 +9,16 @@ import Layout from "./Layout.astro";
   imgUrl={frontmatter.imgUrl}
 >
   <div
-    class="max-w-[65ch] lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert"
+    class="lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert max-w-6xl"
   >
     <div>
-      <img src={frontmatter.imgUrl} class="rounded" alt={`Thumbnail for the ${frontmatter.title} blog post.`} />
-      <h1>{frontmatter.title}</h1>
-      <p class="text-sm text-gray-500 dark:text-gray-400">category: {frontmatter.category}</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">description: {frontmatter.description}</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">date: {frontmatter.date}</p>
+      <div class="flex flex-col items-center">
+        <img src={frontmatter.imgUrl} class="rounded" alt={`Thumbnail for the ${frontmatter.title} blog post.`} />
+        <h1 class="mb-1">{frontmatter.title}</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">{frontmatter.description}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">{frontmatter.date}</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-0">{frontmatter.category}</p>
+      </div>
       <hr/>
     </div>
     <slot />
