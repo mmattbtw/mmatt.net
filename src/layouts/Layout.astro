@@ -26,17 +26,18 @@ import Scribbles from "../components/Scribbles.astro";
       ifImgLocal ? `https://mmatt.net${imgUrl}` : imgUrl
     : "https://mmatt.net/images/mmattbtw.webp"} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content={description ?? "..."} />
+    <meta property="og:description" content={description ?? "my website :^)"} />
     <meta property="og:type" content="website" />
 
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@mmattbtw" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description ?? ""}/>
+    <meta name="twitter:description" content={description ?? "my website :^)"}/>
     <meta name="twitter:image" content={imgUrl} />
 
-    <meta name="author" content="mmatt">
-    <meta property="description" content={description} />
+    <meta name="author" content="mmatt <matt@mmatt.net>"/>
+    <meta property="description" content={description ?? "my website :^)"} />
+    <meta name="description" content={description ?? "my website :^)"} />
     <title>{title}</title>
   </head>
   <body class="dark:bg-black dark:text-white bg-white text-black">
