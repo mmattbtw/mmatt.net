@@ -9,7 +9,7 @@ export interface Props {
 
 const { title, disableScribbles, disableHeaderOnScroll, imgUrl, description } = Astro.props as Props;
 const ifImgLocal = imgUrl?.startsWith('/');
-import Header from "../components/Header";
+import Header from "../components/Header.astro";
 import Scribbles from "../components/Scribbles.astro";
 ---
 
@@ -42,7 +42,6 @@ import Scribbles from "../components/Scribbles.astro";
   </head>
   <body class="dark:bg-black dark:text-white bg-white text-black">
     <Header
-      client:load
       disableHeaderOnScroll={disableHeaderOnScroll ?? false}
       links={[
         {

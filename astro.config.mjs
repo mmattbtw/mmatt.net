@@ -1,4 +1,3 @@
-import preact from "@astrojs/preact";
 import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
@@ -11,5 +10,5 @@ export default defineConfig({
   experimental: {
     integrations: true,
   },
-  integrations: [preact(), tailwind(), sitemap(), createRobotsTxtIntegration()],
+  integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],
 });

@@ -11,12 +11,10 @@
     "astro": "astro"
   },
   "devDependencies": {
-    "@astrojs/preact": "^1.2.0",
     "@astrojs/tailwind": "^2.1.1",
     "@tailwindcss/typography": "^0.5.7",
     "@types/react": "^18.0.24",
     "astro": "^1.6.1",
-    "preact": "^10.11.2",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.7.0",
     "tailwind-animation-delay": "^1.0.0",
