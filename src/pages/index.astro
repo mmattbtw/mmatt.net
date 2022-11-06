@@ -1,5 +1,5 @@
 ---
-import Card,{ Props } from "../components/Card.astro";
+import Card, { Props } from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 
 const projects: Props[] = [
@@ -89,7 +89,12 @@ const projects: Props[] = [
       >
         {projects.map((project) => <Card {...project} />)}
       </div>
-      <p class="text-lg text-center mt-5"><a class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded" href="https://github.com/mmattbtw">and more!</a></p>
+      <p class="text-lg text-center mt-5">
+        <a
+          class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded"
+          href="https://github.com/mmattbtw">and more!</a
+        >
+      </p>
     </div>
 
     <div class="mt-32">
@@ -141,14 +146,33 @@ const projects: Props[] = [
             ></path>
           </svg>
         </a>
-        <p class="text-lg text-center mt-5"><a class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded" href="https://mm.omg.lol">everything else!</a></p>
+        <p class="text-lg text-center mt-5">
+          <a
+            class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded"
+            href="https://mm.omg.lol">everything else!</a
+          >
+        </p>
       </div>
     </div>
     <div class="mt-32">
-      <h1 class="text-2xl font-bold text-center animate-fadeInDown">contact me!</h1>
+      <h1 class="text-2xl font-bold text-center animate-fadeInDown">
+        contact me!
+      </h1>
       <div class="text-lg text-center animate-fadeIn">
-        <p>you can find me on discord: <a class="transition-all text-blue-300 hover:bg-blue-300/50 hover:text-white hover:p-0.5 hover:rounded" href="https://discord.com/users/308000668181069824">mmatt#4051 (id: 308000668181069824)</a></p>
-        <p>or if you need more formal contact, my email is <a href="mailto:matt@mmatt.net" class="transition-all text-green-300 hover:bg-green-300/50 hover:text-white hover:p-0.5 hover:rounded">matt at mmatt.net</a></p> 
+        <p>
+          you can find me on discord: <a
+            class="transition-all text-blue-500 hover:bg-blue-500/50 dark:text-blue-300 dark:hover:bg-blue-300/50 hover:text-white hover:p-0.5 hover:rounded"
+            href="https://discord.com/users/308000668181069824"
+            >mmatt#4051 (id: 308000668181069824)</a
+          >
+        </p>
+        <p>
+          or if you need more formal contact, my email is <a
+            href="mailto:matt@mmatt.net"
+            class="transition-all text-green-500 hover:bg-green-500/50 dark:text-green-300 dark:hover:bg-green-300/50 hover:text-white hover:p-0.5 hover:rounded"
+            >matt at mmatt.net</a
+          >
+        </p>
       </div>
     </div>
 
