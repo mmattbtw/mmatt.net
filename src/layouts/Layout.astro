@@ -1,14 +1,22 @@
 ---
 export interface Props {
   title: string;
-  disableScribbles?: boolean
-  disableHeaderOnScroll?: boolean
-  imgUrl?: string
-  description?: string
+  disableScribbles?: boolean;
+  disableHeaderOnScroll?: boolean;
+  imgUrl?: string;
+  description?: string;
+  blog?: boolean;
 }
 
-const { title, disableScribbles, disableHeaderOnScroll, imgUrl, description } = Astro.props as Props;
-const ifImgLocal = imgUrl?.startsWith('/');
+const {
+  title,
+  disableScribbles,
+  disableHeaderOnScroll,
+  imgUrl,
+  description,
+  blog,
+} = Astro.props as Props;
+const ifImgLocal = imgUrl?.startsWith("/");
 import Header from "../components/Header.astro";
 import Scribbles from "../components/Scribbles.astro";
 ---
@@ -22,20 +30,31 @@ import Scribbles from "../components/Scribbles.astro";
     <meta name="generator" content={Astro.generator} />
 
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={imgUrl ? 
-      ifImgLocal ? `https://mmatt.net${imgUrl}` : imgUrl
-    : "https://mmatt.net/images/mmattbtw.webp"} />
+    <meta
+      property="og:image"
+      content={imgUrl
+        ? ifImgLocal
+          ? `https://mmatt.net${imgUrl}`
+          : imgUrl
+        : "https://mmatt.net/images/mmattbtw.webp"}
+    />
     <meta property="og:locale" content="en_US" />
     <meta property="og:description" content={description ?? "my website :^)"} />
     <meta property="og:type" content="website" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:card"
+      content={blog ? "summary_large_image" : "summary"}
+    />
     <meta name="twitter:site" content="@mmattbtw" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description ?? "my website :^)"}/>
+    <meta
+      name="twitter:description"
+      content={description ?? "my website :^)"}
+    />
     <meta name="twitter:image" content={imgUrl} />
 
-    <meta name="author" content="mmatt <matt@mmatt.net>"/>
+    <meta name="author" content="mmatt <matt@mmatt.net>" />
     <meta property="description" content={description ?? "my website :^)"} />
     <meta name="description" content={description ?? "my website :^)"} />
     <title>{title}</title>
@@ -61,15 +80,13 @@ import Scribbles from "../components/Scribbles.astro";
           title: "devices",
         },
         {
-          href: "/draw", 
-          title:"draw"
-        }
+          href: "/draw",
+          title: "draw",
+        },
       ]}
     />
     <slot />
-    { !disableScribbles && (
-      <Scribbles />
-  )}
+    {!disableScribbles && <Scribbles />}
     <style>
       html {
         font-family: system-ui, sans-serif;
@@ -82,6 +99,8 @@ import Scribbles from "../components/Scribbles.astro";
     </style>
 
     <!-- social.lol verification code -->
-    <a rel="me" href="https://social.lol/@mm" class="hidden">social.lol verification</a>
+    <a rel="me" href="https://social.lol/@mm" class="hidden"
+      >social.lol verification</a
+    >
   </body>
 </html>
