@@ -9,11 +9,15 @@ import Layout from "./Layout.astro";
   imgUrl={frontmatter.imgUrl}
 >
   <div
-    class="lg:ml-auto lg:mr-auto ml-5 mr-5 prose dark:prose-invert max-w-6xl prose-a:no-underline prose-a:transition-all prose-a:text-black hover:prose-a:bg-black hover:prose-a:text-white dark:prose-a:text-white dark:hover:prose-a:bg-white dark:hover:prose-a:text-black hover:prose-a:p-0.5 hover:prose-a:rounded"
+    class="lg:ml-auto lg:mr-auto ml-5 mr-5 mb-10 prose lg:prose-xl dark:prose-invert max-w-6xl prose-a:underline hover:prose-a:no-underline prose-a:transition-all prose-a:text-black hover:prose-a:bg-black hover:prose-a:text-white dark:prose-a:text-white dark:hover:prose-a:bg-white dark:hover:prose-a:text-black hover:prose-a:p-0.5 hover:prose-a:rounded"
   >
     <div>
       <div class="flex flex-col items-center text-center">
-        <img src={frontmatter.imgUrl} class="rounded" alt={`Thumbnail for the ${frontmatter.title} blog post.`} />
+        <img
+          src={frontmatter.imgUrl}
+          class="rounded"
+          alt={`Thumbnail for the ${frontmatter.title} blog post.`}
+        />
         <h1 class="mb-1">{frontmatter.title}</h1>
         <div class="text-gray-500 dark:text-gray-400 mb-0">
           <p class="text-lg">{frontmatter.description}</p>
@@ -26,23 +30,27 @@ import Layout from "./Layout.astro";
     <slot />
   </div>
 
-  <div class="max-w-6xl mt-10 mb-10 ml-auto mr-auto">
-    <script
-      src="https://giscus.app/client.js"
-      data-repo="mmattbtw/mmatt.net-discussions"
-      data-repo-id="R_kgDOH54_Mw"
-      data-category="General"
-      data-category-id="DIC_kwDOH54_M84CRH3m"
-      data-mapping="url"
-      data-strict="0"
-      data-reactions-enabled="1"
-      data-emit-metadata="0"
-      data-input-position="top"
-      data-theme="preferred_color_scheme"
-      data-lang="en"
-      data-loading="lazy"
-      crossorigin="anonymous"
-      async
-    />
-  </div>
+  {
+    !frontmatter.unlisted && (
+      <div class="max-w-6xl mb-10 ml-auto mr-auto">
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="mmattbtw/mmatt.net-discussions"
+          data-repo-id="R_kgDOH54_Mw"
+          data-category="General"
+          data-category-id="DIC_kwDOH54_M84CRH3m"
+          data-mapping="url"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="preferred_color_scheme"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        />
+      </div>
+    )
+  }
 </Layout>
