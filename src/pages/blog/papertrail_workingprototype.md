@@ -5,6 +5,7 @@ description: "also v5 now has a project name: 'project solrock'"
 date: "5 Sep 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_2_pic.webp"
+papertrail: true
 ---
 
 # v5 now has a working overlay prototype!

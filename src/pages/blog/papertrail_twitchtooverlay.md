@@ -5,6 +5,7 @@ description: "going from a twitch cheer event all the way to the overlay now wor
 date: "06 Oct 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_3_pic.webp"
+papertrail: true
 ---
 
 # from twitch event to overlay now works!
