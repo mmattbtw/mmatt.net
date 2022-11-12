@@ -14,7 +14,7 @@ the day most of you subscribed have been waiting for, AI TTS Donations v5 (proje
 
 this beta includes all of the previous features of AI TTS Donations (voice effects, playsounds, Uberduck+Fakeyou support, etc.) into an easy to use webapp format!
 
-no python, environment variables, setup, at all!!!! <_<
+no python, environment variables, setup, at all!!!! <\_<
 
 try it today: [https://staging.solrock.mmattDonk.com/](https://staging.solrock.mmattdonk.com/)
 
