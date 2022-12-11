@@ -28,6 +28,21 @@ module.exports = {
           },
         },
       },
+      colors: {
+        // Arc Colors: https://arc.net/colors.html (only in Arc Browser: https://arc.net)
+        arcPaletteBackgroundDark: "var(--arc-palette-backgroundExtra)",
+        arcPaletteBackground: "var(--arc-palette-background)",
+        arcPaleteForegroundPrimary: "var(--arc-palette-foregroundPrimary)",
+        arcPaleteForegroundSecondary: "var(--arc-palette-foregroundSecondary)",
+        arcPaleteForegroundTertiary: "var(--arc-palette-foregroundTertiary)",
+        arcPaletteMaxContrastColor: "var(--arc-palette-maxContrastColor)",
+        arcPaletteFocus: "var(--arc-palette-focus)",
+        arcPaletteHover: "var(--arc-palette-hover)",
+        arcPaletteCutoutColor: "var(--arc-palette-cutoutColor)",
+        arcPaletteTitle: "var(--arc-palette-title)",
+        arcPaletteSubtitle: "var(--arc-palette-subtitle)",
+        arcBackgroundSimpleColor: "var(--arc-background-simple-color)",
+      },
     },
   },
   plugins: [

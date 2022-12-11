@@ -1,33 +1,33 @@
 ---
 export interface Props {
-    links: {
-        title: string;
-        href: string;
-    }[
-    ]
-    disableHeaderOnScroll: boolean;
+  links: {
+    title: string;
+    href: string;
+  }[];
+  disableHeaderOnScroll: boolean;
 }
 
- const textHover =
-    "dark:hover:text-blue-300 dark:hover:bg-neutral-800 hover:text-blue-700 hover:bg-neutral-200 rounded pt-2 pb-2 pr-2 pl-2 transition-all md:text-lg text-xs";
+const textHover =
+  "hover:text-blue-300 hover:bg-neutral-800 rounded pt-2 pb-2 pr-2 pl-2 transition-all md:text-lg text-xs";
 
-const props = Astro.props as Props
+const props = Astro.props as Props;
 ---
 
 <div
-      class={
-        (props.disableHeaderOnScroll ? `static` : `sticky`) + " " +
-        "top-0 flex items-center justify-between flex-row p-5 backdrop-blur-sm w-full mb-10 z-10 max-h-16 transition-all bg-transparent"
-      }
-    >
-      <a href="/">
-        <h1 class="text-xl font-bold">mmatt.net</h1>
-      </a>
-      <div class="flex flex-row gap-2 md:gap-5 mr-5">
-        {props.links.map((link) => (
-          <a href={link.href} class={textHover}>
-            {link.title}
-          </a>
-        ))}
-      </div>
-    </div>
+  class={(props.disableHeaderOnScroll ? `static` : `sticky`) +
+    " " +
+    "top-0 flex items-center justify-between flex-row p-5 backdrop-blur-sm w-full mb-10 z-10 max-h-16 transition-all bg-transparent"}
+>
+  <a href="/">
+    <h1 class="text-xl font-bold">mmatt.net</h1>
+  </a>
+  <div class="flex flex-row gap-2 md:gap-5 mr-5">
+    {
+      props.links.map((link) => (
+        <a href={link.href} class={textHover}>
+          {link.title}
+        </a>
+      ))
+    }
+  </div>
+</div>

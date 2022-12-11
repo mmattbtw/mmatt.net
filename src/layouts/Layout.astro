@@ -61,7 +61,9 @@ import Scribbles from "../components/Scribbles.astro";
     <meta name="description" content={description ?? "my website :^)"} />
     <title>{title}</title>
   </head>
-  <body class="dark:bg-black dark:text-white bg-white text-black">
+  <body
+    class="bg-arcPaletteBackgroundDark bg-black text-white text-arcPaleteForegroundPrimary"
+  >
     <Header
       disableHeaderOnScroll={disableHeaderOnScroll ?? false}
       links={[
