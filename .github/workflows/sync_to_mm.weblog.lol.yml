@@ -16,7 +16,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: "src/pages/blog/" # Folder to copy
-          destination_repo: "mmattbtw/mm.omg.lol" # Target repo
+          destination_repo: "mmattbtw/mm.weblog.lol" # Target repo
           destination_folder: "weblog/" # Folder where to copy it
           user_email: "matt@mmatt.net"
           user_name: "mmattbtw"
