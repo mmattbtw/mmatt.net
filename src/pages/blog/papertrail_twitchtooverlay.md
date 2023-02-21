@@ -6,6 +6,8 @@ date: "06 Oct 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_3_pic.webp"
 papertrail: true
+
+Type: Post
 ---
 
 # from twitch event to overlay now works!

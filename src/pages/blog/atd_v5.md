@@ -5,6 +5,8 @@ description: 'The announcement of the "deprecation" to the existing AI TTS Donat
 date: "26 Aug 2022"
 category: "mmattDonk"
 imgUrl: "/images/ai_tts.webp"
+
+Type: Post
 ---
 
 AI TTS Donations is changing...
