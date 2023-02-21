@@ -6,7 +6,7 @@ date: "12 Jun 2021"
 category: "music"
 imgUrl: "/images/nurture.jpg"
 
-Type: Post
+Type: Page
 ---
 
 ## ‼️ Disclaimer ‼️

@@ -7,7 +7,7 @@ category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_2_pic.webp"
 papertrail: true
 
-Type: Post
+Type: Page
 ---
 
 # v5 now has a working overlay prototype!

@@ -7,7 +7,7 @@ category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_1_pic.webp"
 papertrail: true
 
-Type: Post
+Type: Page
 ---
 
 # hello? does this thing work?

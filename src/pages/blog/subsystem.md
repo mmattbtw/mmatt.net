@@ -7,7 +7,7 @@ category: "music / virtuai self"
 imgUrl: "/images/utopia-subsystem.webp"
 unlisted: true
 
-Type: Post
+Type: Page
 ---
 
 Hey! I assume you are reading this post after watching the reveal trailer for my new live show "virtuai self - utopia subsystem".

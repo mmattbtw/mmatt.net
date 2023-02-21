@@ -7,7 +7,7 @@ category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_3_pic.webp"
 papertrail: true
 
-Type: Post
+Type: Page
 ---
 
 # from twitch event to overlay now works!

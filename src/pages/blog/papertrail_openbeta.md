@@ -7,7 +7,7 @@ category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_4_pic.webp"
 papertrail: true
 
-Type: Post
+Type: Page
 ---
 
 # project solrock is now in open beta!
