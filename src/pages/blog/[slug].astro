@@ -1,0 +1,6 @@
+---
+if (Astro.request.url.split("/")[4]) {
+  console.log(Astro.request.url.split("/"));
+  return Astro.redirect("/weblog/" + Astro.request.url.split("/")[4]);
+}
+---

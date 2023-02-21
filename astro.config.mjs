@@ -1,8 +1,10 @@
+import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import createRobotsTxtIntegration from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 
-import sitemap from "@astrojs/sitemap";
-import createRobotsTxtIntegration from "astro-robots-txt";
+// https://astro.build/config
+import vercel from "@astrojs/vercel/edge";
 
 // https://astro.build/config
 export default defineConfig({
@@ -10,5 +12,7 @@ export default defineConfig({
   experimental: {
     integrations: true,
   },
+  output: "server",
+  adapter: vercel(),
   integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],
 });
