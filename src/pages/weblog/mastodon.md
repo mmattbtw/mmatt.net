@@ -5,8 +5,6 @@ description: "A ramble about a truly user owned social media platform, why it co
 date: "06 Nov 2022"
 category: "ramblings"
 imgUrl: "/images/mastodon.webp"
-
-Type: Page
 ---
 
 With the recent news of Elon Musk's acquisition of Twitter (-$44 billion) many are thinking of moving away from said platform as Musk isn't someone without controversy. From [emerald farms](https://www.msn.com/en-gb/money/technology/how-elon-musk-made-his-money-from-emeralds-to-spacex-and-tesla/ar-AA13tx0L) to just [weird transphobia(?)](https://www.yahoo.com/entertainment/grimes-calls-elon-musk-tweets-190525148.html) and just straight up being a mega-capitalistic rich white man with too much power, of course many people (including yours truly) aren't fond of him.

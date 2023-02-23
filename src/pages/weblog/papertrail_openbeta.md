@@ -6,8 +6,6 @@ date: "07 Nov 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_4_pic.webp"
 papertrail: true
-
-Type: Page
 ---
 
 # project solrock is now in open beta!

@@ -6,8 +6,6 @@ date: "5 Sep 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_2_pic.webp"
 papertrail: true
-
-Type: Page
 ---
 
 # v5 now has a working overlay prototype!

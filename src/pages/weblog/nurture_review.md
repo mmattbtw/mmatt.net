@@ -5,8 +5,6 @@ description: "A track-by-track review of Porter Robinson's new album, nurture."
 date: "12 Jun 2021"
 category: "music"
 imgUrl: "/images/nurture.jpg"
-
-Type: Page
 ---
 
 ## ‼️ Disclaimer ‼️
