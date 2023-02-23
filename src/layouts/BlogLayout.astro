@@ -36,29 +36,61 @@ import Layout from "./Layout.astro";
       <hr />
     </div>
     <slot />
+    <hr />
   </div>
 
-  {
-    !frontmatter.unlisted && (
-      <div class="max-w-6xl mb-10 ml-auto mr-auto">
-        <script
-          src="https://giscus.app/client.js"
-          data-repo="mmattbtw/mmatt.net-discussions"
-          data-repo-id="R_kgDOH54_Mw"
-          data-category="General"
-          data-category-id="DIC_kwDOH54_M84CRH3m"
-          data-mapping="url"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="preferred_color_scheme"
-          data-lang="en"
-          data-loading="lazy"
-          crossorigin="anonymous"
-          async
-        />
-      </div>
-    )
-  }
+  <div class="max-w-6xl ml-auto mr-auto mb-5">
+    <h4 class="font-semibold text-xl">
+      Add my blog into your reader of choice!
+    </h4>
+
+    <div class="mt-2 flex flex-row gap-3">
+      <a href="https://mm.weblog.lol/rss.xml">
+        <div
+          class="bg-neutral-900 p-3 rounded-lg hover:bg-neutral-800 transition-all active:scale-95"
+        >
+          RSS
+        </div>
+      </a>
+
+      <a href="https://mm.weblog.lol/atom.xml">
+        <div
+          class="bg-neutral-900 p-3 rounded-lg hover:bg-neutral-800 transition-all active:scale-95"
+        >
+          Atom
+        </div>
+      </a>
+      <a href="https://mm.weblog.lol/feed.json">
+        <div
+          class="bg-neutral-900 p-3 rounded-lg hover:bg-neutral-800 transition-all active:scale-95"
+        >
+          JSON
+        </div>
+      </a>
+    </div>
+  </div>
 </Layout>
+
+{
+  !frontmatter.unlisted && (
+    <div class="max-w-6xl mb-10 ml-auto mr-auto">
+      <script
+        src="https://giscus.app/client.js"
+        data-repo="mmattbtw/mmatt.net-discussions"
+        data-repo-id="R_kgDOH54_Mw"
+        data-category="General"
+        data-category-id="DIC_kwDOH54_M84CRH3m"
+        data-mapping="url"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async
+      />
+    </div>
+  )
+}
