@@ -6,6 +6,8 @@ date: "27 Aug 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_1_pic.webp"
 papertrail: true
+
+Date: 2022-8-27 00:00
 ---
 
 # hello? does this thing work?

@@ -5,6 +5,8 @@ description: "Hello everyone! I come to you with some Channel Point reward ideas
 date: "18 Sep 2020"
 category: "twitch"
 imgUrl: "/images/channelpoints.webp"
+
+Date: 2020-9-18 00:00
 ---
 
 _originally written: [here](https://www.reddit.com/r/Twitch/comments/iw13xu/cool_channel_point_reward_ideas_and_how_to_set/_)
