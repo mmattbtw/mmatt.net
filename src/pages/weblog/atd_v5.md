@@ -2,10 +2,8 @@
 layout: ../../layouts/BlogLayout.astro
 title: "AI TTS Donations is changing..."
 description: 'The announcement of the "deprecation" to the existing AI TTS Donations program (the little Python program you know today) and of the future of AI TTS Donations.'
-date: "26 Aug 2022"
 category: "mmattDonk"
 imgUrl: "/images/ai_tts.webp"
-
 Date: 2022-8-26 00:00
 ---
 

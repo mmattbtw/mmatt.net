@@ -2,10 +2,8 @@
 layout: "../../layouts/BlogLayout.astro"
 title: "Mastodon is great, yet confusing for too many."
 description: "A ramble about a truly user owned social media platform, why it confuses people, and Twitter's acquisition."
-date: "06 Nov 2022"
 category: "ramblings"
 imgUrl: "/images/mastodon.webp"
-
 Date: 2022-11-6 00:00
 ---
 

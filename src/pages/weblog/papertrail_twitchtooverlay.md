@@ -2,11 +2,9 @@
 layout: ../../layouts/BlogLayout.astro
 title: "[PAPER TRAIL] from twitch event to overlay now works!"
 description: "going from a twitch cheer event all the way to the overlay now works! we are very close to being finished it seems 👀"
-date: "06 Oct 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_3_pic.webp"
 papertrail: true
-
 Date: 2022-10-06 00:00
 ---
 

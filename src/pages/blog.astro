@@ -7,8 +7,8 @@ const allPosts = await Astro.glob("./weblog/*.md");
 
 const sortedPosts = allPosts.sort(
   (a, b) =>
-    new Date(b.frontmatter.date).valueOf() -
-    new Date(a.frontmatter.date).valueOf()
+    new Date(b.frontmatter.Date).valueOf() -
+    new Date(a.frontmatter.Date).valueOf()
 );
 ---
 
@@ -35,7 +35,9 @@ const sortedPosts = allPosts.sort(
                           {p.frontmatter.title}
                         </h2>
                         <p class="text-lg">{p.frontmatter.category}</p>
-                        <p class="text-sm">{p.frontmatter.date}</p>
+                        <p class="text-sm">
+                          {new Date(p.frontmatter.Date).toLocaleDateString()}
+                        </p>
                         <p class="text-xs overflow-none overflow-ellipsis">
                           "{p.frontmatter.description}"
                         </p>

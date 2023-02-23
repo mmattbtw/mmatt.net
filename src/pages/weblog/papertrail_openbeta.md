@@ -2,11 +2,9 @@
 layout: ../../layouts/BlogLayout.astro
 title: "[PAPER TRAIL] project solrock open beta!"
 description: "a working beta for the new version of AI TTS Donations is now (and has been) in beta!"
-date: "07 Nov 2022"
 category: "mmattDonk paper trail"
 imgUrl: "/images/papertrail_4_pic.webp"
 papertrail: true
-
 Date: 2022-11-07 00:00
 ---
 

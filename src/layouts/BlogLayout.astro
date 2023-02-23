@@ -26,7 +26,11 @@ import Layout from "./Layout.astro";
           </p>
         </div>
         <div class="text-gray-500 dark:text-gray-400 mb-0">
-          <p class="text-sm">{frontmatter.date} - {frontmatter.category}</p>
+          <p class="text-sm">
+            {new Date(frontmatter.Date).toLocaleDateString()} - {
+              frontmatter.category
+            }
+          </p>
         </div>
       </div>
       <hr />
