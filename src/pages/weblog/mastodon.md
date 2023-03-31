@@ -18,7 +18,7 @@ Verification on Twitter has always been a strange topic. With lots of verified a
 So of course Elon "SpaceX, Reddit User, Emerald Miner, Richest Man In The World, Bought Twitter Instead Of Saving World Hunger" Musk's solution to Twitter's problem with supposed "verification elitism" is to let every have a check, for just $8/month! Now of course the real motive behind this is monetization and profit, as [Musk has admittedly stated (not necessarily this tweet alone, but it's the first one that came to mind)](https://twitter.com/elonmusk/status/1587505731611262976), however there are consequences behind just simply pay-walling the "special" blue checkmark.
 
 As stated by many, scams and impersonation (that runs rampant on the platform) will grow exponentially. [Elon's supposed solution is to add previously verified users a "Public Figure" tag like politicians currently have.](https://twitter.com/elonmusk/status/1587527711228149765)
-![Example of the tag Musk is talking about. Pictured is @POTUS on Twitter with a status under the @POTUS username saying "United States government official"](/images/twittertag.png)
+![Example of the tag Musk is talking about. Pictured is @POTUS on Twitter with a status under the @POTUS username saying "United States government official"](https://cdn.some.pics/mm/642624f445962.png)
 
 This, of course, doesn't solve the issue at all, but puts bandage over the newly created problem, that didn't need to be created in the first place.
 

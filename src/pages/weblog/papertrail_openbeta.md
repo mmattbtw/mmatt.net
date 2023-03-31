@@ -19,4 +19,4 @@ no python, environment variables, setup, at all!!!! <\_<
 try it today: [https://staging.solrock.mmattDonk.com/](https://staging.solrock.mmattdonk.com/)
 
 [(again, open beta, so join our Discord to report bugs or ask for help!)](https://discord.gg/VUAjRrkZVJ)
-![a screenshot of the staging dot solrock dot mmattDonk dot com landing page](/images/landing_page_ss.webp)
+![a screenshot of the staging dot solrock dot mmattDonk dot com landing page](https://cdn.some.pics/mm/6426254dc1dfa.webp)

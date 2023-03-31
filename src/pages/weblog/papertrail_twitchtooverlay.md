@@ -15,4 +15,4 @@ going from a twitch cheer event, to the audio processor, to the overlay now work
 thats it :^)
 
 _click on the thumbnail below to view the video_
-[![video thumbnail](/images/papertrail_3_videothumb.webp)](https://streamable.com/kxukqz)
+[![video thumbnail](https://cdn.some.pics/mm/6426257274927.webp)](https://streamable.com/kxukqz)
