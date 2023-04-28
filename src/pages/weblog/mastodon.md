@@ -41,3 +41,4 @@ I get that, finding things like servers and all of this terminology is **very** 
 ## Conclusion
 
 Mastodon is way too good and "user first" for people to ignore. It's a shame that there is confusion around it because it really is great software. Mastodon really is the best place to move after the Twitter acquisition (if you are considering moving at all) because there isn't a possibility of Mastodon "getting bought out" because you can't just buy Mastodon and all of the servers, because servers are set up by individual users, so ironically Mastodon is **real** "power to the people" unlike [Elon Musk's $8/month Verification on Twitter](https://twitter.com/elonmusk/status/1588739131815112704). This was kinda a ramble and just what I was thinking as I wrote it, but hopefully it made sense to someone, and I hope more people will be able to join Mastodon, if you do end up making an account somewhere I am [@mm@social.lol](https://social.lol/web/@mm).
+

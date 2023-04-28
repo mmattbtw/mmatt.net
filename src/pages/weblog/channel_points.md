@@ -108,3 +108,4 @@ Any help I would Direct to these places for these programs.
 | Mix it Up   | [Get in Touch](https://mixitupapp.com/#contact)    |
 
 I will also try to help as many people as I can in the comments, such as if you are having problem with something that I could fix, or if you want to see how I setup some other things, just let me know!
+

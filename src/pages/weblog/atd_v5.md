@@ -31,3 +31,4 @@ you can sign up for the mailing list at the bottom and you'll get an email when 
 anyways go sign up for the list on https://aittsdonations.mmattdonk.com/ and hopefully the next announcement will be when this whole new thing is out :^)
 
 _i will still be providing support for v3.x.x btw_
+
