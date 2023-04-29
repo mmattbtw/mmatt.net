@@ -1,5 +1,25 @@
 ---
 const { frontmatter } = Astro.props;
+const slug = Astro.request.url.split("/")[4];
+
+const webmentions = await fetch(
+  `https://webmention.io/api/mentions.jf2?target=https://www.mmatt.net/weblog/${slug}`
+);
+const webmentionsJson = await webmentions.json();
+const webmentionsArray = webmentionsJson.children;
+const likes = webmentionsArray.filter(
+  (mention: any) => mention["wm-property"] === "like-of"
+);
+const reposts = webmentionsArray.filter(
+  (mention: any) => mention["wm-property"] === "repost-of"
+);
+const replies = webmentionsArray.filter(
+  (mention: any) => mention["wm-property"] === "in-reply-to"
+);
+const mentions = webmentionsArray.filter(
+  (mention: any) => mention["wm-property"] === "mention-of"
+);
+
 import Layout from "./Layout.astro";
 ---
 
@@ -44,6 +64,106 @@ import Layout from "./Layout.astro";
       <slot />
     </article>
     <hr />
+  </div>
+
+  <div class="max-w-6xl ml-auto mr-auto mb-5">
+    <h4 class="font-bold text-2xl">Webmentions</h4>
+    <h2 class="text-lg font-semibold">
+      {likes.length}
+      {likes.length === 1 ? "like" : "likes"}, {reposts.length}
+      {reposts.length === 1 ? "repost" : "reposts"}, {replies.length}
+      {replies.length === 1 ? "reply" : "replies"},
+      {mentions.length}
+      {mentions.length === 1 ? "mention" : "mentions"}
+    </h2>
+    <!-- show who liked, and link to them liking it -->
+    {
+      likes.length > 0 && (
+        <>
+          <div class="flex flex-row gap-3 items-center">
+            <h5 class="font-medium text-sm">Likes:</h5>
+            {likes.map((like: any) => (
+              <a href={like.url}>
+                <div class="flex flex-row items-center gap-2 bg-neutral-900 p-1 rounded-md hover:bg-neutral-800 transition-all active:scale-95">
+                  <img
+                    src={like.author.photo}
+                    alt={`A photo of ${like.author.name}`}
+                    class="h-5 w-5 rounded-md"
+                  />
+                  <p>{like.author.name}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+    <!-- show who reposted, and link to them reposting it -->
+    {
+      reposts.length > 0 && (
+        <>
+          <div class="flex flex-row gap-3 items-center">
+            <h5 class="font-medium text-sm">Reposts:</h5>
+            {reposts.map((repost: any) => (
+              <a href={repost.url}>
+                <div class="flex flex-row items-center gap-2 bg-neutral-900 p-1 rounded-md hover:bg-neutral-800 transition-all active:scale-95">
+                  <img
+                    src={repost.author.photo}
+                    alt={`A photo of ${repost.author.name}`}
+                    class="h-5 w-5 rounded-md"
+                  />
+                  <p>{repost.author.name}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+    <!-- show who replied, and link to them replying to it -->
+    {
+      replies.length > 0 && (
+        <>
+          <div class="flex flex-row gap-3 items-center">
+            <h5 class="font-medium text-sm">Replies:</h5>
+            {replies.map((reply: any) => (
+              <a href={reply.url}>
+                <div class="flex flex-row items-center gap-2 bg-neutral-900 p-1 rounded-md hover:bg-neutral-800 transition-all active:scale-95">
+                  <img
+                    src={reply.author.photo}
+                    alt={`A photo of ${reply.author.name}`}
+                    class="h-5 w-5 rounded-md"
+                  />
+                  <p>{reply.author.name}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+    <!-- do the same with mentions -->
+    {
+      mentions.length > 0 && (
+        <>
+          <div class="flex flex-row gap-3 items-center">
+            <h5 class="font-medium text-sm">Mentions:</h5>
+            {mentions.map((mention: any) => (
+              <a href={mention.url}>
+                <div class="flex flex-row items-center gap-2 bg-neutral-900 p-1 rounded-md hover:bg-neutral-800 transition-all active:scale-95">
+                  <img
+                    src={mention.author.photo}
+                    alt={`A photo of ${mention.author.name}`}
+                    class="h-5 w-5 rounded-md"
+                  />
+                  <p>{mention.author.name}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
   </div>
 
   <div class="max-w-6xl ml-auto mr-auto mb-5">
