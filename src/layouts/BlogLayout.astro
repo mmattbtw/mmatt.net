@@ -134,7 +134,9 @@ import Layout from "./Layout.astro";
                     alt={`A photo of ${reply.author.name}`}
                     class="h-5 w-5 rounded-md"
                   />
-                  <p>{reply.author.name}</p>
+                  <p>
+                    {reply.author.name} - "{reply.content.text}"
+                  </p>
                 </div>
               </a>
             ))}
