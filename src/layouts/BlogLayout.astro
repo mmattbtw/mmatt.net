@@ -16,11 +16,11 @@ import Layout from "./Layout.astro";
       <div class="flex flex-col items-center text-center">
         <img
           src={frontmatter.imgUrl}
-          class="rounded"
+          class={"rounded " + frontmatter.title ? "u-featured" : "u-photo"}
           alt={`Thumbnail for the ${frontmatter.title} blog post.`}
         />
         <div>
-          <h1>{frontmatter.title}</h1>
+          <h1 itemprop="name headline" class="p-name">{frontmatter.title}</h1>
           <p class="text-lg font-semibold">
             {frontmatter.description}
           </p>
@@ -35,7 +35,14 @@ import Layout from "./Layout.astro";
       </div>
       <hr />
     </div>
-    <slot />
+    <article
+      itemscope
+      itemtype="https://schema.org/BlogPosting"
+      itemprop="blogPost"
+      class="h-entry e-content"
+    >
+      <slot />
+    </article>
     <hr />
   </div>
 
