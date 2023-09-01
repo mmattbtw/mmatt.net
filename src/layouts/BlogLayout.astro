@@ -3,21 +3,21 @@ const { frontmatter } = Astro.props;
 const slug = Astro.request.url.split("/")[4];
 
 const webmentions = await fetch(
-  `https://webmention.io/api/mentions.jf2?target=https://www.mmatt.net/weblog/${slug}`
+  `https://webmention.io/api/mentions.jf2?target=https://www.mmatt.net/weblog/${slug}`,
 );
 const webmentionsJson = await webmentions.json();
 const webmentionsArray = webmentionsJson.children;
 const likes = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "like-of"
+  (mention: any) => mention["wm-property"] === "like-of",
 );
 const reposts = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "repost-of"
+  (mention: any) => mention["wm-property"] === "repost-of",
 );
 const replies = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "in-reply-to"
+  (mention: any) => mention["wm-property"] === "in-reply-to",
 );
 const mentions = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "mention-of"
+  (mention: any) => mention["wm-property"] === "mention-of",
 );
 
 import Layout from "./Layout.astro";
@@ -38,10 +38,20 @@ import Layout from "./Layout.astro";
           src={frontmatter.imgUrl}
           class={"rounded " + frontmatter.title ? "u-featured" : "u-photo"}
           alt={`Thumbnail for the ${frontmatter.title} blog post.`}
+          transition:name={frontmatter.imgUrl}
         />
         <div>
-          <h1 itemprop="name headline" class="p-name">{frontmatter.title}</h1>
-          <p class="text-lg font-semibold">
+          <h1
+            itemprop="name headline"
+            class="p-name"
+            transition:name={frontmatter.title}
+          >
+            {frontmatter.title}
+          </h1>
+          <p
+            class="text-lg font-semibold"
+            transition:name={frontmatter.description}
+          >
             {frontmatter.description}
           </p>
         </div>

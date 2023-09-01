@@ -17,6 +17,7 @@ const {
   blog,
 } = Astro.props as Props;
 const ifImgLocal = imgUrl?.startsWith("/");
+import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
 import Scribbles from "../components/Scribbles.astro";
 ---
@@ -68,6 +69,9 @@ import Scribbles from "../components/Scribbles.astro";
     <link rel="pingback" href="https://webmention.io/www.mmatt.net/xmlrpc" />
     <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+
+    <ViewTransitions />
+
   </head>
   <body class="dark:bg-black dark:text-white bg-white text-black">
     <Header
