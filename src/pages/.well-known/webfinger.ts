@@ -1,4 +1,5 @@
 import type { APIRoute } from "astro";
+export const prerender = true;
 
 export const get: APIRoute = async function get() {
   return {

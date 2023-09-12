@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
+export const prerender = true;
 // from @TheoBr
 // https://github.com/TheoBr/t3-astro/blob/e263bdb83606402afc8a48de3d5da307b4283b12/src/pages/blog/index.astro#L12-L17
 const allPosts = await Astro.glob("./weblog/*.md");

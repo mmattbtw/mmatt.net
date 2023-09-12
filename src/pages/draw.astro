@@ -1,13 +1,14 @@
 ---
 import Scribbles from "../components/Scribbles.astro";
 
-const title= "draw. - mmatt.net"
-const description= "scribbles :^)"
-const imgUrl = ""
-const ifImgLocal = false
+export const prerender = true;
+const title = "draw. - mmatt.net";
+const description = "scribbles :^)";
+const imgUrl = "";
+const ifImgLocal = false;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -15,12 +16,21 @@ const ifImgLocal = false
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
-    <script async defer data-website-id="deb6d6bd-d3dd-45f6-a315-0ff12faaf505" src="https://slayalytics.mmattdonk.com/umami.js"></script>
+    <script
+      async
+      defer
+      data-website-id="deb6d6bd-d3dd-45f6-a315-0ff12faaf505"
+      src="https://slayalytics.mmattdonk.com/umami.js"></script>
 
     <meta property="og:title" content={title} />
-    <meta property="og:image" content={imgUrl ? 
-      ifImgLocal ? `https://mmatt.net${imgUrl}` : imgUrl
-    : "https://mmatt.net/images/mmattbtw.webp"} />
+    <meta
+      property="og:image"
+      content={imgUrl
+        ? ifImgLocal
+          ? `https://mmatt.net${imgUrl}`
+          : imgUrl
+        : "https://mmatt.net/images/mmattbtw.webp"}
+    />
     <meta property="og:locale" content="en_US" />
     <meta property="og:description" content={description ?? "..."} />
     <meta property="og:type" content="website" />
@@ -28,14 +38,13 @@ const ifImgLocal = false
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@mmattbtw" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description ?? ""}/>
+    <meta name="twitter:description" content={description ?? ""} />
     <meta name="twitter:image" content={imgUrl} />
 
-    <meta name="author" content="mmatt">
+    <meta name="author" content="mmatt" />
     <meta property="description" content={description} />
     <title>{title}</title>
   </head>
 
-  <body class="bg-black text-white"><Scribbles/></body>
-
+  <body class="bg-black text-white"><Scribbles /></body>
 </html>
