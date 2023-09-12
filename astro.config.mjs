@@ -9,7 +9,10 @@ import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 export default defineConfig({
   site: "https://mmatt.net",
-  output: "server",
-  adapter: vercel(),
+  output: "hybrid",
+  adapter: vercel({
+    analytics: true,
+    functionPerRoute: false,
+  }),
   integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],
 });

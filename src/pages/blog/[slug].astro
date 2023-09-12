@@ -1,4 +1,11 @@
 ---
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob("../weblog/*.md");
+  const paths = allPosts.map((post) => ({
+    params: { slug: post.url?.split("/")[2] },
+  }));
+  return paths;
+}
 if (Astro.request.url.split("/")[4]) {
   return Astro.redirect("/weblog/" + Astro.request.url.split("/")[4]);
 }
