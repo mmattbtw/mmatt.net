@@ -11,7 +11,7 @@ export default defineConfig({
   site: "https://mmatt.net",
   output: "hybrid",
   adapter: vercel({
-    analytics: true,
+    webAnalytics: true,
     functionPerRoute: false,
   }),
   integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],

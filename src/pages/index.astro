@@ -1,5 +1,5 @@
 ---
-import Card, { Props } from "../components/Card.astro";
+import Card, { type Props } from "../components/Card.astro";
 import Layout from "../layouts/Layout.astro";
 export const prerender = true;
 
@@ -9,7 +9,8 @@ const projects: Props[] = [
     tags: "wip/coming soon • next.js • t3 stack • typescript • expo • react native • 'startup'",
     link: "https://songish.app",
     imgUrl: "/images/songish.webp",
-    description: "Songish is the app for sharing music with your friends. This will be the biggest solo project I am working on, with lots of plans in the future, including a UserArtist program (for promoting indie artists that use Songish), an entire community music database, and more.",
+    description:
+      "Songish is the app for sharing music with your friends. This will be the biggest solo project I am working on, with lots of plans in the future, including a UserArtist program (for promoting indie artists that use Songish), an entire community music database, and more.",
   },
   {
     title: "Solrock Open Beta (AI TTS Donations v5)",
@@ -30,7 +31,8 @@ const projects: Props[] = [
   {
     title: "Super VCs",
     tags: "typescript • open source • discord bot",
-    description: "Super VCs is a Discord bot that automatically creates new voice channels, and also mentions signed up users for when a new voice channel starts. Made this for a personal server, and it's really useful for us!",
+    description:
+      "Super VCs is a Discord bot that automatically creates new voice channels, and also mentions signed up users for when a new voice channel starts. Made this for a personal server, and it's really useful for us!",
     imgUrl: "/images/supervcs.gif",
     link: "https://github.com/mmattbtw/Super-VCs",
   },
@@ -45,10 +47,11 @@ const projects: Props[] = [
   {
     title: "VIBEFEST.live v2",
     tags: "astro • music festival • static site",
-    description: "The next version of VIBEFEST.live is built on Astro! It's completely static, with no database, and has an entire lineup directory, with easy to edit artist information pages!",
+    description:
+      "The next version of VIBEFEST.live is built on Astro! It's completely static, with no database, and has an entire lineup directory, with easy to edit artist information pages!",
     imgUrl: "/images/vibefest2.webp",
     link: "https://vibefest.live",
-  }
+  },
 ];
 ---
 
