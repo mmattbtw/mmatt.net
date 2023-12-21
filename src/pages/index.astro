@@ -1,223 +1,128 @@
 ---
-import Card, { type Props } from "../components/Card.astro";
-import Layout from "../layouts/Layout.astro";
+import { ViewTransitions } from "astro:transitions";
+import { type Props } from "../components/Card.astro";
 export const prerender = true;
-
-const projects: Props[] = [
-  {
-    title: "Songish",
-    tags: "wip/coming soon • next.js • t3 stack • typescript • expo • react native • 'startup'",
-    link: "https://songish.app",
-    imgUrl: "/images/songish.webp",
-    description:
-      "Songish is the app for sharing music with your friends. This will be the biggest solo project I am working on, with lots of plans in the future, including a UserArtist program (for promoting indie artists that use Songish), an entire community music database, and more.",
-  },
-  {
-    title: "Solrock Open Beta (AI TTS Donations v5)",
-    tags: "shut down • 2,000+ streamers and counting! • open source • mmattDonk • twitch • python 3",
-    link: "https://solrock.mmattdonk.com",
-    imgUrl: "/images/solrock.png",
-    description:
-      "AI TTS Donations (working name) is a free and open source AI TTS program. This was made because other solutions were private / cost streamers tons of money. AI TTS Donations includes playsounds, voice effects, and thousands of voices using Uberduck and FakeYou",
-  },
-  {
-    title: "TwitchTunes",
-    tags: "on hiatus • open source • mmattDonk • twitch • python 3",
-    description:
-      "TwitchTunes is a Twitch chat bot that lets your viewers use Spotify to request songs.",
-    imgUrl: "/images/twitchtunes.webp",
-    link: "https://github.com/mmattDonk/TwitchTunes",
-  },
-  {
-    title: "Super VCs",
-    tags: "typescript • open source • discord bot",
-    description:
-      "Super VCs is a Discord bot that automatically creates new voice channels, and also mentions signed up users for when a new voice channel starts. Made this for a personal server, and it's really useful for us!",
-    imgUrl: "/images/supervcs.gif",
-    link: "https://github.com/mmattbtw/Super-VCs",
-  },
-  {
-    title: "VIBEFEST.live",
-    tags: "remix • react • typescript • music festival",
-    description:
-      "VIBEFEST.live is a website made for the VIBEFEST online music festival. It uses the React framework Remix and uses the Component Library Mantine. It includes a news feed with a comment section, a stream page with a Twitch embed and donation information, and a guestbook!",
-    imgUrl: "/images/vibefestlive.webp",
-    link: "https://vibefest.live",
-  },
-  {
-    title: "VIBEFEST.live v2",
-    tags: "astro • music festival • static site",
-    description:
-      "The next version of VIBEFEST.live is built on Astro! It's completely static, with no database, and has an entire lineup directory, with easy to edit artist information pages!",
-    imgUrl: "/images/vibefest2.webp",
-    link: "https://vibefest.live",
-  },
-];
 ---
 
-<Layout title="home. - mmatt.net">
-  <main class="max-w-6xl lg:ml-auto lg:mr-auto relative mr-5 ml-5">
-    <div
-      class="flex flex-col text-center md:text-left justify-center items-center gap-5 md:justify-evenly md:flex-row"
-    >
-      <div class="flex flex-col">
-        <p class="text-3xl font-bold animate-fadeInDown">i'm matt 👋</p>
-        <p class="animate-fadeInDown animation-delay-300">
-          i'm 18, a{" "}
-          <a
-            href="https://last.fm/user/mmattbtw"
-            class="transition-all text-red-400 hover:bg-red-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            >music lover,
-          </a>
-          <a
-            href="https://www.discogs.com/user/mmattbtw"
-            class="transition-all text-gray-400 hover:bg-gray-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            >record collector,
-          </a> former <a
-            class="transition-all text-purple-400 hover:bg-purple-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            href="https://twitch.tv/mmattbtw"
-            >twitch
-          </a> streamer, current twitch chatter,
-          <a
-            href="https://github.com/mmattbtw"
-            class="transition-all text-teal-600 hover:bg-teal-600/50 hover:text-white hover:p-0.5 hover:rounded"
-            >and a web developer.
-          </a>
-        </p>
-        <br />
-        <p class="animate-fadeInDown animation-delay-350">
-          i'm currently focused on making <a
-            href="https://songish.app"
-            class="transition-all text-blue-400 hover:bg-blue-400/50 hover:text-white hover:p-0.5 hover:rounded"
-            >Songish</a
-          > a reality.
-        </p>
-      </div>
-      <img
-        src="/images/mmattbtw.webp"
-        class="transition-all animate-fadeIn animation-delay-400 shadow-2xl shadow-black/30 dark:shadow-white/30 rounded-xl hover:border-2 hover:border-cyan-200"
-        height="200px"
-        width="200px"
-        alt="Photo of me, orange hair with glasses, holding an iPhone, wearing a purple Twitch hoodie."
-      />
-    </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
 
-    <div class="mt-32">
-      <h1 class="text-2xl font-bold text-center animate-fadeInDown">
-        things i've worked on
-      </h1>
-      <div
-        class="mt-4 flex flex-col md:grid md:grid-cols-3 md:items-start justify-center items-center gap-4 animate-fadeIn"
-      >
-        {projects.map((project) => <Card {...project} />)}
-      </div>
-      <p class="text-lg text-center mt-5">
-        <a
-          class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded"
-          href="https://github.com/mmattbtw">and more!</a
+    <meta property="og:title" content={"mmatt.net"} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:description" content={"temp website :("} />
+    <meta property="og:type" content="website" />
+
+    <meta name="theme-color" content="#BEFCFF" media="not screen" />
+
+    <meta name="twitter:card" content={"summary"} />
+    <meta name="twitter:site" content="@mmatt" />
+    <meta name="twitter:title" content={"mmatt.net"} />
+    <meta name="twitter:description" content={"temp website :("} />
+
+    <meta name="author" content="mmatt <matt@mmatt.net>" />
+    <meta property="description" content={"temp website :("} />
+    <meta name="description" content={"temp website :("} />
+    <title>mmatt.net</title>
+
+    <link
+      rel="webmention"
+      href="https://webmention.io/www.mmatt.net/webmention"
+    />
+    <link rel="pingback" href="https://webmention.io/www.mmatt.net/xmlrpc" />
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+
+    <ViewTransitions />
+  </head>
+  <body class="dark:bg-black dark:text-white bg-white text-black">
+    <main
+      class="max-w-2xl gap-5 lg:ml-auto lg:mr-auto relative mr-5 ml-5 flex flex-col justify-center h-screen"
+    >
+      <h1 class="text-4xl font-bold">hello!</h1>
+      <p>
+        my name is matt morris and i'm head technologist for <a
+          class="underline"
+          href="https://songish.app?ref=mmatt.net">Songish</a
+        >. 🧑‍🔬
+      </p>
+      <p>
+        currently in a little experimental era 🧪 so that's whats going on
+        here... soon i'll have a brand new website design, but i gotta figure
+        out what I like!!!! <a
+          class="underline"
+          href="https://web.archive.org/web/20231207164012/https://mmatt.net/"
+          >(here's what this page looked like before)</a
         >
       </p>
-    </div>
+      <a class="underline" href="https://mmatt.mmm.page/"
+        >here's a webpage i made with a new thing, maybe i'll do something like
+        this
+      </a>
+      <p>anyways, you aren't missing much. here's everywhere I am:</p>
 
-    <div class="mt-32">
-      <h1 class="text-2xl font-bold text-center animate-fadeInDown">
-        internet profiles
-      </h1>
-      <div
-        class="mt-10 flex flex-col lg:flex-row lg:items-stretch justify-center items-center lg:gap-40 gap-20 animate-fadeIn"
+      <ul class="list-disc">
+        <li>
+          <a class="underline" href="https://twitter.com/mmatt">twitter</a>
+        </li>
+        <li>
+          <a class="underline" href="https://youtube.com/@mmattbtw">youtube</a>
+        </li>
+        <li>
+          <a class="underline" href="https://github.com/mmattbtw">github</a>
+        </li>
+        <li>
+          <a class="underline" href="https://twitch.tv/mmattbtw">twitch</a>
+        </li>
+        <li>
+          <a class="underline" href="https://social.lol/@matt" rel="me"
+            >mastodon</a
+          >
+        </li>
+        <li>
+          <a class="underline" href="https://matt.omg.lol">everywhere else...</a
+          >
+        </li>
+      </ul>
+
+      <p>
+        my email is <a class="underline" href="mailto:matt@mmatt.net"
+          >matt at mmatt.net</a
+        >
+      </p>
+      <p>previous pages:</p>
+      <ul class="list-disc">
+        <li>
+          <a class="underline" href="/blog">/blog</a>
+        </li>
+        <li><a class="underline" href="/devices">/devices</a></li>
+      </ul>
+
+      <style>
+        html {
+          font-family: system-ui, sans-serif;
+        }
+
+        :global(code) {
+          font-family:
+            Menlo,
+            Monaco,
+            Lucida Console,
+            Liberation Mono,
+            DejaVu Sans Mono,
+            Bitstream Vera Sans Mono,
+            Courier New,
+            monospace;
+        }
+      </style>
+
+      <!-- social.lol verification code -->
+      <a rel="me" href="https://social.lol/@matt" class="hidden"
+        >social.lol verification</a
       >
-        <a
-          href="https://twitter.com/mmatt"
-          rel="me"
-          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
-        >
-          <svg
-            role="img"
-            viewBox="0 0 24 24"
-            class="w-20 h-20 transition-all"
-            xmlns="http://www.w3.org/2000/svg"
-            ><title>Twitter</title><path
-              d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-            ></path>
-          </svg>
-        </a>
-        <a
-          href="https://github.com/mmattbtw"
-          rel="me"
-          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
-        >
-          <svg
-            role="img"
-            viewBox="0 0 24 24"
-            class="w-20 h-20 transition-all"
-            xmlns="http://www.w3.org/2000/svg"
-            ><title>GitHub</title><path
-              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
-            ></path>
-          </svg>
-        </a>
-        <a
-          href="https://twitch.tv/mmattbtw"
-          rel="me"
-          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
-        >
-          <svg
-            role="img"
-            viewBox="0 0 24 24"
-            class="w-20 h-20 transition-all"
-            xmlns="http://www.w3.org/2000/svg"
-            ><title>Twitch</title><path
-              d="M11.571 4.714h1.715v5.143H11.57zm4.715 0H18v5.143h-1.714zM6 0L1.714 4.286v15.428h5.143V24l4.286-4.286h3.428L22.286 12V0zm14.571 11.143l-3.428 3.428h-3.429l-3 3v-3H6.857V1.714h13.714Z"
-            ></path>
-          </svg>
-        </a>
-        <a
-          href="https://social.lol/@matt"
-          rel="me"
-          class="transition-all rounded dark:fill-neutral-500 dark:hover:fill-white fill-neutral-700 hover:fill-black"
-        >
-          <svg
-            width="74"
-            height="79"
-            viewBox="0 0 74 79"
-            class="w-20 h-20 transition-all"
-            xmlns="http://www.w3.org/2000/svg"
-            ><title>Mastodon</title>
-            <path
-              d="M73.7014 17.9592C72.5616 9.62034 65.1774 3.04876 56.424 1.77536C54.9472 1.56019 49.3517 0.7771 36.3901 0.7771H36.2933C23.3281 0.7771 20.5465 1.56019 19.0697 1.77536C10.56 3.01348 2.78877 8.91838 0.903306 17.356C-0.00357857 21.5113 -0.100361 26.1181 0.068112 30.3439C0.308275 36.404 0.354874 42.4535 0.91406 48.489C1.30064 52.498 1.97502 56.4751 2.93215 60.3905C4.72441 67.6217 11.9795 73.6395 19.0876 76.0945C26.6979 78.6548 34.8821 79.0799 42.724 77.3221C43.5866 77.1245 44.4398 76.8953 45.2833 76.6342C47.1867 76.0381 49.4199 75.3714 51.0616 74.2003C51.0841 74.1839 51.1026 74.1627 51.1156 74.1382C51.1286 74.1138 51.1359 74.0868 51.1368 74.0592V68.2108C51.1364 68.185 51.1302 68.1596 51.1185 68.1365C51.1069 68.1134 51.0902 68.0932 51.0695 68.0773C51.0489 68.0614 51.0249 68.0503 50.9994 68.0447C50.9738 68.0391 50.9473 68.0392 50.9218 68.045C45.8976 69.226 40.7491 69.818 35.5836 69.8087C26.694 69.8087 24.3031 65.6569 23.6184 63.9285C23.0681 62.4347 22.7186 60.8764 22.5789 59.2934C22.5775 59.2669 22.5825 59.2403 22.5934 59.216C22.6043 59.1916 22.621 59.1702 22.6419 59.1533C22.6629 59.1365 22.6876 59.1248 22.714 59.1191C22.7404 59.1134 22.7678 59.1139 22.794 59.1206C27.7345 60.2936 32.799 60.8856 37.8813 60.8843C39.1036 60.8843 40.3223 60.8843 41.5447 60.8526C46.6562 60.7115 52.0437 60.454 57.0728 59.4874C57.1983 59.4628 57.3237 59.4416 57.4313 59.4098C65.3638 57.9107 72.9128 53.2051 73.6799 41.2895C73.7086 40.8204 73.7803 36.3758 73.7803 35.889C73.7839 34.2347 74.3216 24.1533 73.7014 17.9592ZM61.4925 47.6918H53.1514V27.5855C53.1514 23.3526 51.3591 21.1938 47.7136 21.1938C43.7061 21.1938 41.6988 23.7476 41.6988 28.7919V39.7974H33.4078V28.7919C33.4078 23.7476 31.3969 21.1938 27.3894 21.1938C23.7654 21.1938 21.9552 23.3526 21.9516 27.5855V47.6918H13.6176V26.9752C13.6176 22.7423 14.7157 19.3795 16.9118 16.8868C19.1772 14.4 22.1488 13.1231 25.8373 13.1231C30.1064 13.1231 33.3325 14.7386 35.4832 17.9662L37.5587 21.3949L39.6377 17.9662C41.7884 14.7386 45.0145 13.1231 49.2765 13.1231C52.9614 13.1231 55.9329 14.4 58.2055 16.8868C60.4017 19.3772 61.4997 22.74 61.4997 26.9752L61.4925 47.6918Z"
-            ></path>
-          </svg>
-        </a>
-        <p class="text-lg text-center mt-5">
-          <a
-            class="transition-all text-black hover:bg-black hover:text-white dark:text-white dark:hover:bg-white dark:hover:text-black hover:p-0.5 hover:rounded"
-            href="https://matt.omg.lol">everything else!</a
-          >
-        </p>
-      </div>
-    </div>
-    <div class="mt-32">
-      <h1 class="text-2xl font-bold text-center animate-fadeInDown">
-        contact me!
-      </h1>
-      <div class="text-lg text-center animate-fadeIn">
-        <p>
-          my email is <a
-            href="mailto:matt@mmatt.net"
-            class="transition-all text-green-500 hover:bg-green-500/50 dark:text-green-300 dark:hover:bg-green-300/50 hover:text-white hover:p-0.5 hover:rounded"
-            >matt at mmatt.net</a
-          >
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-32 mb-16 flex flex-col items-center gap-1">
-      <a href="https://yesterweb.org/no-to-web3/">
-        <img src="images/noweb3.gif" alt="no to web 3! badge" />
-      </a>
-      <a href="https://last.fm/user/mmattbtw">
-        <img src="images/ilovemusic.gif" alt="i love music! badge" />
-      </a>
-    </div>
-  </main>
-</Layout>
+    </main>
+  </body>
+</html>
