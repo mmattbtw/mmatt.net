@@ -1,6 +1,9 @@
-on: [push]
+on: 
+  push:
+    branches:
+      - master
 
-name: ⏫ Sync to mm.weblog.lol
+name: ⏫ Sync to matt.weblog.lol
 
 jobs:
   copy-file:
