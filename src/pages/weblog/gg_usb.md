@@ -4,7 +4,7 @@ title: "Setting up a USB profile for Game Galaxy's ITG machine."
 description: "A full guide on how to set up a USB profile for Game Galaxy's ITG machine."
 category: "arcade"
 imgUrl: "/images/gg_itg_usb/usbicon.png"
-Date: 2024-7-1 00:00
+Date: 2024-8-1 00:00
 ---
 
 # Before you head to the arcade:
