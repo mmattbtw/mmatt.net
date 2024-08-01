@@ -12,6 +12,7 @@ Date: 2024-8-1 00:00
 ## 1. Grab yourself a USB drive
 
 Any size should work, just make sure its **formatted as FAT32**.
+
 [SanDisk Cruzer 32GB on Amazon](https://www.amazon.com/gp/product/B007YX9O9E)
 
 ## 2. Download [ITGmania](https://itgmania.com)
@@ -56,6 +57,7 @@ Here you can put in your display name to show up in game, as well as metrics for
 ## 10. Add some custom songs! (not required)
 
 If you have some files you want to play that aren't already on GG's cab, you can add some here! Just put the **song's folder** into your `/StepMania 5/Songs` folder on your USB.
+
 **IMPORTANT: Make sure you delete any VIDEO files from your songs folder.** This may make the song too large for the limit.
 ![The Songs folder](/images/gg_itg_usb/songsfolder.png)
 
