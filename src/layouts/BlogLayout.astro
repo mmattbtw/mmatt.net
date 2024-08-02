@@ -3,31 +3,32 @@ const { frontmatter } = Astro.props;
 const slug = Astro.request.url.split("/")[4];
 
 const webmentions = await fetch(
-  `https://webmention.io/api/mentions.jf2?target=https://www.mmatt.net/weblog/${slug}`,
+  `https://webmention.io/api/mentions.jf2?target=https://www.mmatt.net/weblog/${slug}`
 );
 const webmentionsJson = await webmentions.json();
 const webmentionsArray = webmentionsJson.children;
 const likes = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "like-of",
+  (mention: any) => mention["wm-property"] === "like-of"
 );
 const reposts = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "repost-of",
+  (mention: any) => mention["wm-property"] === "repost-of"
 );
 const replies = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "in-reply-to",
+  (mention: any) => mention["wm-property"] === "in-reply-to"
 );
 const mentions = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "mention-of",
+  (mention: any) => mention["wm-property"] === "mention-of"
 );
 
 import Layout from "./Layout.astro";
 ---
 
 <Layout
-  title={frontmatter.title + " - mmatt.net"}
+  title={frontmatter.title + " - matt morris"}
   description={frontmatter.description}
   imgUrl={frontmatter.imgUrl}
   blog
+  slug="/blog"
 >
   <div
     class="lg:ml-auto lg:mr-auto ml-5 mr-5 mb-5 prose lg:prose-xl dark:prose-invert max-w-6xl prose-a:underline hover:prose-a:no-underline prose-a:transition-all prose-a:text-black hover:prose-a:bg-black hover:prose-a:text-white dark:prose-a:text-white dark:hover:prose-a:bg-white dark:hover:prose-a:text-black hover:prose-a:p-0.5 hover:prose-a:rounded"
@@ -209,27 +210,3 @@ import Layout from "./Layout.astro";
     </div>
   </div>
 </Layout>
-
-{
-  !frontmatter.unlisted && (
-    <div class="max-w-6xl mb-10 ml-auto mr-auto">
-      <script
-        src="https://giscus.app/client.js"
-        data-repo="mmattbtw/mmatt.net-discussions"
-        data-repo-id="R_kgDOH54_Mw"
-        data-category="General"
-        data-category-id="DIC_kwDOH54_M84CRH3m"
-        data-mapping="url"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        data-loading="lazy"
-        crossorigin="anonymous"
-        async
-      />
-    </div>
-  )
-}

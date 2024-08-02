@@ -1,46 +1,11 @@
 ---
-import { ViewTransitions } from "astro:transitions";
 import { type Props } from "../components/Card.astro";
+import Layout from "../layouts/Layout.astro";
 export const prerender = true;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
-
-    <meta property="og:title" content={"mmatt.net"} />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content={"temp website :("} />
-    <meta property="og:type" content="website" />
-
-    <meta name="theme-color" content="#BEFCFF" media="not screen" />
-
-    <meta name="twitter:card" content={"summary"} />
-    <meta name="twitter:site" content="@mmatt" />
-    <meta name="twitter:title" content={"mmatt.net"} />
-    <meta name="twitter:description" content={"temp website :("} />
-
-    <meta name="author" content="mmatt <matt@mmatt.net>" />
-    <meta property="description" content={"temp website :("} />
-    <meta name="description" content={"temp website :("} />
-    <title>mmatt.net</title>
-
-    <link
-      rel="webmention"
-      href="https://webmention.io/www.mmatt.net/webmention"
-    />
-    <link rel="pingback" href="https://webmention.io/www.mmatt.net/xmlrpc" />
-    <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
-    <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
-
-    <ViewTransitions />
-  </head>
-  <body
-    class="dark:bg-black dark:text-white bg-white text-black flex items-center justify-center min-h-screen"
-  >
+<Layout title="matt morris a.k.a. mmatt" slug="/">
+  <body class="dark:bg-black dark:text-white bg-white text-black min-h-screen">
     <main
       class="max-w-2xl gap-5 lg:ml-auto lg:mr-auto mr-5 ml-5 flex flex-col justify-center"
     >
@@ -60,10 +25,6 @@ export const prerender = true;
           >(here's what this page looked like before)</a
         >
       </p>
-      <a class="underline" href="https://mmatt.mmm.page/"
-        >here's a webpage i made with a new thing, maybe i'll do something like
-        this
-      </a>
       <p>anyways, you aren't missing much. here's everywhere I am:</p>
 
       <ul class="list-disc">
@@ -95,13 +56,6 @@ export const prerender = true;
           >matt at mmatt.net</a
         >
       </p>
-      <p>previous pages:</p>
-      <ul class="list-disc">
-        <li>
-          <a class="underline" href="/blog">/blog</a>
-        </li>
-        <li><a class="underline" href="/devices">/devices</a></li>
-      </ul>
 
       <style>
         html {
@@ -127,4 +81,4 @@ export const prerender = true;
       >
     </main>
   </body>
-</html>
+</Layout>

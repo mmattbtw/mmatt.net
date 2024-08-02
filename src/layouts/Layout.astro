@@ -1,28 +1,21 @@
 ---
 export interface Props {
   title: string;
-  disableScribbles?: boolean;
+  slug: string;
   disableHeaderOnScroll?: boolean;
   imgUrl?: string;
   description?: string;
   blog?: boolean;
 }
 
-const {
-  title,
-  disableScribbles,
-  disableHeaderOnScroll,
-  imgUrl,
-  description,
-  blog,
-} = Astro.props as Props;
+const { title, disableHeaderOnScroll, imgUrl, description, blog, slug } =
+  Astro.props as Props;
 const ifImgLocal = imgUrl?.startsWith("/");
 import { ViewTransitions } from "astro:transitions";
 import Header from "../components/Header.astro";
-import Scribbles from "../components/Scribbles.astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -40,7 +33,10 @@ import Scribbles from "../components/Scribbles.astro";
         : "https://mmatt.net/images/mmattbtw.webp"}
     />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:description" content={description ?? "my website :^)"} />
+    <meta
+      property="og:description"
+      content={description ?? "frontend web developer / student"}
+    />
     <meta property="og:type" content="website" />
 
     <meta name="theme-color" content="#BEFCFF" media="not screen" />
@@ -49,17 +45,23 @@ import Scribbles from "../components/Scribbles.astro";
       name="twitter:card"
       content={blog ? "summary_large_image" : "summary"}
     />
-    <meta name="twitter:site" content="@mmattbtw" />
+    <meta name="twitter:site" content="@mmatt" />
     <meta name="twitter:title" content={title} />
     <meta
       name="twitter:description"
-      content={description ?? "my website :^)"}
+      content={description ?? "frontend web developer / student"}
     />
     <meta name="twitter:image" content={imgUrl} />
 
     <meta name="author" content="mmatt <matt@mmatt.net>" />
-    <meta property="description" content={description ?? "my website :^)"} />
-    <meta name="description" content={description ?? "my website :^)"} />
+    <meta
+      property="description"
+      content={description ?? "frontend web developer / student"}
+    />
+    <meta
+      name="description"
+      content={description ?? "frontend web developer / student"}
+    />
     <title>{title}</title>
 
     <link
@@ -71,7 +73,6 @@ import Scribbles from "../components/Scribbles.astro";
     <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
 
     <ViewTransitions />
-
   </head>
   <body class="dark:bg-black dark:text-white bg-white text-black">
     <Header
@@ -80,28 +81,31 @@ import Scribbles from "../components/Scribbles.astro";
         {
           href: "/",
           title: "home",
+          active: slug === "/",
         },
         {
           href: "/blog",
           title: "blog",
-        },
-
-        {
-          href: "/devices",
-          title: "devices",
+          active: slug === "/blog",
         },
       ]}
     />
     <slot />
-    {!disableScribbles && <Scribbles />}
     <style>
       html {
         font-family: system-ui, sans-serif;
       }
 
       :global(code) {
-        font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-          DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
       }
     </style>
 
