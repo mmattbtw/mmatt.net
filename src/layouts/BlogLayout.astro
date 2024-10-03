@@ -56,7 +56,10 @@ import Layout from "./Layout.astro";
                 >Matt Morris</a
               > on <time class="dt-published" datetime={frontmatter.Date}>
                 {new Date(frontmatter.Date).toLocaleDateString()}
-              </time>
+              </time> on <a
+                href={`https://mmatt.net/weblog/${slug}`}
+                class="u-url">mmatt.net/weblog/{slug}</a
+              >
             </p>
             <p
               class="text-lg font-semibold p-summary"
@@ -67,9 +70,9 @@ import Layout from "./Layout.astro";
           </div>
           <div class="text-gray-500 dark:text-gray-400 mb-0">
             <p class="text-sm">
-              {new Date(frontmatter.Date).toLocaleDateString()} - {
-                frontmatter.category
-              }
+              {new Date(frontmatter.Date).toLocaleDateString()} - <span
+                class="p-category">{frontmatter.category}</span
+              >
             </p>
           </div>
         </div>
