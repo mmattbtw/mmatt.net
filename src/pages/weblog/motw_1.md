@@ -9,7 +9,7 @@ Date: 2024-2-16 21:31
 
 Stealing this idea from [Emergency Intercom](https://www.youtube.com/@EmergencyIntercom), me and a group of friends are gonna try to start doing this every week so stay tuned!
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7nD9nN3jord9wWcfW3Gkcm?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
@@ -47,11 +47,11 @@ addicted to this swami sound mv... ([see more at #music posting](https://www.tum
 
 nothing :( i wanna rewatch Saltburn tho!
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 nothing... new Young Royals seems silly tho lol might rewatch
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 GTA Online + Sound Voltex
 

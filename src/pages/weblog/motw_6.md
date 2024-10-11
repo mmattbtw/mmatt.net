@@ -9,7 +9,7 @@ Date: 2024-4-19 11:01
 
 OK, catching up since the [last post](./motw_5) so this ones gonna be a long one
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6ie2Bw3xLj2JcGowOlcMhb?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
@@ -59,7 +59,7 @@ LOOOOOOOOOOOVE HER
 
 HEAR ME TF OUT
 
-## <span class="npf_color_chandler"><b>Movies</b></span>
+## <span class="npf_color_chandler">Movies</span>
 
 <div class="npf_row"><figure class="tmblr-full" data-orig-height="1152" data-orig-width="2048"><img src="https://64.media.tumblr.com/d3baafe6b1bd72373806bf6e45c2de44/0dd493062fc7dc18-b9/s2048x3072/996af78db560975ce482caffd34dfed5ea2fd305.pnj" data-orig-height="1152" data-orig-width="2048" srcset="https://64.media.tumblr.com/d3baafe6b1bd72373806bf6e45c2de44/0dd493062fc7dc18-b9/s2048x3072/996af78db560975ce482caffd34dfed5ea2fd305.pnj 2048w" sizes="(max-width: 1280px) 100vw, 1280px"></figure></div>
 
@@ -73,12 +73,12 @@ ehh it was ehh
 
 I honestly don't see why people expected this to be some political magnum opus, like obviously not but its a kinda interesting story.
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 nope
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 nope
 
-# <span class="npf_color_rachel"><b>SEE YOU NEXT WEEK!</b></span>
+# <span class="npf_color_rachel">SEE YOU NEXT WEEK!</span>

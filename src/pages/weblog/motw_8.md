@@ -7,7 +7,7 @@ imgUrl: "/images/motw/motw8.png"
 Date: 2024-5-03 17:59
 ---
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6ZfbRzC0HfmjDnpXQPXY6T?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
@@ -21,7 +21,7 @@ This one too like woah
 
 God fucking damn, even if it wasn't a diss track it would still be a great one from Kendrick Like WTFFFFFFFFF
 
-## <span class="npf_color_chandler"><b>Movies</b></span>
+## <span class="npf_color_chandler">Movies</span>
 
 <div class="npf_row"><figure class="tmblr-full" data-orig-height="1152" data-orig-width="2048"><img src="https://64.media.tumblr.com/6645a3bdd804007a362ad35562f4972a/9cf82a16863d8a63-22/s2048x3072/97657bf5ef62940a2fb2c01fd5adaa47f05dfe18.pnj" data-orig-height="1152" data-orig-width="2048" srcset="https://64.media.tumblr.com/6645a3bdd804007a362ad35562f4972a/9cf82a16863d8a63-22/s2048x3072/97657bf5ef62940a2fb2c01fd5adaa47f05dfe18.pnj 2048w" sizes="(max-width: 1280px) 100vw, 1280px"></figure></div>
 
@@ -31,11 +31,11 @@ HOLY FUCKING SHITTTTTTTT. Luca Guadagnino has a HIT here holy shit. I left the t
 
 WATCH THIS MOVIE **NOW!**
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 nope
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 nope
 
