@@ -9,6 +9,12 @@ Date: 2024-10-11 16:00
 
 ## <span class="npf_color_ross">Music</span>
 
+[Panavision by Roy Blair](https://cider.sh/share/song/1770781483)
+
+[Why Lies by SOPHIE](https://cider.sh/share/song/1766808616)
+
+
+
 ## <span class="npf_color_chandler">Movies</span>
 
 ## <span style="color: #ff4930">TV</span>
