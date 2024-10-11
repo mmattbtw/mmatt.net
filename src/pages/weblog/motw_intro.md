@@ -5,6 +5,7 @@ description: "an reintroduction to the weekly 'media of the week' series that st
 category: "media of the week"
 imgUrl: "/images/motw/motwINTRO.png"
 Date: 2024-10-10 23:35
+originalPost: "https://social.lol/@matt/113286932611372364"
 ---
 
 # media of the week is back!
