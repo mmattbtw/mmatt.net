@@ -5,6 +5,7 @@ description: "part nine - a week of music/movies/tv/games i have been enjoying t
 category: "media of the week"
 imgUrl: "/images/motw/motw9.png"
 Date: 2024-10-11 23:41
+originalPost: "https://social.lol/@matt/113292621553677742"
 ---
 
 ## <span class="npf_color_ross">Music</span>
