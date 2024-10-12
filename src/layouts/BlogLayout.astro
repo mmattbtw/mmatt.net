@@ -9,16 +9,24 @@ const webmentions = await fetch(
 const webmentionsJson = await webmentions.json();
 const webmentionsArray = webmentionsJson.children;
 const likes = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "like-of"
+  (mention: any) =>
+    mention["wm-property"] === "like-of" &&
+    !mention["wm-source"].startsWith("https://thought-tracing.tumblr.com")
 );
 const reposts = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "repost-of"
+  (mention: any) =>
+    mention["wm-property"] === "repost-of" &&
+    !mention["wm-source"].startsWith("https://thought-tracing.tumblr.com")
 );
 const replies = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "in-reply-to"
+  (mention: any) =>
+    mention["wm-property"] === "in-reply-to" &&
+    !mention["wm-source"].startsWith("https://thought-tracing.tumblr.com")
 );
 const mentions = webmentionsArray.filter(
-  (mention: any) => mention["wm-property"] === "mention-of"
+  (mention: any) =>
+    mention["wm-property"] === "mention-of" &&
+    !mention["wm-source"].startsWith("https://thought-tracing.tumblr.com")
 );
 
 import Layout from "./Layout.astro";
