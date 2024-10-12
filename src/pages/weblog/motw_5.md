@@ -9,7 +9,7 @@ Date: 2024-3-25 16:50
 
 (posted late :p was busy soz)
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2lW7HEUtOcNQZxDv71Cq05?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
@@ -27,18 +27,18 @@ relistened to hurry up, we're dreaming recently and yeah soooo good this one esp
 
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA IM JUST LIVING THAT LIFEEEEEEEEEEEEEEEEEEEEEEEEEEE!!!!
 
-## <span class="npf_color_chandler"><b>Movies</b></span>
+## <span class="npf_color_chandler">Movies</span>
 
 nope
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 nope
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 and nope
 
-# <span class="npf_color_rachel"><b>SEE YOU NEXT WEEK!</b></span>
+# <span class="npf_color_rachel">SEE YOU NEXT WEEK!</span>
 
 (this friday)

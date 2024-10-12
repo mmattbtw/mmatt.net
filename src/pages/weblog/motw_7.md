@@ -7,7 +7,7 @@ imgUrl: "/images/motw/motw7.png"
 Date: 2024-4-27 16:38
 ---
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2TZ1apxMDlubCGMsOxcTbT?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
@@ -37,7 +37,7 @@ HOLE IN THE WALL pop culture sample
 
 HELL YEAHHHH
 
-## <span class="npf_color_chandler"><b>Movies</b></span>
+## <span class="npf_color_chandler">Movies</span>
 
 <div class="npf_row"><figure class="tmblr-full" data-orig-height="1080" data-orig-width="1920"><img src="https://64.media.tumblr.com/f3bc1ccda90696c56963e7ecc4c93805/552663e2a1aaebc8-73/s2048x3072/c2144de880e1b8fba88d19a39d2526bb4d9149a5.pnj" data-orig-height="1080" data-orig-width="1920" srcset="https://64.media.tumblr.com/f3bc1ccda90696c56963e7ecc4c93805/552663e2a1aaebc8-73/s2048x3072/c2144de880e1b8fba88d19a39d2526bb4d9149a5.pnj 1920w" sizes="(max-width: 1280px) 100vw, 1280px"></figure></div>
 
@@ -45,12 +45,12 @@ HELL YEAHHHH
 
 Me and bestie watched this during a theatrical re-release, literally SOOOOO amazing, unironically.
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 nope
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 nope
 
-# <span class="npf_color_rachel"><b>SEE YOU NEXT WEEK!</b></span>
+# <span class="npf_color_rachel">SEE YOU NEXT WEEK!</span>

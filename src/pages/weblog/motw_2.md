@@ -9,7 +9,7 @@ Date: 2024-2-23 17:42
 
 Slow week :p
 
-## <span class="npf_color_ross"><b>Music</b></span>
+## <span class="npf_color_ross">Music</span>
 
 <figure class="tmblr-full tmblr-embed" data-provider="youtube" data-url="https://www.youtube.com/watch?v=_GT9SmA1vlI" data-orig-width="356" data-orig-height="200"><iframe width="356" height="200" id="youtube_iframe" src="https://www.youtube.com/embed/_GT9SmA1vlI?feature=oembed&amp;enablejsapi=1&amp;origin=https://safe.txmblr.com&amp;wmode=opaque" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" title="Kelela - Contact (Official Music Video)"></iframe></figure>
 
@@ -35,7 +35,7 @@ tapping myself into Hearth Room recently love this one aaaand...
 
 ...also bob dylan is hilarious and real
 
-## <span class="npf_color_chandler"><b>Movies</b></span>
+## <span class="npf_color_chandler">Movies</span>
 
 <div class="npf_row"><figure class="tmblr-full" data-orig-height="900" data-orig-width="1600"><img src="https://64.media.tumblr.com/3ec3d84cfbf9da93188eed92200b01ab/ddc36d5a6f1ad704-30/s2048x3072/b7f7f22d49286a8c651758bf424e142adeaef9ca.jpg" data-orig-height="900" data-orig-width="1600" srcset="https://64.media.tumblr.com/3ec3d84cfbf9da93188eed92200b01ab/ddc36d5a6f1ad704-30/s2048x3072/b7f7f22d49286a8c651758bf424e142adeaef9ca.jpg 1600w" sizes="(max-width: 1280px) 100vw, 1280px"></figure></div>
 
@@ -43,12 +43,12 @@ tapping myself into Hearth Room recently love this one aaaand...
 
 Interstella 5555 was the first movie I added to my watchlist on Letterboxd... and its so good. [Discovery](https://music.apple.com/us/album/discovery/697194953) is a skipless album and goes banger for banger from front to back. Anyways it had a special screening on Twitch for the anniversary of Daft Punk breaking up, with an upscaled version of the original film that looked great! Idk super love this and will rewatch sooner or later.
 
-## <span style="color: #ff4930"><b>TV</b></span>
+## <span style="color: #ff4930">TV</span>
 
 finished 1000lb-sisters with the besties sooo yeah!
 
-## <span class="npf_color_monica"><b>Games</b></span>
+## <span class="npf_color_monica">Games</span>
 
 lowkey counter-strike 2 and not much else
 
-# <span class="npf_color_rachel"><b>SEE YOU NEXT WEEK!</b></span>
+# <span class="npf_color_rachel">SEE YOU NEXT WEEK!</span>
