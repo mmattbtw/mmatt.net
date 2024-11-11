@@ -9,8 +9,6 @@ import { useSetAtom } from "jotai";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const dynamic = "force-dynamic"
-
 export default function Callback() {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();

@@ -12,6 +12,7 @@
     "@atcute/bluesky": "^1.0.8",
     "@atcute/client": "^2.0.4",
     "@atcute/oauth-browser-client": "^1.0.5",
+    "@atproto/oauth-client-node": "^0.2.0",
     "jotai": "^2.10.2",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
