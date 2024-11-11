@@ -16,7 +16,7 @@ export const oauthClient = new NodeOAuthClient({
     redirect_uris: [
       "https://mmatt.net/api/callback",
       "https://mmatt-net-git-atproto-time-mmatt.vercel.app/api/callback",
-      "http://localhost:3000/api/callback",
+      "http://127.0.0.1:3000/api/callback",
     ],
     grant_types: ["authorization_code", "refresh_token"],
     response_types: ["code"],
