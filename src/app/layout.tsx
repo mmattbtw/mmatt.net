@@ -1,4 +1,3 @@
-import { ClientProvider } from "@/components/ClientProvider";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -29,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black dark:bg-black dark:text-white`}
       >
-        <ClientProvider>{children}</ClientProvider>
+        {children}
       </body>
     </html>
   );
