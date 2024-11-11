@@ -3,6 +3,8 @@
 import { createAuthorizationUrl, resolveFromIdentity } from '@atcute/oauth-browser-client'
 import { useState } from 'react'
 
+export const dynamic = "force-dynamic"
+
 export default function LoginPage() {
   const [handle, setHandle] = useState('')
   const [isLoading, setIsLoading] = useState(false)
