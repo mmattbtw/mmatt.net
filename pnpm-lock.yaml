@@ -14,9 +14,6 @@ importers:
       '@atcute/client':
         specifier: ^2.0.4
         version: 2.0.4
-      '@atcute/oauth-browser-client':
-        specifier: ^1.0.5
-        version: 1.0.5
       '@atproto/oauth-client-node':
         specifier: ^0.2.0
         version: 0.2.0
@@ -71,9 +68,6 @@ packages:
 
   '@atcute/client@2.0.4':
     resolution: {integrity: sha512-bKA6KEOmrdhU2CDRNp13M4WyKN0EdrVLKJffzPo62ANSTMacz5hRJhmvQYwuo7BZSGIoDql4sH+QR6Xbk3DERg==}
-
-  '@atcute/oauth-browser-client@1.0.5':
-    resolution: {integrity: sha512-UUs2WFMh22rXOapRM848WfWtvgaxV/ji0tEupFrrBYe2i+/UlwhXcphlqdwm43LBsFtMWtV1Xsy2zmnItf0Akg==}
 
   '@atproto-labs/did-resolver@0.1.5':
     resolution: {integrity: sha512-uoCb+P0N4du5NiZt6ohVEbSDdijXBJlQwSlWLHX0rUDtEVV+g3aEGe7jUW94lWpqQmRlQ5xcyd9owleMibNxZw==}
@@ -1257,11 +1251,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanoid@5.0.8:
-    resolution: {integrity: sha512-TcJPw+9RV9dibz1hHUzlLVy8N4X9TnwirAjrU08Juo6BNKggzVfP2ZJ/3ZUSq15Xl5i85i+Z89XBO90pB2PghQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-
   natural-compare@1.4.0:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
 
@@ -1775,11 +1764,6 @@ snapshots:
       '@atcute/client': 2.0.4
 
   '@atcute/client@2.0.4': {}
-
-  '@atcute/oauth-browser-client@1.0.5':
-    dependencies:
-      '@atcute/client': 2.0.4
-      nanoid: 5.0.8
 
   '@atproto-labs/did-resolver@0.1.5':
     dependencies:
@@ -3160,8 +3144,6 @@ snapshots:
       thenify-all: 1.6.0
 
   nanoid@3.3.7: {}
-
-  nanoid@5.0.8: {}
 
   natural-compare@1.4.0: {}
 
