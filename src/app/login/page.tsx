@@ -3,7 +3,7 @@
 import { createAuthorizationUrl, resolveFromIdentity } from '@atcute/oauth-browser-client'
 import { useState } from 'react'
 
-export function Login() {
+export default function LoginPage() {
   const [handle, setHandle] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
