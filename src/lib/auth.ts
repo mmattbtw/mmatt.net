@@ -10,11 +10,10 @@ export const oauthClient = new NodeOAuthClient({
   clientMetadata: {
     client_id:
       "https://mmatt-net-git-atproto-time-mmatt.vercel.app/api/client-metadata",
-    client_name: "mmatt.net",
+    client_name: "mmatt-net-git-atproto-time-mmatt",
     client_uri: "https://mmatt-net-git-atproto-time-mmatt.vercel.app",
     logo_uri: "https://mmatt-net-git-atproto-time-mmatt.vercel.app/matt.jpg",
     redirect_uris: [
-      "https://mmatt.net/api/callback",
       "https://mmatt-net-git-atproto-time-mmatt.vercel.app/api/callback",
     ],
     grant_types: ["authorization_code", "refresh_token"],
