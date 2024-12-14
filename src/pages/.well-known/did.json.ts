@@ -9,7 +9,7 @@ export const GET: APIRoute = async function GET() {
       "https://w3id.org/security/suites/secp256k1-2019/v1",
     ],
     id: "did:web:mmatt.net",
-    alsoKnownAs: ["at://web.pds.mmatt.net", "at://web.mmatt.net"],
+    alsoKnownAs: ["at://web.pds.mmatt.net"],
     verificationMethod: [
       {
         id: "did:web:mmatt.net#atproto",
