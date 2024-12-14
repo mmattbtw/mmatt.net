@@ -15,7 +15,7 @@ export const GET: APIRoute = async function GET() {
         id: "did:web:mmatt.net#atproto",
         type: "Multikey",
         controller: "did:web:mmatt.net",
-        publicKeyMultibase: "zQ3shWNbpx1wssQoKcRKAwzLZ6EZ223X6NRS5Cbe6waGVCtFS",
+        publicKeyMultibase: "zQ3shZkR5zwAWGmvvBCYh951BCuvEQGJMkSfQ4R1w21dkfSSq",
       },
     ],
     service: [
