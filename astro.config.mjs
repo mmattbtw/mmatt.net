@@ -6,7 +6,7 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://mmatt.net",
-  output: "hybrid",
+  output: "server",
   adapter: cloudflare(),
   integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],
 });
