@@ -16,9 +16,9 @@
     "prettier-plugin-astro": "^0.14.1"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "12.1.0",
+    "@astrojs/cloudflare": "12.2.1",
     "@astrojs/sitemap": "3.2.1",
-    "@astrojs/tailwind": "5.1.4",
+    "@astrojs/tailwind": "5.1.5",
     "@tailwindcss/typography": "^0.5.15",
     "astro-robots-txt": "^1.0.0",
     "postcss": "^8.4.47",
