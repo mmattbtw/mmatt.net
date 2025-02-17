@@ -95,7 +95,7 @@ IsPadPlayer=1
 
 ### 11.4: All Done!
 
-_(once the machine is connected to the internet: eta. a week or so)_ Your scores will now be automatically uploaded to GrooveStats! You'll be able to see a leaderboard in the evalutaion screen by hitting the Left (<) or Right (>) controls under the screen.
+Your scores will now be automatically uploaded to GrooveStats! You'll be able to see a leaderboard in the evalutaion screen by hitting the Left (<) or Right (>) controls under the screen.
 
 With events like ITL Online, you'll be able to earn Points and unlock Titles & Charts to play! Just sign into their respective website to register (for example: ITL Online 2024 is over at [itl2024.groovestats.com](https://itl2024.groovestats.com/) and you can view all the current events on the left side of the GrooveStats homepage) and begin playing!
 
