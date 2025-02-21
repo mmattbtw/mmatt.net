@@ -1,6 +1,6 @@
 import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import createRobotsTxtIntegration from "astro-robots-txt";
 import { defineConfig } from "astro/config";
 
@@ -8,5 +8,6 @@ export default defineConfig({
   site: "https://mmatt.net",
   output: "server",
   adapter: cloudflare(),
-  integrations: [tailwind(), sitemap(), createRobotsTxtIntegration()],
+  integrations: [sitemap(), createRobotsTxtIntegration()],
+  vite: { plugins: [tailwindcss()] },
 });
