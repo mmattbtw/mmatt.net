@@ -1,6 +1,7 @@
 import Project from "@/components/Project";
 import { getPosts } from "@/lib/api";
 import Image from "next/image";
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const posts = await getPosts();
