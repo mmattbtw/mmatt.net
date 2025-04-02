@@ -1,3 +1,7 @@
+# IMPORTANT: This Repository Is OLD!
+
+We've moved on over to [mmattbtw/atp-blog](https://github.com/mmattbtw/atp-blog) for my brand new ATProto based (forked) website! Check it!
+
 # mmatt.net
 
 ## Welcome to [Astro](https://astro.build)
